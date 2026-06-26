@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+=======
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+>>>>>>> b7717d657d078775cbd2363fc3d9fd0f102e6ea0
 {
   "sections": {
     "hero_fitka_AF6JC7": {
@@ -80,6 +92,38 @@
         "padding_y": 26
       }
     },
+<<<<<<< HEAD
+=======
+    "featured_collection": {
+      "type": "featured-collection-fitka",
+      "custom_css": [],
+      "settings": {
+        "collection": "nase-kalhotky",
+        "products_to_show": 2,
+        "title": "Vyber si svůj střih",
+        "heading_size": "h1",
+        "description": "<p>Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě!</p>",
+        "show_description": false,
+        "description_style": "subtitle",
+        "columns_desktop": 2,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "color_scheme": "background-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 24,
+        "padding_bottom": 28
+      }
+    },
+>>>>>>> b7717d657d078775cbd2363fc3d9fd0f102e6ea0
     "17659978780a22910d": {
       "type": "apps",
       "blocks": {
@@ -357,6 +401,7 @@
       "settings": {
         "include_margins": true
       }
+<<<<<<< HEAD
     },
     "fitka_cut_tiles": {
       "type": "fitka-cut-tiles",
@@ -464,13 +509,19 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+=======
+>>>>>>> b7717d657d078775cbd2363fc3d9fd0f102e6ea0
     }
   },
   "order": [
     "hero_fitka_AF6JC7",
     "fitka_icons_text_Btj89m",
+<<<<<<< HEAD
     "fitka_cut_tiles",
     "fitka_volume_band",
+=======
+    "featured_collection",
+>>>>>>> b7717d657d078775cbd2363fc3d9fd0f102e6ea0
     "17659978780a22910d",
     "image_with_text_xyBakx",
     "image_with_text_7NWejK",
@@ -479,4 +530,8 @@
     "17824203517a0ce090",
     "1777406714e8820c21"
   ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b7717d657d078775cbd2363fc3d9fd0f102e6ea0
