@@ -1,73 +1,119 @@
 {% comment %} sections/hero-fitka.liquid {% endcomment %}
+{%- liquid
+  assign layout = section.settings.layout | default: 'split'
+  assign vurl = section.settings.video
+  assign vtype = 'video/mp4'
+  if vurl contains '.webm'
+    assign vtype = 'video/webm'
+  elsif vurl contains '.mov'
+    assign vtype = 'video/quicktime'
+  endif
+  assign media_left = false
+  if layout == 'split' and section.settings.media_position == 'left'
+    assign media_left = true
+  endif
+-%}
 <section
-  class="fitka-hero"
+  class="fitka-hero fitka-hero--{{ layout }}{% if media_left %} fitka-hero--media-left{% endif %}"
   style="
     --overlay: {{ section.settings.overlay_opacity | default: 25 | divided_by: 100.0 }};
     --overlay-color: {{ section.settings.overlay_color | default: '#000000' }};
-    --video-opacity: {{ section.settings.video_opacity | default: 100 | divided_by: 100.0 }};
+    --media-opacity: {{ section.settings.video_opacity | default: 100 | divided_by: 100.0 }};
     --hero-h-desktop: {{ section.settings.height_desktop_vh | default: 70 }};
     --hero-h-mobile: {{ section.settings.height_mobile_vh | default: 60 }};
+    --content-bg: {{ section.settings.content_bg | default: '#f7f6f6' }};
+    --text-color: {{ section.settings.text_color | default: '#393939' }};
+    --accent-color: {{ section.settings.accent_color | default: '#a0304e' }};
+    --media-min-h: {{ section.settings.split_media_min_h | default: 520 }}px;
   "
 >
-  <div class="fitka-hero__media">
-    {% if section.settings.video != blank %}
-      <video class="fitka-hero__video" autoplay muted playsinline loop poster="{{ section.settings.image | image_url: width: 1600 }}">
-        <source src="{{ section.settings.video }}" type="video/mp4">
-      </video>
-    {% elsif section.settings.image != blank %}
-      {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'fitka-hero__image', loading: 'eager' }}
-    {% endif %}
-    <div class="fitka-hero__overlay"></div>
-  </div>
+  <div class="fitka-hero__inner page-width">
+    <div class="fitka-hero__media">
+      {% if vurl != blank %}
+        <video
+          class="fitka-hero__video"
+          autoplay
+          muted
+          playsinline
+          loop
+          poster="{{ section.settings.image | image_url: width: 1600 }}"
+        >
+          <source src="{{ vurl }}" type="{{ vtype }}">
+        </video>
+      {% elsif section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'fitka-hero__image', loading: 'eager' }}
+      {% endif %}
+      <div class="fitka-hero__overlay"></div>
+    </div>
 
-  <div class="fitka-hero__content page-width">
-    {% if section.settings.badge_text != blank %}
-      <span class="fitka-badge">{{ section.settings.badge_text }}</span>
-    {% endif %}
-    <h1 class="fitka-hero__title">{{ section.settings.title }}</h1>
-    {% if section.settings.subtitle != blank %}
-      <p class="fitka-hero__subtitle">{{ section.settings.subtitle }}</p>
-    {% endif %}
-    <div class="fitka-hero__cta">
-      {% if section.settings.primary_label != blank and section.settings.primary_link != blank %}
-        <a href="{{ section.settings.primary_link }}" class="button button--primary">{{ section.settings.primary_label }}</a>
+    <div class="fitka-hero__content">
+      {% if section.settings.badge_text != blank %}
+        <span class="fitka-badge">{{ section.settings.badge_text }}</span>
       {% endif %}
-      {% if section.settings.secondary_label != blank and section.settings.secondary_link != blank %}
-        <a href="{{ section.settings.secondary_link }}" class="button button--secondary">{{ section.settings.secondary_label }}</a>
+      <h1 class="fitka-hero__title">
+        {{- section.settings.title -}}
+        {%- if section.settings.title_highlight != blank %} <span class="fitka-hero__accent">{{ section.settings.title_highlight }}</span>{% endif -%}
+      </h1>
+      {% if section.settings.subtitle != blank %}
+        <p class="fitka-hero__subtitle">{{ section.settings.subtitle }}</p>
       {% endif %}
+      <div class="fitka-hero__cta">
+        {% if section.settings.primary_label != blank and section.settings.primary_link != blank %}
+          <a href="{{ section.settings.primary_link }}" class="button button--primary">{{ section.settings.primary_label }}</a>
+        {% endif %}
+        {% if section.settings.secondary_label != blank and section.settings.secondary_link != blank %}
+          <a href="{{ section.settings.secondary_link }}" class="button button--secondary">{{ section.settings.secondary_label }}</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 
   <style>
-    .fitka-hero{
-      position:relative;
-      min-height: calc(var(--hero-h-desktop, 70) * 1vh);
-      display:grid; place-items:center; overflow:hidden;
-    }
-    @media (max-width: 749px){
-      .fitka-hero{ min-height: calc(var(--hero-h-mobile, 60) * 1vh); }
-    }
+    .fitka-hero{ position:relative; overflow:hidden; }
 
-    .fitka-hero__media{position:absolute; inset:0}
-    .fitka-hero__image,.fitka-hero__video{
-      width:100%; height:100%; object-fit:cover;
-      opacity: var(--video-opacity, 1);
-    }
-    .fitka-hero__overlay{
-      position:absolute; inset:0;
-      background: var(--overlay-color, #000);
-      opacity: var(--overlay, .25);
-      pointer-events:none;
-    }
+    /* ---------- shared media ---------- */
+    .fitka-hero__image,
+    .fitka-hero__video{ width:100%; height:100%; object-fit:cover; opacity:var(--media-opacity,1); }
+    .fitka-hero__overlay{ position:absolute; inset:0; background:var(--overlay-color,#000); opacity:var(--overlay,.25); pointer-events:none; }
+    .fitka-hero .button{ margin:6px 10px 6px 0; }
 
-    .fitka-hero__content{
-      position:relative; z-index:2; text-align:center; color:#fff;
-      max-width:800px; padding:48px 20px;
+    /* ================= BACKGROUND layout (text over full-bleed media) ================= */
+    .fitka-hero--background{ min-height:calc(var(--hero-h-desktop,70) * 1vh); display:grid; place-items:center; }
+    .fitka-hero--background .fitka-hero__media{ position:absolute; inset:0; }
+    .fitka-hero--background .fitka-hero__content{ position:relative; z-index:2; text-align:center; color:#fff; max-width:800px; padding:48px 20px; margin:0 auto; }
+    .fitka-hero--background .fitka-hero__accent{ color:#fff; }
+    .fitka-hero--background .fitka-hero__subtitle{ margin-left:auto; margin-right:auto; }
+
+    /* ================= SPLIT layout (content left, media right) ================= */
+    .fitka-hero--split{ background:var(--content-bg); }
+    .fitka-hero--split .fitka-hero__inner{
+      display:grid; grid-template-columns:1fr 1fr; align-items:center;
+      gap:clamp(24px,4vw,64px);
+      padding-top:clamp(28px,4vw,60px); padding-bottom:clamp(28px,4vw,60px);
     }
-    .fitka-badge{display:inline-block;background:#fff;color:#111;border-radius:999px;padding:6px 12px;font-size:12px;margin-bottom:12px}
-    .fitka-hero__title{font-size:clamp(32px,4.5vw,56px);line-height:1.05;margin:8px 0}
-    .fitka-hero__subtitle{font-size:clamp(16px,2vw,20px);opacity:.9;margin-bottom:20px}
-    .fitka-hero__cta .button{margin:6px 8px}
+    .fitka-hero--split .fitka-hero__media{
+      position:relative; order:2; border-radius:18px; overflow:hidden; min-height:var(--media-min-h);
+    }
+    .fitka-hero--split .fitka-hero__media .fitka-hero__image,
+    .fitka-hero--split .fitka-hero__media .fitka-hero__video{ position:absolute; inset:0; }
+    .fitka-hero--split .fitka-hero__overlay{ display:none; }
+    .fitka-hero--split .fitka-hero__content{ order:1; text-align:left; color:var(--text-color); padding:8px 0; }
+    .fitka-hero--split.fitka-hero--media-left .fitka-hero__media{ order:1; }
+    .fitka-hero--split.fitka-hero--media-left .fitka-hero__content{ order:2; }
+
+    /* ---------- shared content typography ---------- */
+    .fitka-badge{ display:inline-block; background:#fff; color:#393939; border-radius:999px; padding:6px 14px; font-size:12px; margin-bottom:14px; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+    .fitka-hero__title{ font-size:clamp(34px,4.5vw,60px); line-height:1.04; margin:6px 0 14px; font-weight:700; }
+    .fitka-hero__accent{ color:var(--accent-color); }
+    .fitka-hero__subtitle{ font-size:clamp(16px,1.6vw,20px); line-height:1.5; opacity:.92; margin:0 0 24px; max-width:34ch; }
+
+    @media (max-width:749px){
+      .fitka-hero--background{ min-height:calc(var(--hero-h-mobile,60) * 1vh); }
+      .fitka-hero--split .fitka-hero__inner{ grid-template-columns:1fr; gap:20px; }
+      .fitka-hero--split .fitka-hero__media{ order:1; min-height:340px; }
+      .fitka-hero--split .fitka-hero__content{ order:2; }
+      .fitka-hero__subtitle{ max-width:none; }
+    }
   </style>
 </section>
 
@@ -75,22 +121,52 @@
 {
   "name": "Hero – FitKa",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Background image" },
-    { "type": "text", "id": "video", "label": "Video MP4 URL", "info": "Optional – overrides image if set" },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "split", "label": "Split (content + media side by side)" },
+        { "value": "background", "label": "Background (text over full-bleed media)" }
+      ],
+      "default": "split"
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "Media position (split only)",
+      "options": [
+        { "value": "right", "label": "Right" },
+        { "value": "left", "label": "Left" }
+      ],
+      "default": "right"
+    },
 
+    { "type": "header", "content": "Media" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "video", "label": "Video URL (MP4/WebM)", "info": "Optional – overrides image. Use .mp4 for best cross-browser playback." },
+    { "type": "range", "id": "video_opacity", "min": 0, "max": 100, "step": 5, "default": 100, "label": "Media opacity (%)" },
+    { "type": "range", "id": "split_media_min_h", "min": 320, "max": 760, "step": 20, "default": 520, "label": "Media height – split (px)" },
+
+    { "type": "header", "content": "Background layout options" },
     { "type": "range", "id": "overlay_opacity", "min": 0, "max": 80, "step": 5, "default": 25, "label": "Overlay opacity (%)" },
     { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#000000" },
-    { "type": "range", "id": "video_opacity", "min": 0, "max": 100, "step": 5, "default": 100, "label": "Video/image opacity (%)" },
-
     { "type": "range", "id": "height_desktop_vh", "min": 40, "max": 100, "step": 5, "default": 70, "label": "Height on desktop (vh)" },
     { "type": "range", "id": "height_mobile_vh", "min": 40, "max": 100, "step": 5, "default": 60, "label": "Height on mobile (vh)" },
 
-    { "type": "text", "id": "badge_text", "label": "Badge (e.g. Made in Czechia)" },
-    { "type": "text", "id": "title", "label": "Title", "default": "Sportovní prádlo pro každou postavu" },
-    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Antibakteriální materiály, vyvinuto pro aktivní ženy." },
-    { "type": "text", "id": "primary_label", "label": "Primary CTA label", "default": "Nakoupit" },
+    { "type": "header", "content": "Split layout colors" },
+    { "type": "color", "id": "content_bg", "label": "Content background", "default": "#f7f6f6" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#393939" },
+    { "type": "color", "id": "accent_color", "label": "Highlight color", "default": "#a0304e" },
+
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "badge_text", "label": "Badge", "default": "Ušité v České republice 🪡" },
+    { "type": "text", "id": "title", "label": "Title", "default": "První vrstva, která tě" },
+    { "type": "text", "id": "title_highlight", "label": "Title – highlighted word(s)", "info": "Rendered in the highlight color, after the title.", "default": "podrží." },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Sportovní kalhotky navržené pro pohyb, pohodlí a sebevědomí." },
+    { "type": "text", "id": "primary_label", "label": "Primary CTA label", "default": "Nakoupit kalhotky" },
     { "type": "url", "id": "primary_link", "label": "Primary CTA link" },
-    { "type": "text", "id": "secondary_label", "label": "Secondary CTA label", "default": "Objevit kolekce" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary CTA label", "default": "Jak vybrat střih" },
     { "type": "url", "id": "secondary_link", "label": "Secondary CTA link" }
   ],
   "presets": [{ "name": "Hero – FitKa" }]
