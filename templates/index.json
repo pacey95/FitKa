@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_fitka_AF6JC7": {
@@ -25,6 +34,58 @@
         "primary_link": "shopify://collections/nase-kalhotky",
         "secondary_label": "Jak vybrat střih",
         "secondary_link": "shopify://blogs/news/jak-vybrat-idealni-sportovni-kalhotky-kompletni-pruvodce-pro-aktivni-zeny"
+      }
+    },
+    "fitka_cut_tiles_qBnGNw": {
+      "type": "fitka-cut-tiles",
+      "blocks": {
+        "tile_bxJfpg": {
+          "type": "tile",
+          "settings": {
+            "product": "brief-fitka",
+            "description": "",
+            "button_label": "Zobrazit",
+            "chip_1": "",
+            "chip_2": "",
+            "chip_3": ""
+          }
+        },
+        "tile_DtgWJr": {
+          "type": "tile",
+          "settings": {
+            "product": "brazilky-fitka",
+            "description": "",
+            "button_label": "Zobrazit",
+            "chip_1": "",
+            "chip_2": "",
+            "chip_3": ""
+          }
+        },
+        "helper_ckardj": {
+          "type": "helper",
+          "settings": {
+            "heading": "Neviš, který střih?",
+            "text": "Každé tělo je jiné. Rády ti pomůžeme vybrat ten pravý.",
+            "check_1": "Jen 30 sekund",
+            "check_2": "Doporučení na míru",
+            "check_3": "Bez přemýšlení",
+            "button_label": "Pomůžeme ti vybrat",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "tile_bxJfpg",
+        "tile_DtgWJr",
+        "helper_ckardj"
+      ],
+      "name": "FitKa – Vyber střih",
+      "settings": {
+        "heading": "Vyber si svůj střih",
+        "subheading": "Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě.",
+        "bg_color": "#ffffff",
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "fitka_icons_text_Btj89m": {
@@ -78,6 +139,35 @@
         "bg_image_opacity": 100,
         "text_color": "#393939",
         "padding_y": 26
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection-fitka",
+      "custom_css": [],
+      "settings": {
+        "collection": "nase-kalhotky",
+        "products_to_show": 2,
+        "title": "Vyber si svůj střih",
+        "heading_size": "h1",
+        "description": "<p>Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě!</p>",
+        "show_description": false,
+        "description_style": "subtitle",
+        "columns_desktop": 2,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "color_scheme": "background-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 24,
+        "padding_bottom": 28
       }
     },
     "17659978780a22910d": {
@@ -357,120 +447,13 @@
       "settings": {
         "include_margins": true
       }
-    },
-    "fitka_cut_tiles": {
-      "type": "fitka-cut-tiles",
-      "blocks": {
-        "tile_brief": {
-          "type": "tile",
-          "settings": {
-            "product": "brief-fitka",
-            "description": "Klasický střih pro maximální pohodlí a jistotu.",
-            "button_label": "Zobrazit Brief",
-            "chip_1": "Neviditelné pod oblečením",
-            "chip_2": "Maximální komfort",
-            "chip_3": "Drží na místě"
-          }
-        },
-        "tile_tanga": {
-          "type": "tile",
-          "settings": {
-            "product": "brazilky-fitka",
-            "description": "Minimalistický střih, který se nikde nerýsuje.",
-            "button_label": "Zobrazit Tanga",
-            "chip_1": "Bezešvé okraje",
-            "chip_2": "Lehkost a volnost",
-            "chip_3": "Zero lines"
-          }
-        },
-        "helper_1": {
-          "type": "helper",
-          "settings": {
-            "heading": "Neviš, který střih?",
-            "text": "Každé tělo je jiné. Rády ti pomůžeme vybrat ten pravý.",
-            "check_1": "Jen 30 sekund",
-            "check_2": "Doporučení na míru",
-            "check_3": "Bez přemýšlení",
-            "button_label": "Pomůžeme ti vybrat",
-            "button_link": "shopify://blogs/news/jak-vybrat-idealni-sportovni-kalhotky-kompletni-pruvodce-pro-aktivni-zeny"
-          }
-        }
-      },
-      "block_order": [
-        "tile_brief",
-        "tile_tanga",
-        "helper_1"
-      ],
-      "settings": {
-        "heading": "Vyber si svůj střih",
-        "subheading": "Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě.",
-        "bg_color": "#ffffff",
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
-    "fitka_volume_band": {
-      "type": "fitka-volume-band",
-      "blocks": {
-        "t1": {
-          "type": "tier",
-          "settings": {
-            "qty_label": "1 kus",
-            "unit_price": "649 Kč / ks",
-            "save_text": "",
-            "badge": ""
-          }
-        },
-        "t2": {
-          "type": "tier",
-          "settings": {
-            "qty_label": "2 kusy",
-            "unit_price": "629 Kč / ks",
-            "save_text": "ušetříš 40 Kč",
-            "badge": ""
-          }
-        },
-        "t3": {
-          "type": "tier",
-          "settings": {
-            "qty_label": "3 kusy",
-            "unit_price": "599 Kč / ks",
-            "save_text": "ušetříš 150 Kč",
-            "badge": "Nejoblíbenější"
-          }
-        },
-        "t4": {
-          "type": "tier",
-          "settings": {
-            "qty_label": "4+ kusy",
-            "unit_price": "569 Kč / ks",
-            "save_text": "ušetříš 320 Kč",
-            "badge": "Nejlepší cena"
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4"
-      ],
-      "settings": {
-        "heading": "Čím víc kusů, tím výhodnější cena",
-        "note": "Množstevní sleva se uplatní automaticky v košíku.",
-        "bg_color": "#f7f6f6",
-        "button_label": "",
-        "button_link": "",
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
     }
   },
   "order": [
     "hero_fitka_AF6JC7",
+    "fitka_cut_tiles_qBnGNw",
     "fitka_icons_text_Btj89m",
-    "fitka_cut_tiles",
-    "fitka_volume_band",
+    "featured_collection",
     "17659978780a22910d",
     "image_with_text_xyBakx",
     "image_with_text_7NWejK",
