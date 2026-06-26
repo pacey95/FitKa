@@ -79,7 +79,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {% liquid
           assign background_color = scheme.settings.background
           assign background_color_brightness = background_color | color_brightness
-          if background_color_brightness <= 26
+          if background_color_brightness <= 28
             assign background_color_contrast = background_color | color_lighten: 50
           elsif background_color_brightness <= 65
             assign background_color_contrast = background_color | color_lighten: 5
