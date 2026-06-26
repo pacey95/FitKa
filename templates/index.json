@@ -36,58 +36,6 @@
         "secondary_link": "shopify://blogs/news/jak-vybrat-idealni-sportovni-kalhotky-kompletni-pruvodce-pro-aktivni-zeny"
       }
     },
-    "fitka_cut_tiles_qBnGNw": {
-      "type": "fitka-cut-tiles",
-      "blocks": {
-        "tile_bxJfpg": {
-          "type": "tile",
-          "settings": {
-            "product": "brief-fitka",
-            "description": "",
-            "button_label": "Zobrazit",
-            "chip_1": "",
-            "chip_2": "",
-            "chip_3": ""
-          }
-        },
-        "tile_DtgWJr": {
-          "type": "tile",
-          "settings": {
-            "product": "brazilky-fitka",
-            "description": "",
-            "button_label": "Zobrazit",
-            "chip_1": "",
-            "chip_2": "",
-            "chip_3": ""
-          }
-        },
-        "helper_ckardj": {
-          "type": "helper",
-          "settings": {
-            "heading": "Neviš, který střih?",
-            "text": "Každé tělo je jiné. Rády ti pomůžeme vybrat ten pravý.",
-            "check_1": "Jen 30 sekund",
-            "check_2": "Doporučení na míru",
-            "check_3": "Bez přemýšlení",
-            "button_label": "Pomůžeme ti vybrat",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "tile_bxJfpg",
-        "tile_DtgWJr",
-        "helper_ckardj"
-      ],
-      "name": "FitKa – Vyber střih",
-      "settings": {
-        "heading": "Vyber si svůj střih",
-        "subheading": "Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě.",
-        "bg_color": "#ffffff",
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
     "fitka_icons_text_Btj89m": {
       "type": "fitka-icons-text",
       "blocks": {
@@ -139,6 +87,58 @@
         "bg_image_opacity": 100,
         "text_color": "#393939",
         "padding_y": 26
+      }
+    },
+    "fitka_cut_tiles_qBnGNw": {
+      "type": "fitka-cut-tiles",
+      "blocks": {
+        "tile_bxJfpg": {
+          "type": "tile",
+          "settings": {
+            "product": "brief-fitka",
+            "description": "",
+            "button_label": "Zobrazit",
+            "chip_1": "",
+            "chip_2": "",
+            "chip_3": ""
+          }
+        },
+        "tile_DtgWJr": {
+          "type": "tile",
+          "settings": {
+            "product": "brazilky-fitka",
+            "description": "",
+            "button_label": "Zobrazit",
+            "chip_1": "",
+            "chip_2": "",
+            "chip_3": ""
+          }
+        },
+        "helper_ckardj": {
+          "type": "helper",
+          "settings": {
+            "heading": "Neviš, který střih?",
+            "text": "Každé tělo je jiné. Rády ti pomůžeme vybrat ten pravý.",
+            "check_1": "Jen 30 sekund",
+            "check_2": "Doporučení na míru",
+            "check_3": "Bez přemýšlení",
+            "button_label": "Pomůžeme ti vybrat",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "tile_bxJfpg",
+        "tile_DtgWJr",
+        "helper_ckardj"
+      ],
+      "name": "FitKa – Vyber střih",
+      "settings": {
+        "heading": "Vyber si svůj střih",
+        "subheading": "Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě.",
+        "bg_color": "#ffffff",
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "featured_collection": {
@@ -451,8 +451,8 @@
   },
   "order": [
     "hero_fitka_AF6JC7",
-    "fitka_cut_tiles_qBnGNw",
     "fitka_icons_text_Btj89m",
+    "fitka_cut_tiles_qBnGNw",
     "featured_collection",
     "17659978780a22910d",
     "image_with_text_xyBakx",
