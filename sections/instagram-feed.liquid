@@ -1,0 +1,124 @@
+{% comment %}
+  Sekce: Instagram feed (3x3)
+  Popis: Ruční vkládání až 9 embed kódů z Instagramu
+{% endcomment %}
+
+<section class="fitka-instagram-section" style="text-align:center; padding:60px 20px; background-color:#fafafa;">
+  <h2 style="font-size:1.8rem; font-weight:600; margin-bottom:40px;">
+    Sleduj nás na Instagramu!
+  </h2>
+
+  <div class="fitka-instagram-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:15px; max-width:1000px; margin:0 auto;">
+    {% if section.settings.embed_1 != blank %}
+      <div class="fitka-instagram-item" style="overflow:hidden; border-radius:12px;">
+        {{ section.settings.embed_1 }}
+      </div>
+    {% endif %}
+    {% if section.settings.embed_2 != blank %}
+      <div class="fitka-instagram-item" style="overflow:hidden; border-radius:12px;">
+        {{ section.settings.embed_2 }}
+      </div>
+    {% endif %}
+    {% if section.settings.embed_3 != blank %}
+      <div class="fitka-instagram-item" style="overflow:hidden; border-radius:12px;">
+        {{ section.settings.embed_3 }}
+      </div>
+    {% endif %}
+    {% if section.settings.embed_4 != blank %}
+      <div class="fitka-instagram-item" style="overflow:hidden; border-radius:12px;">
+        {{ section.settings.embed_4 }}
+      </div>
+    {% endif %}
+    {% if section.settings.embed_5 != blank %}
+      <div class="fitka-instagram-item" style="overflow:hidden; border-radius:12px;">
+        {{ section.settings.embed_5 }}
+      </div>
+    {% endif %}
+    {% if section.settings.embed_6 != blank %}
+      <div class="fitka-instagram-item" style="overflow:hidden; border-radius:12px;">
+        {{ section.settings.embed_6 }}
+      </div>
+    {% endif %}
+    {% if section.settings.embed_7 != blank %}
+      <div class="fitka-instagram-item" style="overflow:hidden; border-radius:12px;">
+        {{ section.settings.embed_7 }}
+      </div>
+    {% endif %}
+    {% if section.settings.embed_8 != blank %}
+      <div class="fitka-instagram-item" style="overflow:hidden; border-radius:12px;">
+        {{ section.settings.embed_8 }}
+      </div>
+    {% endif %}
+    {% if section.settings.embed_9 != blank %}
+      <div class="fitka-instagram-item" style="overflow:hidden; border-radius:12px;">
+        {{ section.settings.embed_9 }}
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- důležité: script tady napevno -->
+  <script async src="https://www.instagram.com/embed.js"></script>
+</section>
+
+
+{% schema %}
+{
+  "name": "Instagram feed (3x3)",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Vlož oficiální Instagram embed kódy (max. 9)"
+    },
+    {
+      "type": "textarea",
+      "id": "embed_1",
+      "label": "Embed kód #1"
+    },
+    {
+      "type": "textarea",
+      "id": "embed_2",
+      "label": "Embed kód #2"
+    },
+    {
+      "type": "textarea",
+      "id": "embed_3",
+      "label": "Embed kód #3"
+    },
+    {
+      "type": "textarea",
+      "id": "embed_4",
+      "label": "Embed kód #4"
+    },
+    {
+      "type": "textarea",
+      "id": "embed_5",
+      "label": "Embed kód #5"
+    },
+    {
+      "type": "textarea",
+      "id": "embed_6",
+      "label": "Embed kód #6"
+    },
+    {
+      "type": "textarea",
+      "id": "embed_7",
+      "label": "Embed kód #7"
+    },
+    {
+      "type": "textarea",
+      "id": "embed_8",
+      "label": "Embed kód #8"
+    },
+    {
+      "type": "textarea",
+      "id": "embed_9",
+      "label": "Embed kód #9"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram feed 3x3"
+    }
+  ]
+}
+{% endschema %}

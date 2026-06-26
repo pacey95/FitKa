@@ -1,0 +1,37 @@
+{% comment %} sections/product-usp-strip.liquid {% endcomment %}
+<div class="fitka-usp-strip">
+  <div class="page-width fitka-usp-strip__inner">
+    {% for block in section.blocks %}
+      <div class="fitka-usp-strip__item">
+        {% if block.settings.icon != blank %}
+          {{ block.settings.icon | image_url: width: 28 | image_tag: class: 'fitka-usp-strip__icon', alt: block.settings.text }}
+        {% endif %}
+        <span>{{ block.settings.text }}</span>
+      </div>
+    {% endfor %}
+  </div>
+  <style>
+    .fitka-usp-strip{background:#111;color:#fff}
+    .fitka-usp-strip__inner{display:flex;gap:20px;justify-content:center;align-items:center;padding:10px 0;flex-wrap:wrap}
+    .fitka-usp-strip__item{display:flex;gap:10px;align-items:center;font-size:.95rem;white-space:nowrap}
+    .fitka-usp-strip__icon{width:20px;height:20px;object-fit:contain;filter:invert(1)}
+  </style>
+</div>
+
+{% schema %}
+{
+  "name": "USP strip",
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Ikona" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Vyrobeno v Česku" }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [{ "name": "USP strip", "category": "FitKa" }]
+}
+{% endschema %}

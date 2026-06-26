@@ -1,0 +1,31 @@
+{% comment %} snippets/product-card-fitka.liquid {% endcomment %}
+{%- assign first_image = product.featured_image | default: product.images.first -%}
+<article class="fitka-card" data-product-id="{{ product.id }}">
+  <a href="{{ product.url }}" class="fitka-card__media">
+    {% if first_image %}
+      {{ first_image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'fitka-card__image' }}
+    {% endif %}
+    {% if product.compare_at_price_max > product.price %}
+      <span class="fitka-card__badge">Sleva</span>
+    {% endif %}
+  </a>
+  <div class="fitka-card__info">
+    <a class="fitka-card__title" href="{{ product.url }}">{{ product.title }}</a>
+    {% if product.metafields.fitka.short_desc != blank %}
+      <p class="fitka-card__desc">{{ product.metafields.fitka.short_desc }}</p>
+    {% endif %}
+    <div class="fitka-card__price">
+      {% render 'price', product: product %}
+    </div>
+  </div>
+  <style>
+    .fitka-card{position:relative;border:1px solid #eee;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+    .fitka-card__media{position:relative;display:block}
+    .fitka-card__image{width:100%;height:auto;display:block}
+    .fitka-card__badge{position:absolute;top:10px;left:10px;background:#111;color:#fff;border-radius:999px;font-size:.75rem;padding:4px 10px}
+    .fitka-card__info{padding:12px}
+    .fitka-card__title{display:block;font-weight:600;margin-bottom:4px}
+    .fitka-card__desc{font-size:.9rem;opacity:.85;margin:0 0 8px}
+    .fitka-card__price{font-weight:600}
+  </style>
+</article>

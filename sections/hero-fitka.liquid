@@ -1,0 +1,98 @@
+{% comment %} sections/hero-fitka.liquid {% endcomment %}
+<section
+  class="fitka-hero"
+  style="
+    --overlay: {{ section.settings.overlay_opacity | default: 25 | divided_by: 100.0 }};
+    --overlay-color: {{ section.settings.overlay_color | default: '#000000' }};
+    --video-opacity: {{ section.settings.video_opacity | default: 100 | divided_by: 100.0 }};
+    --hero-h-desktop: {{ section.settings.height_desktop_vh | default: 70 }};
+    --hero-h-mobile: {{ section.settings.height_mobile_vh | default: 60 }};
+  "
+>
+  <div class="fitka-hero__media">
+    {% if section.settings.video != blank %}
+      <video class="fitka-hero__video" autoplay muted playsinline loop poster="{{ section.settings.image | image_url: width: 1600 }}">
+        <source src="{{ section.settings.video }}" type="video/mp4">
+      </video>
+    {% elsif section.settings.image != blank %}
+      {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'fitka-hero__image', loading: 'eager' }}
+    {% endif %}
+    <div class="fitka-hero__overlay"></div>
+  </div>
+
+  <div class="fitka-hero__content page-width">
+    {% if section.settings.badge_text != blank %}
+      <span class="fitka-badge">{{ section.settings.badge_text }}</span>
+    {% endif %}
+    <h1 class="fitka-hero__title">{{ section.settings.title }}</h1>
+    {% if section.settings.subtitle != blank %}
+      <p class="fitka-hero__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+    <div class="fitka-hero__cta">
+      {% if section.settings.primary_label != blank and section.settings.primary_link != blank %}
+        <a href="{{ section.settings.primary_link }}" class="button button--primary">{{ section.settings.primary_label }}</a>
+      {% endif %}
+      {% if section.settings.secondary_label != blank and section.settings.secondary_link != blank %}
+        <a href="{{ section.settings.secondary_link }}" class="button button--secondary">{{ section.settings.secondary_label }}</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <style>
+    .fitka-hero{
+      position:relative;
+      min-height: calc(var(--hero-h-desktop, 70) * 1vh);
+      display:grid; place-items:center; overflow:hidden;
+    }
+    @media (max-width: 749px){
+      .fitka-hero{ min-height: calc(var(--hero-h-mobile, 60) * 1vh); }
+    }
+
+    .fitka-hero__media{position:absolute; inset:0}
+    .fitka-hero__image,.fitka-hero__video{
+      width:100%; height:100%; object-fit:cover;
+      opacity: var(--video-opacity, 1);
+    }
+    .fitka-hero__overlay{
+      position:absolute; inset:0;
+      background: var(--overlay-color, #000);
+      opacity: var(--overlay, .25);
+      pointer-events:none;
+    }
+
+    .fitka-hero__content{
+      position:relative; z-index:2; text-align:center; color:#fff;
+      max-width:800px; padding:48px 20px;
+    }
+    .fitka-badge{display:inline-block;background:#fff;color:#111;border-radius:999px;padding:6px 12px;font-size:12px;margin-bottom:12px}
+    .fitka-hero__title{font-size:clamp(32px,4.5vw,56px);line-height:1.05;margin:8px 0}
+    .fitka-hero__subtitle{font-size:clamp(16px,2vw,20px);opacity:.9;margin-bottom:20px}
+    .fitka-hero__cta .button{margin:6px 8px}
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Hero – FitKa",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background image" },
+    { "type": "text", "id": "video", "label": "Video MP4 URL", "info": "Optional – overrides image if set" },
+
+    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 80, "step": 5, "default": 25, "label": "Overlay opacity (%)" },
+    { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#000000" },
+    { "type": "range", "id": "video_opacity", "min": 0, "max": 100, "step": 5, "default": 100, "label": "Video/image opacity (%)" },
+
+    { "type": "range", "id": "height_desktop_vh", "min": 40, "max": 100, "step": 5, "default": 70, "label": "Height on desktop (vh)" },
+    { "type": "range", "id": "height_mobile_vh", "min": 40, "max": 100, "step": 5, "default": 60, "label": "Height on mobile (vh)" },
+
+    { "type": "text", "id": "badge_text", "label": "Badge (e.g. Made in Czechia)" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Sportovní prádlo pro každou postavu" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Antibakteriální materiály, vyvinuto pro aktivní ženy." },
+    { "type": "text", "id": "primary_label", "label": "Primary CTA label", "default": "Nakoupit" },
+    { "type": "url", "id": "primary_link", "label": "Primary CTA link" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary CTA label", "default": "Objevit kolekce" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary CTA link" }
+  ],
+  "presets": [{ "name": "Hero – FitKa" }]
+}
+{% endschema %}
