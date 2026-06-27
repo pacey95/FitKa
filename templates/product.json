@@ -41,14 +41,6 @@
           "type": "price",
           "settings": {}
         },
-        "inventory_aVhz9U": {
-          "type": "inventory",
-          "settings": {
-            "text_style": "uppercase",
-            "inventory_threshold": 4,
-            "show_inventory_quantity": true
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -68,11 +60,25 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "inventory_aVhz9U": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "uppercase",
+            "inventory_threshold": 4,
+            "show_inventory_quantity": true
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_yjmER7": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- comment -%} Custom Liquid blok – vlož ZA „Buy buttons\" v buy boxu. {%- endcomment -%}\n<ul class=\"fitka-trust\">\n  <li class=\"fitka-trust__item\">\n    <span class=\"fitka-trust__ic\" aria-hidden=\"true\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z\"/><path d=\"m9 12 2 2 4-4\"/></svg></span>\n    <div class=\"fitka-trust__txt\"><strong>Ušito v Česku</strong><span>S láskou a důrazem na kvalitu.</span></div>\n  </li>\n  <li class=\"fitka-trust__item\">\n    <span class=\"fitka-trust__ic\" aria-hidden=\"true\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2.5 1.5 7-1 11a7 7 0 0 1-7 7Z\"/><path d=\"M2 22c1.5-3 3.5-5 6-7\"/></svg></span>\n    <div class=\"fitka-trust__txt\"><strong>Antibakteriální bambusová vložka</strong><span>Pro svěžest a pohodlí po celý den.</span></div>\n  </li>\n  <li class=\"fitka-trust__item\">\n    <span class=\"fitka-trust__ic\" aria-hidden=\"true\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M1 3h13v13H1zM14 8h4l3 3v5h-7\"/><circle cx=\"5.5\" cy=\"18.5\" r=\"1.8\"/><circle cx=\"17.5\" cy=\"18.5\" r=\"1.8\"/></svg></span>\n    <div class=\"fitka-trust__txt\"><strong>Doprava a vrácení</strong><span>Doprava od 1 500 Kč zdarma. Vrácení do 30 dní.</span></div>\n  </li>\n  <li class=\"fitka-trust__item\">\n    <span class=\"fitka-trust__ic\" aria-hidden=\"true\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\"/><path d=\"M2 10h20\"/></svg></span>\n    <div class=\"fitka-trust__txt\"><strong>Bezpečná platba</strong><span>Kartou, Apple Pay, Google Pay nebo na dobírku.</span></div>\n  </li>\n</ul>\n<style>\n  .fitka-trust{ list-style:none; margin:18px 0 0; padding:0; display:flex; flex-direction:column; gap:14px; }\n  .fitka-trust__item{ display:flex; gap:12px; align-items:flex-start; }\n  .fitka-trust__ic{ flex:0 0 auto; color:#a0304e; margin-top:1px; }\n  .fitka-trust__txt{ display:flex; flex-direction:column; line-height:1.3; }\n  .fitka-trust__txt strong{ color:#393939; font-size:.92rem; }\n  .fitka-trust__txt span{ color:#393939; opacity:.7; font-size:.83rem; }\n</style>"
           }
         },
         "icon_with_text_eAidxp": {
@@ -104,11 +110,12 @@
         "judge_me_reviews_preview_badge_eA8NcW",
         "description",
         "price",
-        "inventory_aVhz9U",
         "variant_picker",
         "kiwi_size_chart_recommender_kiwi_sizing_QcmhLi",
         "quantity_selector",
+        "inventory_aVhz9U",
         "buy_buttons",
+        "custom_liquid_yjmER7",
         "icon_with_text_eAidxp",
         "share"
       ],
@@ -116,8 +123,8 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "background-1",
-        "media_size": "small",
-        "constrain_to_viewport": true,
+        "media_size": "medium",
+        "constrain_to_viewport": false,
         "media_fit": "cover",
         "gallery_layout": "stacked",
         "mobile_thumbnails": "hide",
