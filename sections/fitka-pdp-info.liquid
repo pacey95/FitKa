@@ -1,39 +1,120 @@
 {% comment %} sections/fitka-pdp-info.liquid {% endcomment %}
+
 {%- liquid
   assign benefits = section.blocks | where: 'type', 'benefit'
   assign trust = section.blocks | where: 'type', 'trust'
 -%}
-<section class="fpi" style="--bg: {{ section.settings.bg_color | default: '#ffffff' }}; --pt: {{ section.settings.padding_top | default: 28 }}px; --pb: {{ section.settings.padding_bottom | default: 28 }}px;">
+
+<section
+  class="fpi"
+  style="
+    --bg: {{ section.settings.bg_color | default: '#ffffff' }};
+    --pt: {{ section.settings.padding_top | default: 28 }}px;
+    --pb: {{ section.settings.padding_bottom | default: 28 }}px;
+    --fpi-text-size: {{ section.settings.text_size | default: 15 }}px;
+    --fpi-icon-size: {{ section.settings.icon_size | default: 28 }}px;
+    --fpi-helper-icon-size: {{ section.settings.helper_icon_size | default: 46 }}px;
+  "
+>
   <div class="page-width fpi__grid">
 
     <div class="fpi__col">
-      {% if section.settings.left_heading != blank %}<h3 class="fpi__h">{{ section.settings.left_heading }}</h3>{% endif %}
+      {% if section.settings.left_heading != blank %}
+        <h3 class="fpi__h">{{ section.settings.left_heading }}</h3>
+      {% endif %}
+
       <ul class="fpi__list">
         {%- for block in benefits -%}
           <li class="fpi__item" {{ block.shopify_attributes }}>
-            <span class="fpi__ic" aria-hidden="true">{%- render 'fitka-feature-icon', icon: block.settings.icon -%}</span>
-            <span class="fpi__txt"><strong>{{ block.settings.title }}</strong>{% if block.settings.subtitle != blank %}<span>{{ block.settings.subtitle }}</span>{% endif %}</span>
+            <span class="fpi__ic" aria-hidden="true">
+              {%- if block.settings.custom_icon != blank -%}
+                {{
+                  block.settings.custom_icon
+                  | image_url: width: 120
+                  | image_tag:
+                    class: 'fpi__icon-img',
+                    loading: 'lazy',
+                    alt: ''
+                }}
+              {%- else -%}
+                {%- render 'fitka-feature-icon', icon: block.settings.icon -%}
+              {%- endif -%}
+            </span>
+
+            <span class="fpi__txt">
+              <strong>{{ block.settings.title }}</strong>
+              {% if block.settings.subtitle != blank %}
+                <span>{{ block.settings.subtitle }}</span>
+              {% endif %}
+            </span>
           </li>
         {%- endfor -%}
       </ul>
     </div>
 
     <div class="fpi__col fpi__helper">
-      <span class="fpi__tape" aria-hidden="true"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#a0304e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V7Z"/><path d="M4 7a3 3 0 0 1 6 0M8 10v2M11 10v2M14 10v2M17 10v2"/></svg></span>
-      {% if section.settings.helper_heading != blank %}<h3 class="fpi__helper-h">{{ section.settings.helper_heading }}</h3>{% endif %}
-      {% if section.settings.helper_text != blank %}<p class="fpi__helper-t">{{ section.settings.helper_text }}</p>{% endif %}
-      {% if section.settings.helper_button_label != blank %}
-        <a class="button button--primary fpi__helper-btn" href="{{ section.settings.helper_button_link | default: '#' }}">{{ section.settings.helper_button_label }}</a>
+      <span class="fpi__tape" aria-hidden="true">
+        {%- if section.settings.helper_icon != blank -%}
+          {{
+            section.settings.helper_icon
+            | image_url: width: 160
+            | image_tag:
+              class: 'fpi__helper-icon-img',
+              loading: 'lazy',
+              alt: ''
+          }}
+        {%- else -%}
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#a0304e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 7h16v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V7Z"/>
+            <path d="M4 7a3 3 0 0 1 6 0M8 10v2M11 10v2M14 10v2M17 10v2"/>
+          </svg>
+        {%- endif -%}
+      </span>
+
+      {% if section.settings.helper_heading != blank %}
+        <h3 class="fpi__helper-h">{{ section.settings.helper_heading }}</h3>
       {% endif %}
-      {% if section.settings.helper_subtext != blank %}<p class="fpi__helper-sub">{{ section.settings.helper_subtext }}</p>{% endif %}
+
+      {% if section.settings.helper_text != blank %}
+        <p class="fpi__helper-t">{{ section.settings.helper_text }}</p>
+      {% endif %}
+
+      {% if section.settings.helper_button_label != blank %}
+        <a class="button button--primary fpi__helper-btn" href="{{ section.settings.helper_button_link | default: '#' }}">
+          {{ section.settings.helper_button_label }}
+        </a>
+      {% endif %}
+
+      {% if section.settings.helper_subtext != blank %}
+        <p class="fpi__helper-sub">{{ section.settings.helper_subtext }}</p>
+      {% endif %}
     </div>
 
     <div class="fpi__col">
       <ul class="fpi__list">
         {%- for block in trust -%}
           <li class="fpi__item" {{ block.shopify_attributes }}>
-            <span class="fpi__ic" aria-hidden="true">{%- render 'fitka-feature-icon', icon: block.settings.icon -%}</span>
-            <span class="fpi__txt"><strong>{{ block.settings.title }}</strong>{% if block.settings.subtitle != blank %}<span>{{ block.settings.subtitle }}</span>{% endif %}</span>
+            <span class="fpi__ic" aria-hidden="true">
+              {%- if block.settings.custom_icon != blank -%}
+                {{
+                  block.settings.custom_icon
+                  | image_url: width: 120
+                  | image_tag:
+                    class: 'fpi__icon-img',
+                    loading: 'lazy',
+                    alt: ''
+                }}
+              {%- else -%}
+                {%- render 'fitka-feature-icon', icon: block.settings.icon -%}
+              {%- endif -%}
+            </span>
+
+            <span class="fpi__txt">
+              <strong>{{ block.settings.title }}</strong>
+              {% if block.settings.subtitle != blank %}
+                <span>{{ block.settings.subtitle }}</span>
+              {% endif %}
+            </span>
           </li>
         {%- endfor -%}
       </ul>
@@ -42,24 +123,151 @@
   </div>
 
   <style>
-    .fpi{ background:var(--bg); padding-top:var(--pt); padding-bottom:var(--pb); }
-    .fpi__grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; align-items:stretch; }
-    .fpi__h{ font-size:1.3rem; margin:0 0 16px; color:#393939; }
-    .fpi__list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px; }
-    .fpi__item{ display:flex; gap:12px; align-items:flex-start; }
-    .fpi__ic{ flex:0 0 auto; color:#a0304e; margin-top:1px; }
-    .fpi__txt{ display:flex; flex-direction:column; line-height:1.3; }
-    .fpi__txt strong{ color:#393939; font-size:.95rem; font-weight:600; }
-    .fpi__txt span{ color:#393939; opacity:.7; font-size:.85rem; }
+    .fpi {
+      background: var(--bg);
+      padding-top: var(--pt);
+      padding-bottom: var(--pb);
+    }
 
-    .fpi__helper{ background:#ffe2e3; border-radius:16px; padding:26px 22px; display:flex; flex-direction:column; gap:8px; align-items:flex-start; position:relative; }
-    .fpi__tape{ margin-bottom:2px; }
-    .fpi__helper-h{ font-size:1.25rem; margin:0; color:#393939; }
-    .fpi__helper-t{ margin:0; color:#393939; opacity:.85; font-size:.95rem; }
-    .fpi__helper-btn{ margin:8px 0 4px; }
-    .fpi__helper-sub{ margin:0; color:#393939; opacity:.65; font-size:.82rem; }
+    .fpi__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
 
-    @media (max-width:989px){ .fpi__grid{ grid-template-columns:1fr; } .fpi__helper{ order:-1; } }
+    .fpi__h {
+      font-size: 1.8rem;
+      line-height: 1.3;
+      margin: 0 0 16px;
+      color: #393939;
+    }
+
+    .fpi__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .fpi__item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .fpi__ic {
+      flex: 0 0 auto;
+      width: var(--fpi-icon-size);
+      height: var(--fpi-icon-size);
+      color: #a0304e;
+      margin-top: 1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fpi__ic svg,
+    .fpi__icon-img {
+      width: var(--fpi-icon-size);
+      height: var(--fpi-icon-size);
+      display: block;
+    }
+
+    .fpi__icon-img {
+      object-fit: contain;
+    }
+
+    .fpi__txt {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.4;
+      font-size: var(--fpi-text-size);
+      color: #393939;
+    }
+
+    .fpi__txt strong {
+      color: #393939;
+      font-size: inherit;
+      font-weight: 600;
+    }
+
+    .fpi__txt span {
+      color: #393939;
+      opacity: .7;
+      font-size: inherit;
+    }
+
+    .fpi__helper {
+      background: #ffe2e3;
+      border-radius: 16px;
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .fpi__tape {
+      margin-bottom: 2px;
+      width: var(--fpi-helper-icon-size);
+      height: var(--fpi-helper-icon-size);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #a0304e;
+    }
+
+    .fpi__tape svg,
+    .fpi__helper-icon-img {
+      width: var(--fpi-helper-icon-size);
+      height: var(--fpi-helper-icon-size);
+      display: block;
+    }
+
+    .fpi__helper-icon-img {
+      object-fit: contain;
+    }
+
+    .fpi__helper-h {
+      font-size: 1.8rem;
+      line-height: 1.3;
+      margin: 0;
+      color: #393939;
+    }
+
+    .fpi__helper-t {
+      margin: 0;
+      color: #393939;
+      opacity: .85;
+      font-size: var(--fpi-text-size);
+      line-height: 1.4;
+    }
+
+    .fpi__helper-btn {
+      margin: 8px 0 4px;
+    }
+
+    .fpi__helper-sub {
+      margin: 0;
+      color: #393939;
+      opacity: .65;
+      font-size: var(--fpi-text-size);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 989px) {
+      .fpi__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fpi__helper {
+        order: -1;
+      }
+    }
   </style>
 </section>
 
@@ -67,37 +275,187 @@
 {
   "name": "FitKa – PDP info",
   "settings": [
-    { "type": "text", "id": "left_heading", "label": "Nadpis (levý sloupec)", "default": "Proč si ho zamiluješ" },
-    { "type": "header", "content": "Karta – pomoc s velikostí (prostřední)" },
-    { "type": "text", "id": "helper_heading", "label": "Nadpis", "default": "Neviš velikost?" },
-    { "type": "text", "id": "helper_text", "label": "Text", "default": "Pomůžeme ti vybrat tu pravou." },
-    { "type": "text", "id": "helper_button_label", "label": "Text tlačítka", "default": "Pomůžeme mi vybrat" },
-    { "type": "url", "id": "helper_button_link", "label": "Odkaz tlačítka" },
-    { "type": "text", "id": "helper_subtext", "label": "Text pod tlačítkem", "default": "Rychlé doporučení na základě tvé výšky a obvodu boků." },
-    { "type": "header", "content": "Vzhled" },
-    { "type": "color", "id": "bg_color", "label": "Background", "default": "#ffffff" },
-    { "type": "range", "id": "padding_top", "min": 0, "max": 80, "step": 4, "default": 28, "label": "Padding top" },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 80, "step": 4, "default": 28, "label": "Padding bottom" }
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Nadpis (levý sloupec)",
+      "default": "Proč si ho zamiluješ"
+    },
+    {
+      "type": "header",
+      "content": "Karta – pomoc s velikostí (prostřední)"
+    },
+    {
+      "type": "image_picker",
+      "id": "helper_icon",
+      "label": "Vlastní ikona karty",
+      "info": "Pokud nenahraješ vlastní ikonu, použije se původní SVG ikona."
+    },
+    {
+      "type": "text",
+      "id": "helper_heading",
+      "label": "Nadpis",
+      "default": "Nevíš velikost?"
+    },
+    {
+      "type": "text",
+      "id": "helper_text",
+      "label": "Text",
+      "default": "Pomůžeme ti vybrat tu pravou."
+    },
+    {
+      "type": "text",
+      "id": "helper_button_label",
+      "label": "Text tlačítka",
+      "default": "Pomozte mi vybrat"
+    },
+    {
+      "type": "url",
+      "id": "helper_button_link",
+      "label": "Odkaz tlačítka"
+    },
+    {
+      "type": "text",
+      "id": "helper_subtext",
+      "label": "Text pod tlačítkem",
+      "default": "Rychlé doporučení na základě tvé výšky a obvodu boků."
+    },
+    {
+      "type": "header",
+      "content": "Vzhled"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "default": 15,
+      "unit": "px",
+      "label": "Velikost běžného textu"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 18,
+      "max": 48,
+      "step": 2,
+      "default": 28,
+      "unit": "px",
+      "label": "Velikost ikon"
+    },
+    {
+      "type": "range",
+      "id": "helper_icon_size",
+      "min": 28,
+      "max": 80,
+      "step": 2,
+      "default": 46,
+      "unit": "px",
+      "label": "Velikost ikony v prostřední kartě"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 28,
+      "label": "Padding top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 28,
+      "label": "Padding bottom"
+    }
   ],
   "blocks": [
     {
       "type": "benefit",
       "name": "Benefit (levý sloupec)",
       "settings": [
-        { "type": "select", "id": "icon", "label": "Ikona", "default": "shield", "options": [
-          { "value": "shield", "label": "Štít" }, { "value": "leaf", "label": "List" }, { "value": "eye-off", "label": "Neviditelné" }, { "value": "heart", "label": "Srdce" }, { "value": "needle", "label": "Jehla" }, { "value": "truck", "label": "Doprava" }, { "value": "card", "label": "Platba" }, { "value": "ruler", "label": "Metr" } ] },
-        { "type": "text", "id": "title", "label": "Nadpis", "default": "Benefit" },
-        { "type": "text", "id": "subtitle", "label": "Podtitulek" }
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Vlastní ikona",
+          "info": "Pokud nahraješ vlastní ikonu, přepíše původní výběr níže."
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Fallback ikona",
+          "default": "shield",
+          "options": [
+            { "value": "shield", "label": "Štít" },
+            { "value": "leaf", "label": "List" },
+            { "value": "eye-off", "label": "Neviditelné" },
+            { "value": "heart", "label": "Srdce" },
+            { "value": "needle", "label": "Jehla" },
+            { "value": "truck", "label": "Doprava" },
+            { "value": "card", "label": "Platba" },
+            { "value": "ruler", "label": "Metr" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Nadpis",
+          "default": "Benefit"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Podtitulek"
+        }
       ]
     },
     {
       "type": "trust",
       "name": "Trust (pravý sloupec)",
       "settings": [
-        { "type": "select", "id": "icon", "label": "Ikona", "default": "needle", "options": [
-          { "value": "shield", "label": "Štít" }, { "value": "leaf", "label": "List" }, { "value": "eye-off", "label": "Neviditelné" }, { "value": "heart", "label": "Srdce" }, { "value": "needle", "label": "Jehla" }, { "value": "truck", "label": "Doprava" }, { "value": "card", "label": "Platba" }, { "value": "ruler", "label": "Metr" } ] },
-        { "type": "text", "id": "title", "label": "Nadpis", "default": "Trust" },
-        { "type": "text", "id": "subtitle", "label": "Podtitulek" }
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Vlastní ikona",
+          "info": "Pokud nahraješ vlastní ikonu, přepíše původní výběr níže."
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Fallback ikona",
+          "default": "needle",
+          "options": [
+            { "value": "shield", "label": "Štít" },
+            { "value": "leaf", "label": "List" },
+            { "value": "eye-off", "label": "Neviditelné" },
+            { "value": "heart", "label": "Srdce" },
+            { "value": "needle", "label": "Jehla" },
+            { "value": "truck", "label": "Doprava" },
+            { "value": "card", "label": "Platba" },
+            { "value": "ruler", "label": "Metr" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Nadpis",
+          "default": "Trust"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Podtitulek"
+        }
       ]
     }
   ],
@@ -106,14 +464,70 @@
     {
       "name": "FitKa – PDP info",
       "blocks": [
-        { "type": "benefit", "settings": { "icon": "shield", "title": "Spolehlivé krytí", "subtitle": "v přední i zadní části" } },
-        { "type": "benefit", "settings": { "icon": "leaf", "title": "Antibakteriální bambusová vložka", "subtitle": "pro svěžest po celý den" } },
-        { "type": "benefit", "settings": { "icon": "eye-off", "title": "Neviditelné pod oblečením", "subtitle": "žádné rýhy ani švy" } },
-        { "type": "benefit", "settings": { "icon": "heart", "title": "Jemný, prodyšný a šetrný", "subtitle": "k pokožce" } },
-        { "type": "trust", "settings": { "icon": "needle", "title": "Ušito v Česku", "subtitle": "s láskou a důrazem na kvalitu" } },
-        { "type": "trust", "settings": { "icon": "leaf", "title": "Antibakteriální bambusová vložka", "subtitle": "pro svěžest a pohodlí po celý den" } },
-        { "type": "trust", "settings": { "icon": "truck", "title": "Doprava zdarma", "subtitle": "od 1 500 Kč po celé ČR" } },
-        { "type": "trust", "settings": { "icon": "card", "title": "Bezpečná platba", "subtitle": "kartou, Apple Pay, Google Pay nebo na dobírku" } }
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "Spolehlivé krytí",
+            "subtitle": "v přední i zadní části"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "title": "Antibakteriální bambusová vložka",
+            "subtitle": "pro svěžest po celý den"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "eye-off",
+            "title": "Neviditelné pod oblečením",
+            "subtitle": "žádné rýhy ani švy"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "heart",
+            "title": "Jemný, prodyšný a šetrný",
+            "subtitle": "k pokožce"
+          }
+        },
+        {
+          "type": "trust",
+          "settings": {
+            "icon": "needle",
+            "title": "Ušito v Česku",
+            "subtitle": "s láskou a důrazem na kvalitu"
+          }
+        },
+        {
+          "type": "trust",
+          "settings": {
+            "icon": "leaf",
+            "title": "Antibakteriální bambusová vložka",
+            "subtitle": "pro svěžest a pohodlí po celý den"
+          }
+        },
+        {
+          "type": "trust",
+          "settings": {
+            "icon": "truck",
+            "title": "Doprava zdarma",
+            "subtitle": "od 1 500 Kč po celé ČR"
+          }
+        },
+        {
+          "type": "trust",
+          "settings": {
+            "icon": "card",
+            "title": "Bezpečná platba",
+            "subtitle": "kartou, Apple Pay, Google Pay nebo na dobírku"
+          }
+        }
       ]
     }
   ]
