@@ -60,6 +60,13 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "dealeasy_vd_cards_cKEw7F": {
+          "type": "shopify://apps/dealeasy/blocks/vd-cards/e47a8634-0496-480d-9e46-6f7fafd34b30",
+          "settings": {
+            "lb-product-handle": "",
+            "lb-product-id": ""
+          }
+        },
         "inventory_aVhz9U": {
           "type": "inventory",
           "settings": {
@@ -114,6 +121,7 @@
         "variant_picker",
         "kiwi_size_chart_recommender_kiwi_sizing_QcmhLi",
         "quantity_selector",
+        "dealeasy_vd_cards_cKEw7F",
         "inventory_aVhz9U",
         "buy_buttons",
         "custom_liquid_yjmER7",
@@ -218,7 +226,7 @@
       "name": "FitKa – PDP info",
       "settings": {
         "left_heading": "Proč si je zamiluješ",
-        "helper_heading": "Neviš velikost?",
+        "helper_heading": "Nevíš velikost?",
         "helper_text": "Pomůžeme ti vybrat tu pravou.",
         "helper_button_label": "Jak vybrat kalhotky",
         "helper_button_link": "shopify://blogs/news/jak-vybrat-idealni-sportovni-kalhotky-kompletni-pruvodce-pro-aktivni-zeny",
