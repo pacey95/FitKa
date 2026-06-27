@@ -21,45 +21,42 @@
 
         {% when 'tile' %}
           {%- assign product = block.settings.product -%}
+          {%- assign desc = block.settings.description | default: product.metafields.fitka.short_desc.value -%}
+          {%- assign c1 = block.settings.chip_1 | default: product.metafields.fitka.chip_1.value -%}
+          {%- assign c2 = block.settings.chip_2 | default: product.metafields.fitka.chip_2.value -%}
+          {%- assign c3 = block.settings.chip_3 | default: product.metafields.fitka.chip_3.value -%}
+          {%- assign tname = product.title | replace: 'FitKa', '<span class="fitka-cut__name-soft">FitKa</span>' -%}
           <article class="fitka-cut" {{ block.shopify_attributes }}>
-            <a class="fitka-cut__media" href="{{ product.url | default: '#' }}">
-              {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'fitka-cut__img' }}
-              {%- elsif product.featured_image -%}
-                {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'fitka-cut__img' }}
-              {%- endif -%}
-              {% if product.compare_at_price_max > product.price %}
-                <span class="fitka-cut__badge">Sleva</span>
-              {% endif %}
-            </a>
-
-            <div class="fitka-cut__body">
-              {% if product != blank %}
-                <a class="fitka-cut__name" href="{{ product.url }}">{{ product.title }}</a>
-              {% else %}
-                <span class="fitka-cut__name">Vyber produkt</span>
-              {% endif %}
-
-              {%- assign desc = block.settings.description | default: product.metafields.fitka.short_desc -%}
-              {% if desc != blank %}
-                <p class="fitka-cut__desc">{{ desc }}</p>
-              {% endif %}
-
-              {% if product != blank %}
-                <div class="fitka-cut__price">{% render 'price', product: product %}</div>
-                <a class="button button--primary fitka-cut__btn" href="{{ product.url }}">
-                  {{ block.settings.button_label | default: 'Zobrazit' }}
-                </a>
-              {% endif %}
+            <div class="fitka-cut__top">
+              <div class="fitka-cut__body">
+                {% if product != blank %}
+                  <a class="fitka-cut__name" href="{{ product.url }}">{{ tname }}</a>
+                {% else %}
+                  <span class="fitka-cut__name">Vyber produkt</span>
+                {% endif %}
+                {% if desc != blank %}<p class="fitka-cut__desc">{{ desc }}</p>{% endif %}
+                {% if product != blank %}
+                  <span class="fitka-cut__price">{{ product.price | money_without_trailing_zeros }}</span>
+                  <a class="button button--primary fitka-cut__btn" href="{{ product.url }}">{{ block.settings.button_label | default: 'Zobrazit' }}</a>
+                {% endif %}
+              </div>
+              <a class="fitka-cut__media" href="{{ product.url | default: '#' }}" aria-label="{{ product.title }}">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'fitka-cut__img' }}
+                {%- elsif product.featured_image -%}
+                  {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'fitka-cut__img' }}
+                {%- endif -%}
+                {% if product.compare_at_price_max > product.price %}<span class="fitka-cut__badge">Sleva</span>{% endif %}
+                <span class="fitka-cut__heart" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.6-9.2-9C1.3 7.7 3 4.8 6 4.8c1.9 0 3.2 1.1 4 2.3.8-1.2 2.1-2.3 4-2.3 3 0 4.7 2.9 3.2 6.2C19 15.4 12 20 12 20Z"/></svg>
+                </span>
+              </a>
             </div>
-
-            {%- assign has_chips = false -%}
-            {% if block.settings.chip_1 != blank or block.settings.chip_2 != blank or block.settings.chip_3 != blank %}{% assign has_chips = true %}{% endif %}
-            {% if has_chips %}
+            {% if c1 != blank or c2 != blank or c3 != blank %}
               <ul class="fitka-cut__chips">
-                {% if block.settings.chip_1 != blank %}<li>{{ block.settings.chip_1 }}</li>{% endif %}
-                {% if block.settings.chip_2 != blank %}<li>{{ block.settings.chip_2 }}</li>{% endif %}
-                {% if block.settings.chip_3 != blank %}<li>{{ block.settings.chip_3 }}</li>{% endif %}
+                {% if c1 != blank %}<li>{{ c1 }}</li>{% endif %}
+                {% if c2 != blank %}<li>{{ c2 }}</li>{% endif %}
+                {% if c3 != blank %}<li>{{ c3 }}</li>{% endif %}
               </ul>
             {% endif %}
           </article>
@@ -67,7 +64,7 @@
         {% when 'helper' %}
           <aside class="fitka-cut__helper" {{ block.shopify_attributes }}>
             <span class="fitka-cut__helper-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path><path d="M11 8.2c.9-1.3 3-1 3 .6 0 1.2-1.3 1.4-1.5 2.2"></path></svg>
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path><path d="M9.3 9.2c.5-1.7 3-1.5 3.2.3.2 1.3-1.4 1.4-1.5 2.5"></path><path d="M11 14.2h.01"></path></svg>
             </span>
             {% if block.settings.heading != blank %}<h3 class="fitka-cut__helper-h">{{ block.settings.heading }}</h3>{% endif %}
             {% if block.settings.text != blank %}<p class="fitka-cut__helper-t">{{ block.settings.text }}</p>{% endif %}
@@ -91,41 +88,38 @@
     .fitka-cuts__heading{ text-align:center; font-size:clamp(26px,3vw,40px); margin:0 0 6px; }
     .fitka-cuts__sub{ text-align:center; opacity:.8; margin:0 auto 26px; max-width:52ch; }
 
-    .fitka-cuts__grid{ display:flex; flex-wrap:wrap; gap:20px; align-items:stretch; justify-content:center; }
+    .fitka-cuts__grid{ display:grid; gap:20px; grid-template-columns:1fr; align-items:stretch; }
+    @media (min-width:750px){ .fitka-cuts__grid{ grid-template-columns:1fr 1fr; } }
+    @media (min-width:750px) and (max-width:989px){ .fitka-cut__helper{ grid-column:1 / -1; } }
+    @media (min-width:990px){ .fitka-cuts__grid{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(240px,.62fr); } }
 
-    /* ----- product tile ----- */
-    .fitka-cut{
-      flex:1 1 320px; min-width:280px; max-width:460px;
-      background:#fff; border:1px solid #efe7e9; border-radius:18px; overflow:hidden;
-      display:flex; flex-direction:column;
-    }
-    .fitka-cut__media{ position:relative; display:block; aspect-ratio:4/5; background:#f4eef0; }
-    .fitka-cut__img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .fitka-cut{ background:#fff; border:1px solid #efe7e9; border-radius:18px; overflow:hidden; display:flex; flex-direction:column; }
+    .fitka-cut__top{ display:grid; grid-template-columns:1fr 1fr; align-items:stretch; flex:1; min-height:320px; }
+    .fitka-cut__body{ padding:26px 22px; display:flex; flex-direction:column; gap:10px; }
+    .fitka-cut__name{ font-size:clamp(1.2rem,1.6vw,1.5rem); font-weight:700; color:#393939; text-decoration:none; line-height:1.15; }
+    .fitka-cut__name-soft{ font-weight:500; opacity:.65; }
+    .fitka-cut__desc{ font-size:.95rem; opacity:.8; margin:0; }
+    .fitka-cut__price{ font-size:clamp(1.4rem,2vw,1.7rem); font-weight:700; color:#393939; margin-top:auto; }
+    .fitka-cut__btn{ align-self:flex-start; margin-top:6px; }
+    .fitka-cut__media{ position:relative; display:block; background:#f4eef0; min-height:100%; }
+    .fitka-cut__img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
     .fitka-cut__badge{ position:absolute; top:12px; left:12px; background:#a0304e; color:#fff; border-radius:999px; font-size:.72rem; padding:4px 10px; }
-    .fitka-cut__body{ padding:18px 18px 6px; display:flex; flex-direction:column; gap:8px; flex:1; }
-    .fitka-cut__name{ font-size:1.25rem; font-weight:700; color:#393939; text-decoration:none; }
-    .fitka-cut__desc{ font-size:.95rem; opacity:.82; margin:0; }
-    .fitka-cut__price{ font-size:1.25rem; font-weight:700; color:#393939; margin-top:auto; }
-    .fitka-cut__btn{ align-self:flex-start; margin-top:4px; }
-    .fitka-cut__chips{ list-style:none; display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:14px 18px 20px; }
-    .fitka-cut__chips li{ font-size:.78rem; background:#f7f6f6; color:#393939; border-radius:999px; padding:6px 12px; line-height:1; }
+    .fitka-cut__heart{ position:absolute; top:14px; right:14px; color:#393939; opacity:.45; }
+    .fitka-cut__chips{ list-style:none; display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0 22px 22px; }
+    .fitka-cut__chips li{ font-size:.78rem; background:#f7f6f6; border:1px solid #efe7e9; color:#393939; border-radius:999px; padding:7px 13px; line-height:1; }
 
-    /* ----- helper card ----- */
-    .fitka-cut__helper{
-      flex:1 1 260px; min-width:240px; max-width:340px;
-      background:#ffe2e3; border-radius:18px; padding:26px 22px;
-      display:flex; flex-direction:column; gap:10px; text-align:left;
-    }
+    .fitka-cut__helper{ background:#ffe2e3; border-radius:18px; padding:28px 24px; display:flex; flex-direction:column; gap:10px; text-align:left; }
     .fitka-cut__helper-icon{ color:#a0304e; }
-    .fitka-cut__helper-h{ font-size:1.3rem; margin:0; color:#393939; }
+    .fitka-cut__helper-h{ font-size:1.35rem; margin:0; color:#393939; }
     .fitka-cut__helper-t{ font-size:.95rem; opacity:.85; margin:0; }
-    .fitka-cut__checks{ list-style:none; margin:6px 0 4px; padding:0; display:flex; flex-direction:column; gap:8px; }
+    .fitka-cut__checks{ list-style:none; margin:6px 0 4px; padding:0; display:flex; flex-direction:column; gap:9px; }
     .fitka-cut__checks li{ position:relative; padding-left:24px; font-size:.92rem; color:#393939; }
     .fitka-cut__checks li::before{ content:"✓"; position:absolute; left:0; top:0; color:#a0304e; font-weight:700; }
-    .fitka-cut__helper .button{ margin-top:auto; }
+    .fitka-cut__helper .button{ margin-top:auto; align-self:flex-start; }
 
     @media (max-width:749px){
-      .fitka-cut, .fitka-cut__helper{ flex:1 1 100%; max-width:none; }
+      .fitka-cut__top{ display:flex; flex-direction:column-reverse; }
+      .fitka-cut__media{ min-height:320px; }
     }
   </style>
 </section>
@@ -149,7 +143,7 @@
         { "type": "image_picker", "id": "image", "label": "Obrázek (volitelné – jinak hlavní foto produktu)" },
         { "type": "text", "id": "description", "label": "Popisek", "info": "Prázdné = metafield fitka.short_desc" },
         { "type": "text", "id": "button_label", "label": "Text tlačítka", "default": "Zobrazit" },
-        { "type": "header", "content": "Chips (volitelné)" },
+        { "type": "header", "content": "Chips (prázdné = metafield fitka.chip_1/2/3)" },
         { "type": "text", "id": "chip_1", "label": "Chip 1" },
         { "type": "text", "id": "chip_2", "label": "Chip 2" },
         { "type": "text", "id": "chip_3", "label": "Chip 3" }
@@ -170,14 +164,7 @@
     }
   ],
   "presets": [
-    {
-      "name": "FitKa – Vyber střih",
-      "blocks": [
-        { "type": "tile" },
-        { "type": "tile" },
-        { "type": "helper" }
-      ]
-    }
+    { "name": "FitKa – Vyber střih", "blocks": [ { "type": "tile" }, { "type": "tile" }, { "type": "helper" } ] }
   ]
 }
 {% endschema %}
