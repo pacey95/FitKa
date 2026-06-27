@@ -1,0 +1,83 @@
+{% comment %} sections/fitka-tabs.liquid {% endcomment %}
+{%- assign uid = section.id | replace: '_', '' -%}
+<section class="fitka-tabsec" style="--bg: {{ section.settings.bg_color | default: '#ffffff' }}; --pt: {{ section.settings.padding_top | default: 24 }}px; --pb: {{ section.settings.padding_bottom | default: 24 }}px;">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}<h2 class="fitka-tabsec__h">{{ section.settings.heading }}</h2>{% endif %}
+
+    <div class="fitka-tabs">
+      {%- for block in section.blocks -%}
+        <input type="radio" class="fitka-tabs__radio" name="ft-{{ uid }}" id="ft-{{ uid }}-{{ forloop.index }}"{% if forloop.first %} checked{% endif %} {{ block.shopify_attributes }}>
+      {%- endfor -%}
+
+      <div class="fitka-tabs__nav" role="tablist">
+        {%- for block in section.blocks -%}
+          <label for="ft-{{ uid }}-{{ forloop.index }}" class="fitka-tabs__tab">{{ block.settings.tab_title }}</label>
+        {%- endfor -%}
+      </div>
+
+      <div class="fitka-tabs__panels">
+        {%- for block in section.blocks -%}
+          <div class="fitka-tabs__panel" id="ftp-{{ uid }}-{{ forloop.index }}">
+            {{ block.settings.content }}
+            {% if block.settings.show_oeko %}
+              <div class="fitka-tabs__oeko"><img src="{{ 'oeko-tex.png' | asset_url }}" alt="OEKO-TEX Standard 100" width="64" height="64" loading="lazy" onerror="this.style.display='none'"></div>
+            {% endif %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <style>
+        .fitka-tabsec{ background:var(--bg); padding-top:var(--pt); padding-bottom:var(--pb); }
+        .fitka-tabsec__h{ font-size:clamp(22px,2.4vw,30px); margin:0 0 16px; }
+        .fitka-tabs{ border-top:1px solid #ece4e6; }
+        .fitka-tabs__radio{ position:absolute; opacity:0; pointer-events:none; }
+        .fitka-tabs__nav{ display:flex; gap:28px; flex-wrap:nowrap; overflow-x:auto; border-bottom:1px solid #ece4e6; }
+        .fitka-tabs__tab{ padding:16px 2px; font-weight:600; color:#393939; opacity:.55; cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; margin-bottom:-1px; transition:opacity .15s,color .15s,border-color .15s; }
+        .fitka-tabs__tab:hover{ opacity:.85; }
+        .fitka-tabs__panels{ padding:20px 2px; }
+        .fitka-tabs__panel{ display:none; line-height:1.55; color:#393939; }
+        .fitka-tabs__panel p{ margin:0 0 8px; }
+        .fitka-tabs__oeko{ margin-top:12px; }
+        {%- for block in section.blocks -%}
+          #ft-{{ uid }}-{{ forloop.index }}:checked ~ .fitka-tabs__nav label[for="ft-{{ uid }}-{{ forloop.index }}"]{ opacity:1; color:#a0304e; border-bottom-color:#a0304e; }
+          #ft-{{ uid }}-{{ forloop.index }}:checked ~ .fitka-tabs__panels #ftp-{{ uid }}-{{ forloop.index }}{ display:block; }
+        {%- endfor -%}
+      </style>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FitKa – Info taby",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading (volitelné)" },
+    { "type": "color", "id": "bg_color", "label": "Background", "default": "#ffffff" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 80, "step": 4, "default": 24, "label": "Padding top" },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 80, "step": 4, "default": 24, "label": "Padding bottom" }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Záložka",
+      "settings": [
+        { "type": "text", "id": "tab_title", "label": "Název záložky", "default": "Záložka" },
+        { "type": "richtext", "id": "content", "label": "Obsah", "default": "<p>Obsah záložky.</p>" },
+        { "type": "checkbox", "id": "show_oeko", "label": "Zobrazit OEKO-TEX badge", "default": false }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "FitKa – Info taby",
+      "blocks": [
+        { "type": "tab", "settings": { "tab_title": "Materiál", "show_oeko": true, "content": "<p>Hlavní materiál: 82 % micro polyester, 18 % elastan<br/>Bambusová vložka: 92 % bambusová viskóza, 8 % lycra<br/>Gramáž: 235 g/m²<br/>Certifikace: OEKO-TEX® Standard 100<br/>Ušito v České republice</p>" } },
+        { "type": "tab", "settings": { "tab_title": "Péče", "content": "<p>Perte na 30 °C. Nepoužívejte aviváž. Nesušte v sušičce. Sušte naležato.</p>" } },
+        { "type": "tab", "settings": { "tab_title": "Doprava a vrácení", "content": "<p>Doprava od 1 500 Kč zdarma, doručení po celé ČR.<br/>Vrácení do [doplň] dní. Výměna velikosti zdarma.</p>" } },
+        { "type": "tab", "settings": { "tab_title": "FAQ", "content": "<p><strong>Je to vidět pod legínami?</strong> Díky plochým okrajům a hladkému materiálu se kalhotky nerýsují.<br/><strong>Jak vyberu velikost?</strong> Použij průvodce velikostí nebo tabulku; při pochybnostech ber menší.<br/><strong>Vhodné na běh, jógu, fitko i turistiku?</strong> Ano – navržené pro pohyb i celodenní nošení.<br/><strong>Jak funguje bambusová vložka?</strong> Antibakteriální bambusová viskóza pro svěžest po celý den.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
