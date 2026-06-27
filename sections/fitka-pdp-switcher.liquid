@@ -1,0 +1,14 @@
+{%- comment -%} Custom Liquid blok – vlož NAHORU v buy boxu (nad Title). Zobrazí se jen na Brief/Tanga. {%- endcomment -%}
+{%- assign cur = product.handle -%}
+{%- if cur == 'brief-fitka' or cur == 'brazilky-fitka' -%}
+  <div class="fitka-switch" role="tablist" aria-label="Vyber střih">
+    <a href="/products/brief-fitka" class="fitka-switch__tab{% if cur == 'brief-fitka' %} is-active{% endif %}"{% if cur == 'brief-fitka' %} aria-current="page"{% endif %}>Brief</a>
+    <a href="/products/brazilky-fitka" class="fitka-switch__tab{% if cur == 'brazilky-fitka' %} is-active{% endif %}"{% if cur == 'brazilky-fitka' %} aria-current="page"{% endif %}>Tanga</a>
+  </div>
+  <style>
+    .fitka-switch{ display:inline-flex; gap:6px; background:#f7f6f6; border:1px solid #efe7e9; border-radius:999px; padding:5px; margin:0 0 16px; }
+    .fitka-switch__tab{ padding:8px 24px; border-radius:999px; font-weight:600; font-size:.95rem; line-height:1; color:#393939; text-decoration:none; transition:background .15s,color .15s; }
+    .fitka-switch__tab.is-active{ background:#a0304e; color:#fff; }
+    .fitka-switch__tab:not(.is-active):hover{ background:#ffe2e3; }
+  </style>
+{%- endif -%}
