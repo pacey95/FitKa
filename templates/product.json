@@ -136,6 +136,56 @@
         "padding_bottom": 60
       }
     },
+    "fitka_tabs_6yEzxg": {
+      "type": "fitka-tabs",
+      "blocks": {
+        "tab_JBWtdH": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Materiál",
+            "content": "<p>Hlavní materiál: 82 % micro polyester, 18 % elastan<br/>Bambusová vložka: 92 % bambusová viskóza, 8 % lycra<br/>Gramáž: 235 g/m²<br/>Certifikace: OEKO-TEX® Standard 100<br/>Ušito v České republice</p>",
+            "show_oeko": true
+          }
+        },
+        "tab_3DjgW4": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Péče",
+            "content": "<p>Perte na 30 °C. Nepoužívejte aviváž. Nesušte v sušičce. Sušte naležato.</p>",
+            "show_oeko": false
+          }
+        },
+        "tab_Qypekb": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Doprava a vrácení",
+            "content": "<p>Doprava od 1 500 Kč zdarma, doručení po celé ČR.<br/>Vrácení do [doplň] dní. Výměna velikosti zdarma.</p>",
+            "show_oeko": false
+          }
+        },
+        "tab_LRTXHb": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "FAQ",
+            "content": "<p><strong>Je to vidět pod legínami?</strong> Díky plochým okrajům a hladkému materiálu se kalhotky nerýsují.<br/><strong>Jak vyberu velikost?</strong> Použij průvodce velikostí nebo tabulku; při pochybnostech ber menší.<br/><strong>Vhodné na běh, jógu, fitko i turistiku?</strong> Ano – navržené pro pohyb i celodenní nošení.<br/><strong>Jak funguje bambusová vložka?</strong> Antibakteriální bambusová viskóza pro svěžest po celý den.</p>",
+            "show_oeko": false
+          }
+        }
+      },
+      "block_order": [
+        "tab_JBWtdH",
+        "tab_3DjgW4",
+        "tab_Qypekb",
+        "tab_LRTXHb"
+      ],
+      "name": "FitKa – Info taby",
+      "settings": {
+        "heading": "",
+        "bg_color": "#ffffff",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
     "rich_text_GUynMr": {
       "type": "rich-text",
       "blocks": {
@@ -400,6 +450,7 @@
   },
   "order": [
     "main",
+    "fitka_tabs_6yEzxg",
     "rich_text_GUynMr",
     "multirow_jbceAJ",
     "rich_text_kmTTh7",
