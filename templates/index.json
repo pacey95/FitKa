@@ -96,22 +96,50 @@
           "type": "tile",
           "settings": {
             "product": "brief-fitka",
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+            "description": "Klasický střih pro maximální pohodlí a jistotu.",
+            "button_label": "Zobrazit Brief",
+            "chip_1": "Neviditelné pod oblečením",
+            "chip_2": "Maximální komfort",
+            "chip_3": "Drží na místě"
+=======
+>>>>>>> Stashed changes
             "description": "",
             "button_label": "Zobrazit",
             "chip_1": "",
             "chip_2": "",
             "chip_3": ""
+<<<<<<< Updated upstream
+=======
+>>>>>>> bdea67d8ce832ce78c7eb864b3aad7561c22e5f3
+>>>>>>> Stashed changes
           }
         },
         "tile_DtgWJr": {
           "type": "tile",
           "settings": {
             "product": "brazilky-fitka",
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+            "description": "Minimalistický střih, který se nikde nerýsuje.",
+            "button_label": "Zobrazit Tanga",
+            "chip_1": "Bezešvé okraje",
+            "chip_2": "Lehkost a volnost",
+            "chip_3": "Zero lines"
+=======
+>>>>>>> Stashed changes
             "description": "",
             "button_label": "Zobrazit",
             "chip_1": "",
             "chip_2": "",
             "chip_3": ""
+<<<<<<< Updated upstream
+=======
+>>>>>>> bdea67d8ce832ce78c7eb864b3aad7561c22e5f3
+>>>>>>> Stashed changes
           }
         },
         "helper_ckardj": {
@@ -123,7 +151,15 @@
             "check_2": "Doporučení na míru",
             "check_3": "Bez přemýšlení",
             "button_label": "Pomůžeme ti vybrat",
+<<<<<<< Updated upstream
             "button_link": ""
+=======
+<<<<<<< HEAD
+            "button_link": "shopify://blogs/news/jak-vybrat-idealni-sportovni-kalhotky-kompletni-pruvodce-pro-aktivni-zeny"
+=======
+            "button_link": ""
+>>>>>>> bdea67d8ce832ce78c7eb864b3aad7561c22e5f3
+>>>>>>> Stashed changes
           }
         }
       },
@@ -141,6 +177,11 @@
         "padding_bottom": 28
       }
     },
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
     "featured_collection": {
       "type": "featured-collection-fitka",
       "custom_css": [],
@@ -170,6 +211,10 @@
         "padding_bottom": 28
       }
     },
+<<<<<<< Updated upstream
+=======
+>>>>>>> bdea67d8ce832ce78c7eb864b3aad7561c22e5f3
+>>>>>>> Stashed changes
     "17659978780a22910d": {
       "type": "apps",
       "blocks": {
@@ -447,13 +492,83 @@
       "settings": {
         "include_margins": true
       }
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+    },
+    "fitka_volume_band": {
+      "type": "fitka-volume-band",
+      "blocks": {
+        "t1": {
+          "type": "tier",
+          "settings": {
+            "qty_label": "1 kus",
+            "unit_price": "649 Kč / ks",
+            "save_text": "",
+            "badge": ""
+          }
+        },
+        "t2": {
+          "type": "tier",
+          "settings": {
+            "qty_label": "2 kusy",
+            "unit_price": "629 Kč / ks",
+            "save_text": "ušetříš 40 Kč",
+            "badge": ""
+          }
+        },
+        "t3": {
+          "type": "tier",
+          "settings": {
+            "qty_label": "3 kusy",
+            "unit_price": "599 Kč / ks",
+            "save_text": "ušetříš 150 Kč",
+            "badge": "Nejoblíbenější"
+          }
+        },
+        "t4": {
+          "type": "tier",
+          "settings": {
+            "qty_label": "4+ kusy",
+            "unit_price": "569 Kč / ks",
+            "save_text": "ušetříš 320 Kč",
+            "badge": "Nejlepší cena"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "heading": "Čím víc kusů, tím výhodnější cena",
+        "note": "Množstevní sleva se uplatní automaticky v košíku.",
+        "bg_color": "#f7f6f6",
+        "button_label": "",
+        "button_link": "",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+=======
+>>>>>>> bdea67d8ce832ce78c7eb864b3aad7561c22e5f3
+>>>>>>> Stashed changes
     }
   },
   "order": [
     "hero_fitka_AF6JC7",
     "fitka_icons_text_Btj89m",
     "fitka_cut_tiles_qBnGNw",
+<<<<<<< Updated upstream
     "featured_collection",
+=======
+<<<<<<< HEAD
+    "fitka_volume_band",
+=======
+    "featured_collection",
+>>>>>>> bdea67d8ce832ce78c7eb864b3aad7561c22e5f3
+>>>>>>> Stashed changes
     "17659978780a22910d",
     "image_with_text_xyBakx",
     "image_with_text_7NWejK",
