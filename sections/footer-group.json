@@ -41,8 +41,8 @@
         "menu_7e7Y7F": {
           "type": "menu",
           "settings": {
-            "heading": "Informace",
-            "menu": "main-menu"
+            "heading": "Nakupuj",
+            "menu": "nakupuj"
           }
         },
         "menu_M4c9gD": {
@@ -50,6 +50,13 @@
           "settings": {
             "heading": "Informace",
             "menu": "footer"
+          }
+        },
+        "menu_ed9L3w": {
+          "type": "menu",
+          "settings": {
+            "heading": "Zákaznická péče",
+            "menu": "z-kaznick-p-e"
           }
         },
         "contact_pwgFfQ": {
@@ -65,6 +72,7 @@
         "brand_TJ8BMJ",
         "menu_7e7Y7F",
         "menu_M4c9gD",
+        "menu_ed9L3w",
         "contact_pwgFfQ"
       ],
       "custom_css": [],
