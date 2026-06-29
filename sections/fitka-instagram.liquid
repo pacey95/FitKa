@@ -1,0 +1,111 @@
+{% comment %} sections/fitka-instagram.liquid {% endcomment %}
+{%- assign handle = section.settings.handle | remove: '@' | strip -%}
+<section
+  class="fitka-ig"
+  style="
+    --bg: {{ section.settings.bg_color | default: '#ffffff' }};
+    --accent: {{ section.settings.accent | default: '#a0304e' }};
+    --pt: {{ section.settings.padding_top | default: 40 }}px;
+    --pb: {{ section.settings.padding_bottom | default: 40 }}px;
+    --gap: {{ section.settings.gap | default: 10 }}px;
+    --radius: {{ section.settings.radius | default: 14 }}px;
+  "
+>
+  <div class="page-width fitka-ig__wrap">
+    <div class="fitka-ig__head">
+      {% if section.settings.heading != blank %}<h2 class="fitka-ig__h">{{ section.settings.heading }}</h2>{% endif %}
+      {% if handle != blank %}
+        <a class="fitka-ig__handle" href="https://instagram.com/{{ handle }}" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          @{{ handle }}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="fitka-ig__grid">
+      {% for block in section.blocks %}
+        {%- assign url = block.settings.link | default: '#' -%}
+        <a class="fitka-ig__cell" href="{% if block.settings.link != blank %}{{ block.settings.link }}{% elsif handle != blank %}https://instagram.com/{{ handle }}{% else %}#{% endif %}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'fitka-ig__img', alt: 'FitKa na Instagramu' }}
+          {% else %}
+            <div class="fitka-ig__ph" aria-hidden="true"></div>
+          {% endif %}
+          <span class="fitka-ig__ov" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="#fff" stroke="none"/></svg>
+          </span>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.cta_label != blank %}
+      <div class="fitka-ig__cta">
+        <a class="button button--primary" href="{% if handle != blank %}https://instagram.com/{{ handle }}{% else %}{{ section.settings.cta_link }}{% endif %}" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" style="margin-right:8px;vertical-align:-3px"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>{{ section.settings.cta_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+
+  <style>
+    .fitka-ig{ background:var(--bg); padding:var(--pt) 0 var(--pb); }
+    .fitka-ig__head{ text-align:center; margin-bottom:clamp(16px,2.5vw,24px); }
+    .fitka-ig__h{ margin:0 0 6px; font-size:clamp(24px,2.8vw,34px); }
+    .fitka-ig__handle{ display:inline-flex; align-items:center; gap:6px; color:var(--accent); text-decoration:none; font-weight:600; font-size:15px; }
+    .fitka-ig__handle:hover{ text-decoration:underline; }
+
+    .fitka-ig__grid{ display:grid; grid-template-columns:repeat({{ section.settings.cols | default: 6 }}, 1fr); gap:var(--gap); }
+    .fitka-ig__cell{ position:relative; aspect-ratio:1/1; border-radius:var(--radius); overflow:hidden; display:block; background:#f4eef0; }
+    .fitka-ig__img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+    .fitka-ig__ph{ position:absolute; inset:0; background:linear-gradient(135deg,#ffe2e3,#f7f6f6); }
+    .fitka-ig__ov{ position:absolute; inset:0; display:grid; place-items:center; background:rgba(160,48,78,.0); opacity:0; transition:opacity .25s ease, background .25s ease; }
+    .fitka-ig__cell:hover .fitka-ig__img{ transform:scale(1.07); }
+    .fitka-ig__cell:hover .fitka-ig__ov{ opacity:1; background:rgba(160,48,78,.35); }
+
+    .fitka-ig__cta{ text-align:center; margin-top:clamp(18px,3vw,28px); }
+
+    @media (max-width:990px){ .fitka-ig__grid{ grid-template-columns:repeat(4,1fr); } }
+    @media (max-width:600px){ .fitka-ig__grid{ grid-template-columns:repeat(3,1fr); } }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "FitKa – Instagram",
+  "settings": [
+    { "type": "header", "content": "Obsah" },
+    { "type": "text", "id": "heading", "label": "Nadpis", "default": "Sleduj nás na Instagramu" },
+    { "type": "text", "id": "handle", "label": "IG profil (handle)", "default": "fitka.underwear", "info": "Bez @ – použije se pro odkazy i CTA." },
+    { "type": "text", "id": "cta_label", "label": "Text CTA tlačítka", "default": "Sleduj nás na Instagramu" },
+    { "type": "url", "id": "cta_link", "label": "CTA odkaz (záloha, když není handle)" },
+    { "type": "header", "content": "Vzhled" },
+    { "type": "range", "id": "cols", "min": 3, "max": 8, "step": 1, "default": 6, "label": "Počet sloupců (desktop)" },
+    { "type": "range", "id": "gap", "min": 2, "max": 24, "step": 2, "default": 10, "label": "Mezera mezi obrázky (px)" },
+    { "type": "range", "id": "radius", "min": 0, "max": 30, "step": 2, "default": 14, "label": "Zaoblení rohů (px)" },
+    { "type": "color", "id": "bg_color", "label": "Pozadí", "default": "#ffffff" },
+    { "type": "color", "id": "accent", "label": "Akcentní barva", "default": "#a0304e" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "default": 40, "label": "Padding nahoře" },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "default": 40, "label": "Padding dole" }
+  ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "Příspěvek",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Obrázek" },
+        { "type": "url", "id": "link", "label": "Odkaz na příspěvek (volitelné)", "info": "Prázdné = odkaz na profil." }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "FitKa – Instagram",
+      "blocks": [
+        { "type": "post" }, { "type": "post" }, { "type": "post" },
+        { "type": "post" }, { "type": "post" }, { "type": "post" }
+      ]
+    }
+  ]
+}
+{% endschema %}
