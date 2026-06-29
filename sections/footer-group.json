@@ -27,6 +27,29 @@
         "perk_2": "Žádný spam, jen to důležité"
       }
     },
+    "blocks_E4q8Qn": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_7cf81bc_WUTmYg": {
+          "type": "ai_gen_block_7cf81bc",
+          "settings": {
+            "divider_style": "solid",
+            "divider_thickness": 1,
+            "dash_length": 10,
+            "dash_gap": 10,
+            "divider_color": "#A0304E",
+            "divider_opacity": 15,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_7cf81bc_WUTmYg"
+      ],
+      "name": "Oddělovač",
+      "settings": {}
+    },
     "footer": {
       "type": "footer-fitka",
       "blocks": {
@@ -90,6 +113,7 @@
   },
   "order": [
     "fitka_newsletter_Tdrkqz",
+    "blocks_E4q8Qn",
     "footer"
   ]
 }
