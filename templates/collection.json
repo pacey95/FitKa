@@ -97,24 +97,26 @@
         "padding_bottom": 36
       }
     },
-    "fitka_cut_tiles_eFqtA4": {
+    "fitka_cut_tiles_pQpJra": {
       "type": "fitka-cut-tiles",
       "blocks": {
-        "tile_qwWUnM": {
+        "tile_TafqdC": {
           "type": "tile",
           "settings": {
             "product": "brief-fitka",
-            "description": "",
+            "image": "shopify://shop_images/Brief_-_bez_pozadi.png",
+            "description": "{{ block.settings.product.metafields.descriptors.subtitle.value }}",
             "button_label": "Zobrazit Brief",
             "chip_1": "",
             "chip_2": "",
             "chip_3": ""
           }
         },
-        "tile_pDy6Jf": {
+        "tile_9kFjHQ": {
           "type": "tile",
           "settings": {
             "product": "brazilky-fitka",
+            "image": "shopify://shop_images/Tanga_-_bez_pozadi.png",
             "description": "",
             "button_label": "Zobrazit Tanga",
             "chip_1": "",
@@ -124,15 +126,15 @@
         }
       },
       "block_order": [
-        "tile_qwWUnM",
-        "tile_pDy6Jf"
+        "tile_TafqdC",
+        "tile_9kFjHQ"
       ],
       "name": "FitKa – Vyber střih",
       "settings": {
         "heading": "Vyber si svůj střih",
         "subheading": "Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě.",
         "bg_color": "#f7f6f6",
-        "tile_bg": "#ffffff",
+        "tile_bg": "#ffe2e3",
         "image_fit": "cover",
         "padding_top": 28,
         "padding_bottom": 28
@@ -328,7 +330,7 @@
     "custom_liquid_M7BnNB",
     "rich_text_3ww66A",
     "product-grid",
-    "fitka_cut_tiles_eFqtA4",
+    "fitka_cut_tiles_pQpJra",
     "fitka_pdp_info_cgPchQ",
     "blocks_FJBhiF",
     "17659995300940563f",
