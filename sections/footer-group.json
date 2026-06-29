@@ -45,6 +45,13 @@
             "menu": "main-menu"
           }
         },
+        "menu_M4c9gD": {
+          "type": "menu",
+          "settings": {
+            "heading": "Informace",
+            "menu": "footer"
+          }
+        },
         "contact_pwgFfQ": {
           "type": "contact",
           "settings": {
@@ -57,6 +64,7 @@
       "block_order": [
         "brand_TJ8BMJ",
         "menu_7e7Y7F",
+        "menu_M4c9gD",
         "contact_pwgFfQ"
       ],
       "custom_css": [],
