@@ -86,13 +86,13 @@
         "heading": "",
         "layout": "inline",
         "show_dividers": false,
-        "icon_size": 32,
+        "icon_size": 40,
         "title_size": 14,
         "invert_icons": false,
         "bg_color": "#f7f6f6",
         "bg_image_opacity": 100,
         "text_color": "#393939",
-        "padding_y": 0
+        "padding_y": 12
       }
     },
     "fitka_cut_tiles_qBnGNw": {
