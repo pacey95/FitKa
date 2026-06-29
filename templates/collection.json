@@ -131,7 +131,7 @@
       "settings": {
         "heading": "Vyber si svůj střih",
         "subheading": "Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě.",
-        "bg_color": "#F7F6F6",
+        "bg_color": "#f7f6f6",
         "tile_bg": "#ffffff",
         "image_fit": "cover",
         "padding_top": 28,
@@ -224,7 +224,7 @@
         "helper_button_label": "Pomozte mi vybrat",
         "helper_button_link": "",
         "helper_subtext": "Rychlé doporučení na základě tvé výšky a obvodu boků.",
-        "bg_color": "#F7F6F6",
+        "bg_color": "#f7f6f6",
         "text_size": 15,
         "icon_size": 28,
         "helper_icon_size": 46,
@@ -242,7 +242,7 @@
             "divider_thickness": 1,
             "dash_length": 10,
             "dash_gap": 10,
-            "divider_color": "#A0304E",
+            "divider_color": "#a0304e",
             "divider_opacity": 50,
             "desktop_width_percent": 60
           },
@@ -281,28 +281,18 @@
             "corner_styling": "soft",
             "header_text_color": "#000000",
             "text_color": "#000000",
-            "card_color": "#FFE2E3",
-            "stars_color": "#A0304E",
+            "card_color": "#ffe2e3",
+            "stars_color": "#a0304e",
             "arrows_color": "#000000",
             "transition_speed": 5,
             "header_text": "Recenze zákaznic",
             "show_average_rating": true,
             "rating_display": "default"
           }
-        },
-        "judge_me_reviews_review_widget_DYXc44": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "other_products_reviews"
-          }
         }
       },
       "block_order": [
-        "judge_me_reviews_cards_carousel_bfjrBH",
-        "judge_me_reviews_review_widget_DYXc44"
+        "judge_me_reviews_cards_carousel_bfjrBH"
       ],
       "settings": {
         "include_margins": true
@@ -318,7 +308,7 @@
             "divider_thickness": 1,
             "dash_length": 10,
             "dash_gap": 10,
-            "divider_color": "#A0304E",
+            "divider_color": "#a0304e",
             "divider_opacity": 50,
             "desktop_width_percent": 60
           },
@@ -328,6 +318,7 @@
       "block_order": [
         "ai_gen_block_7cf81bc_LU43mp"
       ],
+      "disabled": true,
       "name": "Oddělovač",
       "settings": {}
     }
