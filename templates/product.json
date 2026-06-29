@@ -284,6 +284,26 @@
         "padding_bottom": 24
       }
     },
+    "17827257846fadd301": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_fnjKUP": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": true,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_fnjKUP"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "rich_text_GUynMr": {
       "type": "rich-text",
       "blocks": {
@@ -550,6 +570,7 @@
     "main",
     "fitka_pdp_info_h7E4Dc",
     "fitka_tabs_6yEzxg",
+    "17827257846fadd301",
     "rich_text_GUynMr",
     "multirow_jbceAJ",
     "rich_text_kmTTh7",
