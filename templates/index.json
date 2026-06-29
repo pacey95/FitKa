@@ -264,29 +264,6 @@
         "include_margins": true
       }
     },
-    "blocks_zDLbRf": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_7cf81bc_8TMrKe": {
-          "type": "ai_gen_block_7cf81bc",
-          "settings": {
-            "divider_style": "solid",
-            "divider_thickness": 1,
-            "dash_length": 10,
-            "dash_gap": 10,
-            "divider_color": "#A0304E",
-            "divider_opacity": 50,
-            "desktop_width_percent": 60
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_7cf81bc_8TMrKe"
-      ],
-      "name": "Oddělovač",
-      "settings": {}
-    },
     "image_with_text_7NWejK": {
       "type": "image-with-text",
       "blocks": {
@@ -383,29 +360,6 @@
         "padding_top": 32,
         "padding_bottom": 0
       }
-    },
-    "blocks_Nb3NXg": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_7cf81bc_jKgffa": {
-          "type": "ai_gen_block_7cf81bc",
-          "settings": {
-            "divider_style": "solid",
-            "divider_thickness": 1,
-            "dash_length": 10,
-            "dash_gap": 10,
-            "divider_color": "#A0304E",
-            "divider_opacity": 50,
-            "desktop_width_percent": 60
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_7cf81bc_jKgffa"
-      ],
-      "name": "Oddělovač",
-      "settings": {}
     },
     "multicolumn_8ChCan": {
       "type": "multicolumn",
@@ -572,10 +526,8 @@
     "fitka_volume_band",
     "blocks_EArXqW",
     "17659978780a22910d",
-    "blocks_zDLbRf",
     "image_with_text_7NWejK",
     "image_with_text_xyBakx",
-    "blocks_Nb3NXg",
     "multicolumn_8ChCan",
     "rich_text_Yfa8Nw",
     "blocks_LPprdM",
