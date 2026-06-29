@@ -119,24 +119,11 @@
             "chip_2": "",
             "chip_3": ""
           }
-        },
-        "helper_ckardj": {
-          "type": "helper",
-          "settings": {
-            "heading": "Neviš, který střih?",
-            "text": "Každé tělo je jiné. Rády ti pomůžeme vybrat ten pravý.",
-            "check_1": "Jen 30 sekund",
-            "check_2": "Doporučení na míru",
-            "check_3": "Bez přemýšlení",
-            "button_label": "Pomůžeme ti vybrat",
-            "button_link": "shopify://blogs/news/jak-vybrat-idealni-sportovni-kalhotky-kompletni-pruvodce-pro-aktivni-zeny"
-          }
         }
       },
       "block_order": [
         "tile_bxJfpg",
-        "tile_DtgWJr",
-        "helper_ckardj"
+        "tile_DtgWJr"
       ],
       "name": "FitKa – Vyber střih",
       "settings": {
@@ -250,6 +237,54 @@
         "include_margins": true
       }
     },
+    "image_with_text_7NWejK": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_wi3phm": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>O kalhotkách</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_Uebje8": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Každý trénink začíná odspoda.</strong> Věříme, že když se cítíš dobře už v první vrstvě, nic tě nezastaví.</p><p>FitKa jsme proto vytvořily z <strong>materiálů, které se hýbou s tebou</strong> – jsou lehké, pružné a přizpůsobí se každému pohybu. Díky špičkové kvalitě se navíc jen tak neopotřebí – <strong>i po letech si udrží svůj tvar a funkčnost.</strong></p><p>Střih je navržený tak, aby <strong>lichotil postavě </strong>a dodal ti sebevědomí – i když je to kus oblečení, který vidíš jen ty.<br/></p><p>A protože věříme v sílu <strong>lokální tvorby, </strong>daly jsme si záležet, aby FitKa vznikaly eticky rukou českých švadlen. 🤍<br/><br/></p>",
+            "text_style": "body"
+          }
+        },
+        "button_TTzbEw": {
+          "type": "button",
+          "settings": {
+            "button_label": "Objev svoje FitKa",
+            "button_link": "shopify://collections/nase-kalhotky",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_wi3phm",
+        "text_Uebje8",
+        "button_TTzbEw"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/IMGL4779.jpg",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "background-1",
+        "color_scheme": "accent-3",
+        "padding_top": 12,
+        "padding_bottom": 0
+      }
+    },
     "image_with_text_xyBakx": {
       "type": "image-with-text",
       "blocks": {
@@ -286,7 +321,7 @@
       "settings": {
         "image": "shopify://shop_images/IMGL5419.jpg",
         "height": "small",
-        "desktop_image_width": "medium",
+        "desktop_image_width": "small",
         "layout": "image_first",
         "image_behavior": "zoom-in",
         "content_layout": "no-overlap",
@@ -296,55 +331,7 @@
         "section_color_scheme": "background-1",
         "color_scheme": "background-2",
         "padding_top": 32,
-        "padding_bottom": 32
-      }
-    },
-    "image_with_text_7NWejK": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_wi3phm": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>O kalhotkách</strong>",
-            "heading_size": "h2"
-          }
-        },
-        "text_Uebje8": {
-          "type": "text",
-          "settings": {
-            "text": "<p><strong>Každý trénink začíná odspoda.</strong> Věříme, že když se cítíš dobře už v první vrstvě, nic tě nezastaví.</p><p>FitKa jsme proto vytvořily z <strong>materiálů, které se hýbou s tebou</strong> – jsou lehké, pružné a přizpůsobí se každému pohybu. Díky špičkové kvalitě se navíc jen tak neopotřebí – <strong>i po letech si udrží svůj tvar a funkčnost.</strong></p><p>Střih je navržený tak, aby <strong>lichotil postavě </strong>a dodal ti sebevědomí – i když je to kus oblečení, který vidíš jen ty.<br/></p><p>A protože věříme v sílu <strong>lokální tvorby, </strong>daly jsme si záležet, aby FitKa vznikaly eticky rukou českých švadlen. 🤍<br/><br/></p>",
-            "text_style": "body"
-          }
-        },
-        "button_TTzbEw": {
-          "type": "button",
-          "settings": {
-            "button_label": "Objev svoje FitKa",
-            "button_link": "shopify://collections/nase-kalhotky",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_wi3phm",
-        "text_Uebje8",
-        "button_TTzbEw"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/IMGL4779.jpg",
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "background-1",
-        "color_scheme": "accent-3",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 0
       }
     },
     "multicolumn_8ChCan": {
@@ -488,8 +475,8 @@
     "fitka_cut_tiles_qBnGNw",
     "fitka_volume_band",
     "17659978780a22910d",
-    "image_with_text_xyBakx",
     "image_with_text_7NWejK",
+    "image_with_text_xyBakx",
     "multicolumn_8ChCan",
     "rich_text_Yfa8Nw",
     "17824203517a0ce090",
