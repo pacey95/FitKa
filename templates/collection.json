@@ -204,7 +204,7 @@
           "settings": {
             "icon": "card",
             "title": "Bezpečná platba",
-            "subtitle": "kartou, Apple Pay, Google Pay nebo na dobírku"
+            "subtitle": "kartou, Apple Pay, Google Pay"
           }
         }
       },
