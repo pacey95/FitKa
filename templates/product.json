@@ -56,10 +56,6 @@
             "waitForElementDelay": 5
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
         "dealeasy_vd_cards_cKEw7F": {
           "type": "shopify://apps/dealeasy/blocks/vd-cards/e47a8634-0496-480d-9e46-6f7fafd34b30",
           "settings": {
@@ -120,7 +116,6 @@
         "price",
         "variant_picker",
         "kiwi_size_chart_recommender_kiwi_sizing_QcmhLi",
-        "quantity_selector",
         "dealeasy_vd_cards_cKEw7F",
         "inventory_aVhz9U",
         "buy_buttons",
@@ -231,7 +226,7 @@
         "helper_button_label": "Jak vybrat kalhotky",
         "helper_button_link": "shopify://blogs/news/jak-vybrat-idealni-sportovni-kalhotky-kompletni-pruvodce-pro-aktivni-zeny",
         "helper_subtext": "Rychlé doporučení na základě tvé výšky a obvodu boků.",
-        "bg_color": "#F7F6F6",
+        "bg_color": "#f7f6f6",
         "text_size": 15,
         "icon_size": 28,
         "helper_icon_size": 46,
@@ -284,7 +279,7 @@
       "name": "FitKa – Info taby",
       "settings": {
         "heading": "",
-        "bg_color": "#F7F6F6",
+        "bg_color": "#f7f6f6",
         "padding_top": 0,
         "padding_bottom": 24
       }
