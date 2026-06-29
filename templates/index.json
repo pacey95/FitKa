@@ -89,7 +89,7 @@
         "icon_size": 40,
         "title_size": 14,
         "invert_icons": false,
-        "bg_color": "#f7f6f6",
+        "bg_color": "#F7F6F6",
         "bg_image_opacity": 100,
         "text_color": "#393939",
         "padding_y": 12
@@ -183,7 +183,7 @@
       "settings": {
         "heading": "Zásoba kalhotek za výhodnější cenu!",
         "note": "Množstevní sleva se uplatní automaticky v košíku.",
-        "bg_color": "#f7f6f6",
+        "bg_color": "#F7F6F6",
         "button_label": "",
         "button_link": "shopify://collections/all",
         "padding_top": 0,
