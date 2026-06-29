@@ -1,1 +1,79 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"footer":{"type":"footer-fitka","blocks":{"link_list_dAmxLR":{"type":"link_list","settings":{"heading":"Vše o nákupu","menu":"footer"}}},"block_order":["link_list_dAmxLR"],"custom_css":[],"settings":{"color_scheme":"background-2","contact_heading":"Můžeme ti s něčím pomoct?","contact_subheading":"Napiš nám! Jsme tu pro tebe 🤍","contact_email":"info@fitka-underwear.com","contact_phone":"","contact_hours":"","social_heading":"@fitka_underwear","newsletter_heading":"<strong>Nezmeškej žádný krok s FitKa<\/strong>","newsletter_subheading":"Novinky, akce i ženská inspirace přímo do tvé schránky.","hover_color":"#7c233a","enable_country_selector":false,"enable_language_selector":false,"payment_enable":false,"show_policy":false,"margin_top":0,"padding_top":100,"padding_bottom":100}}},"order":["footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "fitka_newsletter_Tdrkqz": {
+      "type": "fitka-newsletter",
+      "name": "FitKa – Newsletter",
+      "settings": {
+        "bg_color": "#a0304e",
+        "text_color": "#ffffff",
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "title": "Buď první, kdo se dozví novinky",
+        "subtitle": "a získá tipy pro pohodlí i výkon.",
+        "placeholder": "Váš e-mail",
+        "button_label": "Chci být v obraze",
+        "perk_1": "Sleva 10 % na první nákup",
+        "perk_2": "Žádný spam, jen to důležité"
+      }
+    },
+    "footer": {
+      "type": "footer-fitka",
+      "blocks": {
+        "brand_TJ8BMJ": {
+          "type": "brand",
+          "settings": {
+            "logo": "shopify://shop_images/FitKalogoeshop.png",
+            "tagline": "První vrstva, která tě podrží.",
+            "show_socials": true
+          }
+        },
+        "menu_7e7Y7F": {
+          "type": "menu",
+          "settings": {
+            "heading": "Informace",
+            "menu": "main-menu"
+          }
+        },
+        "contact_pwgFfQ": {
+          "type": "contact",
+          "settings": {
+            "email": "info@fitka-underwear.com",
+            "phone": "",
+            "hours": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_TJ8BMJ",
+        "menu_7e7Y7F",
+        "contact_pwgFfQ"
+      ],
+      "custom_css": [],
+      "settings": {
+        "bg_color": "#ffffff",
+        "heading_color": "#393939",
+        "text_color": "#6b6b6b",
+        "link_hover": "#a0304e",
+        "show_payment_icons": true,
+        "copyright": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "fitka_newsletter_Tdrkqz",
+    "footer"
+  ]
+}
