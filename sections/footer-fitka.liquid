@@ -1,334 +1,163 @@
-{% comment %}theme-check-disable UndefinedObject{% endcomment %}
-{{ 'section-footer.css' | asset_url | stylesheet_tag }}
-{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
-{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
-{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
-{{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{% comment %} sections/fitka-footer.liquid {% endcomment %}
+<footer
+  class="fitka-footer"
+  style="
+    --bg: {{ section.settings.bg_color | default: '#ffffff' }};
+    --head: {{ section.settings.heading_color | default: '#393939' }};
+    --text: {{ section.settings.text_color | default: '#6b6b6b' }};
+    --hover: {{ section.settings.link_hover | default: '#a0304e' }};
+    --pt: {{ section.settings.padding_top | default: 48 }}px;
+    --pb: {{ section.settings.padding_bottom | default: 24 }}px;
+  "
+>
+  <div class="page-width">
+    <div class="fitka-footer__cols">
+      {% for block in section.blocks %}
+        {% case block.type %}
 
-{%- style -%}
-  .footer { margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px; }
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-  @media (min-width:750px){
-    .footer { margin-top: {{ section.settings.margin_top }}px; }
-    .section-{{ section.id }}-padding{ padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; }
-  }
+        {% when 'brand' %}
+          <div class="fitka-footer__brand" {{ block.shopify_attributes }}>
+            {% if block.settings.logo != blank %}
+              {{ block.settings.logo | image_url: width: 360 | image_tag: class: 'fitka-footer__logo-img', alt: shop.name }}
+            {% else %}
+              <span class="fitka-footer__logo">Fit<svg class="fitka-footer__heart" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 20s-7-4.6-9.2-9C1.3 7.7 3 4.8 6 4.8c1.9 0 3.2 1.1 4 2.3.8-1.2 2.1-2.3 4-2.3 3 0 4.7 2.9 3.2 6.2C19 15.4 12 20 12 20Z"/></svg>Ka</span>
+            {% endif %}
+            {% if block.settings.tagline != blank %}<p class="fitka-footer__tag">{{ block.settings.tagline }}</p>{% endif %}
+            {% if block.settings.show_socials %}
+              <div class="fitka-footer__socials">
+                {% if settings.social_instagram_link != blank %}
+                  <a href="{{ settings.social_instagram_link }}" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+                {% endif %}
+                {% if settings.social_facebook_link != blank %}
+                  <a href="{{ settings.social_facebook_link }}" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 8.5h2V5.5h-2c-1.9 0-3 1.3-3 3v1.5H9v3h2V21h3v-7h2.2l.4-3H14v-1c0-.8.2-1.5 0-1.5Z"/></svg></a>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
 
-  /* === GRID – full width, vyvážené sloupce === */
-  .fitka-footer-grid{
-    --hover: {{ section.settings.hover_color | default: '#7c233a' }};
-    display:grid;
-    gap: clamp(14px, 1.8vw, 24px);
-    width:100%;
-    padding-left: clamp(16px, 3vw, 40px);
-    padding-right: clamp(16px, 3vw, 40px);
-    align-items:start;
-  }
-  @media (min-width: 750px){
-    .fitka-footer-grid{
-      grid-template-columns:
-        minmax(320px, 1.45fr)  /* kontakt */
-        minmax(260px, 1.1fr)   /* vše o nákupu */
-        minmax(180px, .85fr)   /* socials */
-        minmax(420px, 1.6fr);  /* newsletter */
-    }
-  }
-  .fitka-footer-col h3{
-    margin:0 0 12px;
-    font-size: clamp(16px, 1.1vw, 18px);
-    letter-spacing:.01em;
-  }
+        {% when 'menu' %}
+          <nav class="fitka-footer__menu" {{ block.shopify_attributes }}>
+            {% if block.settings.heading != blank %}<h3>{{ block.settings.heading }}</h3>{% endif %}
+            <ul>
+              {% for link in linklists[block.settings.menu].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </nav>
 
-  /* === Kontakt – karta === */
-  .fitka-card{
-    border:3px solid #a0304e;
-    border-radius:14px;
-    padding:22px 24px;
-    background: rgba(160,48,78,.06);
-    box-shadow: 0 0 0 1px rgba(160,48,78,.04) inset;
-  }
-  .fitka-contact .sub{ margin:6px 0 8px; opacity:.85; }
-  .fitka-contact a{ display:inline-block; white-space:nowrap; font-weight:500; }
-  .fitka-contact a:hover{ color: var(--hover); }
+        {% when 'contact' %}
+          <div class="fitka-footer__contact" {{ block.shopify_attributes }}>
+            {% if block.settings.email != blank %}<a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a>{% endif %}
+            {% if block.settings.phone != blank %}<a href="tel:{{ block.settings.phone | replace: ' ', '' }}">{{ block.settings.phone }}</a>{% endif %}
+            {% if block.settings.hours != blank %}<span>{{ block.settings.hours }}</span>{% endif %}
+            {% if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 %}
+              <div class="fitka-footer__pay">
+                {% for type in shop.enabled_payment_types %}{{ type | payment_type_svg_tag: class: 'fitka-footer__pay-i' }}{% endfor %}
+              </div>
+            {% endif %}
+          </div>
 
-  /* === Vše o nákupu – 2 sloupce na desktopu === */
-  .fitka-links{ list-style:none; margin:0; padding:0; display:grid; gap:.5rem; grid-template-columns:1fr; }
-  @media (min-width: 900px){
-    .fitka-links{ grid-template-columns: repeat(2, minmax(160px, 1fr)); column-gap: 28px; }
-  }
-  .fitka-links a{ text-decoration: underline; text-underline-offset: 2px; }
-  .fitka-links a:hover{ color: var(--hover); }
-
-  /* === Socials === */
-  .fitka-footer-col.fitka-footer-social{text-align:center}
-  .fitka-footer-social .list-social{justify-content:center; gap:18px}
-  .fitka-footer-social .list-social__link{border:none;background:transparent;padding:0}
-  .fitka-footer-social .icon{width:72px;height:72px}   /* větší IG */
-  .fitka-footer-social .list-social__link:hover{ opacity:.8; }
-
-  /* === Newsletter – box + šipka transparent === */
-  .fitka-newsletter-box{
-    background:#a0304e;
-    color:#fff;
-    border-radius:18px;
-    padding:22px;
-  }
-  .fitka-newsletter-box h3{ color:#fff; font-weight:800; margin-bottom:6px; }
-  .fitka-newsletter-box .sub{ color:#fff; opacity:.95; margin:0 0 12px; font-weight:600; }
-  .fitka-newsletter-box .newsletter-form__field-wrapper{margin-top:0}
-  .fitka-newsletter-box .field{
-    --border:#fff;
-    border:2px solid var(--border);
-    border-radius:999px;
-    background:#fff;
-    display:flex; align-items:center;
-    overflow:hidden;                  /* nic nepřesahuje „pilulku“ */
-  }
-  .fitka-newsletter-box .field__input{
-    background:transparent; color:#393939; font-weight:500; padding-left:18px;
-  }
-  .fitka-newsletter-box .field__label{color:#6b6b6b}
-  /* Tlačítko se šipkou – transparentní, přiměřená šířka */
-  .fitka-newsletter-box .newsletter-form__button{
-    background:transparent!important; border:none; box-shadow:none;
-    width:54px; min-width:54px; height:46px; display:flex; align-items:center; justify-content:center;
-  }
-  .fitka-newsletter-box .newsletter-form__button .svg-wrapper{
-    display:inline-flex; width:22px; height:22px; color:#a0304e;   /* šipka tmavě růžová */
-  }
-  .fitka-newsletter-box .newsletter-form__button:hover{ filter: brightness(0.9); }
-  .fitka-newsletter-box .field:focus-within{
-    box-shadow:0 0 0 4px rgba(255,255,255,.25); border-color:#fff;
-  }
-  .fitka-newsletter-box .newsletter-form__message{color:#fff}
-
-  /* Spodní linka */
-  .footer__content-bottom{border-top:1px solid rgba(0,0,0,.08); margin-top: clamp(20px, 4vw, 36px);}
-{%- endstyle -%}
-
-<footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-
-  {%- liquid
-    assign has_social_icons = true
-    if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
-      assign has_social_icons = false
-    endif
-  -%}
-
-  <!-- Hlavní 4 sloupce – FULL WIDTH -->
-  <div class="fitka-footer-grid">
-    <!-- 1) Kontakt -->
-    <div class="fitka-footer-col">
-      <div class="fitka-card fitka-contact">
-        {% if section.settings.contact_heading != blank %}<p>{{ section.settings.contact_heading }}</p>{% endif %}
-        {% assign sub = section.settings.contact_subheading | strip %}
-        {% if sub != blank and sub != '-' %}<div class="sub">{{ sub }}</div>{% endif %}
-        {% if section.settings.contact_email != blank %}
-          <div><a class="link link--text" href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a></div>
-        {% endif %}
-        {% if section.settings.contact_phone != blank %}
-          <div><a class="link link--text" href="tel:{{ section.settings.contact_phone | replace: ' ', '' }}">{{ section.settings.contact_phone }}</a></div>
-        {% endif %}
-        {% if section.settings.contact_hours != blank %}
-          <div class="rte" style="margin-top:6px">{{ section.settings.contact_hours }}</div>
-        {% endif %}
-      </div>
+        {% endcase %}
+      {% endfor %}
     </div>
 
-    <!-- 2) Vše o nákupu – 2 sloupce -->
-    <div class="fitka-footer-col">
-      <p>Vše o nákupu</p>
-      <ul class="fitka-links">
-        {%- assign tos_url = shop.terms_of_service.url | default: '/policies/terms-of-service' -%}
-        {%- assign privacy_url = shop.privacy_policy.url | default: '/policies/privacy-policy' -%}
-        {%- assign refund_url = shop.refund_policy.url | default: '/policies/refund-policy' -%}
-        {%- assign shipping_url = shop.shipping_policy.url | default: '/policies/shipping-policy' -%}
-        {%- assign about_url = section.settings.about_link | default: '/pages/o-nas' -%}
-        {%- assign contact_url = section.settings.contact_link | default: '/pages/contact' -%}
-
-        <li><a class="link link--text" href="{{ tos_url }}">Obchodní podmínky</a></li>
-        <li><a class="link link--text" href="{{ refund_url }}">Vrácení a reklamace</a></li>
-        <li><a class="link link--text" href="{{ privacy_url }}">Ochrana osobních údajů</a></li>
-        <li><a class="link link--text" href="{{ shipping_url }}">Zásady pro doručování</a></li>
-        <li><a class="link link--text" href="https://fitka-underwear.com/pages/faq" target="_blank" rel="noopener">FAQ</a></li>
-        <li><a class="link link--text" href="{{ about_url }}">O nás</a></li>
-        <li><a class="link link--text" href="{{ contact_url }}">Kontakty</a></li>
-      </ul>
-    </div>
-
-    <!-- 3) Socials (@handle) -->
-    <div class="fitka-footer-col fitka-footer-social">
-      <p>{{ section.settings.social_heading | default: '@fitka_underwear' }}</p>
-      {% if has_social_icons %}
-        {%- render 'social-icons', class: 'footer__list-social' -%}
+    <div class="fitka-footer__bottom">
+      {% if section.settings.copyright != blank %}
+        {{ section.settings.copyright }}
       {% else %}
-        <p class="rte" style="opacity:.8">Přidej odkazy na sítě v Nastavení → Sociální média.</p>
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Všechna práva vyhrazena.
       {% endif %}
     </div>
-
-    <!-- 4) Newsletter – zvýrazněný box -->
-    <div class="fitka-footer-col">
-      <div class="fitka-newsletter-box">
-        <p>{{ section.settings.newsletter_heading | default: 'Přihlas se k odběru newsletteru!' }}</p>
-        {% assign nsub = section.settings.newsletter_subheading | strip %}
-        {% if nsub != blank and nsub != '-' %}<p class="sub">{{ nsub }}</p>{% endif %}
-        {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-          <input type="hidden" name="contact[tags]" value="newsletter">
-          <div class="newsletter-form__field-wrapper">
-            <div class="field">
-              <input id="NewsletterForm--{{ section.id }}" type="email" name="contact[email]"
-                     class="field__input" value="{{ form.email }}" aria-required="true"
-                     autocorrect="off" autocapitalize="off" autocomplete="email"
-                     placeholder="{{ 'newsletter.label' | t }}" required>
-              <label class="field__label" for="NewsletterForm--{{ section.id }}">{{ 'newsletter.label' | t }}</label>
-              <button type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe"
-                      aria-label="{{ 'newsletter.button_label' | t }}">
-                <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
-              </button>
-            </div>
-            {%- if form.errors -%}
-              <small class="newsletter-form__message form__message" id="ContactFooter-error">
-                <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
-                {{- form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email -}}
-              </small>
-            {%- endif -%}
-          </div>
-          {%- if form.posted_successfully? -%}
-            <p class="newsletter-form__message newsletter-form__message--success form__message" id="ContactFooter-success" tabindex="-1" autofocus>
-              <span class="svg-wrapper">{{- 'icon-success.svg' | inline_asset_content -}}</span>
-              {{- 'newsletter.success' | t }}
-            </p>
-          {%- endif -%}
-        {%- endform -%}
-      </div>
-    </div>
   </div>
 
-  <!-- Spodní lišta -->
-<div class="footer__content-bottom">
-  <div class="footer__content-bottom-wrapper page-width">
-    <div class="footer__column footer__localization isolate">
-      {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-        <localization-form>
-          {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
-            <div>
-              <h2 class="caption-large text-body" id="FooterCountryLabel">{{ 'localization.country_label' | t }}</h2>
-              {%- render 'country-localization', localPosition: 'FooterCountry' -%}
-            </div>
-          {%- endform -%}
-        </localization-form>
-      {%- endif -%}
-      {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-        <localization-form>
-          {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
-            <div>
-              <h2 class="caption-large text-body" id="FooterLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-              {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
-            </div>
-          {%- endform -%}
-        </localization-form>
-      {%- endif -%}
-    </div>
-  </div>
+  <style>
+    .fitka-footer{ background:var(--bg); color:var(--text); padding:var(--pt) 0 0; }
+    .fitka-footer__cols{ display:flex; flex-wrap:wrap; gap:32px 40px; padding-bottom:var(--pb); }
+    .fitka-footer a{ color:inherit; text-decoration:none; transition:color .15s ease; }
+    .fitka-footer a:hover{ color:var(--hover); }
+    .fitka-footer h3{ color:var(--head); font-size:14px; font-weight:700; margin:0 0 14px; }
 
-  <!-- Přidaná sekce log -->
-  <div class="fitka-payment-logos">
-    <a href="https://www.comgate.cz/" target="_blank" rel="noopener noreferrer">
-    <img src="https://cdn.shopify.com/s/files/1/0911/2138/5808/files/cg-hor.svg?v=1760283676" alt="Comgate" loading="lazy">
-    </a>  
-    <img src="https://cdn.shopify.com/s/files/1/0911/2138/5808/files/Visa_Brandmark_Blue_RGB_2021.svg?v=1760283944" alt="Visa" loading="lazy">
-    <img src="https://cdn.shopify.com/s/files/1/0911/2138/5808/files/mc_symbol.svg?v=1760283706" alt="Mastercard" loading="lazy">
-    <img src="https://cdn.shopify.com/s/files/1/0911/2138/5808/files/google-pay.svg?v=1760283699" alt="Google Pay" loading="lazy">
-    <img src="https://cdn.shopify.com/s/files/1/0911/2138/5808/files/apple-pay.svg?v=1760283682" alt="Apple Pay" loading="lazy">
-  </div>
+    .fitka-footer__brand{ flex:1 1 240px; min-width:200px; }
+    .fitka-footer__logo{ display:inline-flex; align-items:center; gap:1px; font-size:26px; font-weight:700; color:var(--head); }
+    .fitka-footer__heart{ color:var(--hover); margin:0 1px; }
+    .fitka-footer__logo-img{ max-width:160px; height:auto; }
+    .fitka-footer__tag{ margin:12px 0 16px; font-size:14px; }
+    .fitka-footer__socials{ display:flex; gap:12px; }
+    .fitka-footer__socials a{ width:38px; height:38px; border:1px solid #e6dde0; border-radius:50%; display:grid; place-items:center; color:var(--head); }
+    .fitka-footer__socials a:hover{ border-color:var(--hover); }
 
-  <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
-    <div class="footer__copyright caption">
-      <small class="copyright__content">&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}</small>
-      <small class="copyright__content">{{ powered_by_link }}</small>
-      {%- if section.settings.show_policy -%}
-        <ul class="policies list-unstyled">
-          {%- for policy in shop.policies -%}
-            {%- if policy != blank -%}
-              <li><small class="copyright__content"><a href="{{ policy.url }}">{{ policy.title | escape }}</a></small></li>
-            {%- endif -%}
-          {%- endfor -%}
-        </ul>
-      {%- endif -%}
-    </div>
-  </div>
-</div>
+    .fitka-footer__menu{ flex:0 1 170px; }
+    .fitka-footer__menu ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+    .fitka-footer__menu a{ font-size:14px; }
 
-<style>
-  /* === Payment logos styling === */
-  .fitka-payment-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(14px, 3vw, 36px);
-    flex-wrap: wrap;
-    padding: 22px 0 12px;
-  }
-  .fitka-payment-logos img {
-    height: 32px;
-    width: auto;
-    object-fit: contain;
-    filter: none;
-    transition: opacity .25s ease;
-  }
-  .fitka-payment-logos img:hover {
-    opacity: .75;
-  }
-</style>
+    .fitka-footer__contact{ flex:1 1 200px; margin-left:auto; display:flex; flex-direction:column; gap:8px; text-align:right; font-size:14px; }
+    .fitka-footer__pay{ display:flex; gap:8px; justify-content:flex-end; margin-top:14px; flex-wrap:wrap; }
+    .fitka-footer__pay-i{ width:38px; height:24px; }
 
+    .fitka-footer__bottom{ border-top:1px solid #ece4e6; padding:18px 0; text-align:center; font-size:13px; opacity:.8; }
+
+    @media (max-width:749px){
+      .fitka-footer__cols{ gap:28px; }
+      .fitka-footer__brand, .fitka-footer__menu, .fitka-footer__contact{ flex:1 1 100%; margin-left:0; text-align:left; }
+      .fitka-footer__pay{ justify-content:flex-start; }
+    }
+  </style>
+</footer>
 
 {% schema %}
 {
-  "name": "t:sections.footer.name",
+  "name": "FitKa – Footer",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Pozadí", "default": "#ffffff" },
+    { "type": "color", "id": "heading_color", "label": "Barva nadpisů / loga", "default": "#393939" },
+    { "type": "color", "id": "text_color", "label": "Barva textu", "default": "#6b6b6b" },
+    { "type": "color", "id": "link_hover", "label": "Barva hover / akcent", "default": "#a0304e" },
+    { "type": "checkbox", "id": "show_payment_icons", "label": "Zobrazit platební ikony", "default": true },
+    { "type": "text", "id": "copyright", "label": "Copyright (prázdné = auto rok + název obchodu)" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "default": 48, "label": "Padding nahoře" },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "default": 24, "label": "Padding dole" }
+  ],
   "blocks": [
     {
-      "type": "link_list",
-      "name": "Menu",
+      "type": "brand",
+      "name": "Značka (logo + sociálky)",
+      "limit": 1,
       "settings": [
-        { "type": "inline_richtext", "id": "heading", "default": "Vše o nákupu", "label": "Nadpis" },
+        { "type": "image_picker", "id": "logo", "label": "Logo (volitelné – jinak text Fit♥Ka)" },
+        { "type": "text", "id": "tagline", "label": "Tagline", "default": "První vrstva, která tě podrží." },
+        { "type": "checkbox", "id": "show_socials", "label": "Zobrazit sociální sítě", "default": true }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Sloupec s menu",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Nadpis sloupce", "default": "Nakupuj" },
         { "type": "link_list", "id": "menu", "label": "Menu" }
       ]
     },
-    { "type": "@app" }
+    {
+      "type": "contact",
+      "name": "Kontakt + platby",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "email", "label": "E-mail", "default": "info@fitka.cz" },
+        { "type": "text", "id": "phone", "label": "Telefon", "default": "+420 777 123 456" },
+        { "type": "text", "id": "hours", "label": "Otevírací doba", "default": "Po–Pá 9:00 – 16:00" }
+      ]
+    }
   ],
-  "settings": [
-    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
-
-    { "type": "header", "content": "Kontakt (sloupec 1)" },
-    { "type": "inline_richtext", "id": "contact_heading", "label": "Nadpis", "default": "Máte dotaz?" },
-    { "type": "text", "id": "contact_subheading", "label": "Podtitulek (volitelné)", "default": "-" },
-    { "type": "text", "id": "contact_email", "label": "E-mail", "default": "info@fitka.cz" },
-    { "type": "text", "id": "contact_phone", "label": "Telefon", "default": "+420 000 000 000" },
-    { "type": "richtext", "id": "contact_hours", "label": "Otevírací doba / poznámka", "default": "<p>Po–Pá: 9–17</p>" },
-
-    { "type": "header", "content": "Socials (sloupec 3)" },
-    { "type": "text", "id": "social_heading", "label": "Nadpis (např. @fitka_underwear)", "default": "@fitka_underwear" },
-
-    { "type": "header", "content": "Newsletter (sloupec 4)" },
-    { "type": "inline_richtext", "id": "newsletter_heading", "label": "Nadpis", "default": "Přihlas se k odběru newsletteru!" },
-    { "type": "text", "id": "newsletter_subheading", "label": "Podtitulek (microclaim)", "default": "-" },
-
-    { "type": "header", "content": "Interakce" },
-    { "type": "color", "id": "hover_color", "label": "Barva hoveru (odkazy, prvky)", "default": "#7c233a" },
-
-    { "type": "header", "content": "Lokalizace a další" },
-    { "type": "checkbox", "id": "enable_country_selector", "default": true, "label": "Zobrazit výběr země" },
-    { "type": "checkbox", "id": "enable_language_selector", "default": true, "label": "Zobrazit výběr jazyka" },
-    { "type": "checkbox", "id": "payment_enable", "default": true, "label": "Zobrazit podporované platby" },
-    { "type": "checkbox", "id": "show_policy", "default": true, "label": "Zobrazit odkazy na policy" },
-
-    { "type": "header", "content": "Odsazení" },
-    { "type": "range", "id": "margin_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Horní mezera", "default": 0 },
-    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Vnitřní horní odsazení", "default": 36 },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Vnitřní spodní odsazení", "default": 36 }
-  ],
-  "default": { "blocks": [ { "type": "link_list" } ] }
+  "presets": [
+    {
+      "name": "FitKa – Footer",
+      "blocks": [
+        { "type": "brand" },
+        { "type": "menu", "settings": { "heading": "Nakupuj" } },
+        { "type": "menu", "settings": { "heading": "Informace" } },
+        { "type": "menu", "settings": { "heading": "Zákaznická péče" } },
+        { "type": "contact" }
+      ]
+    }
+  ]
 }
 {% endschema %}
