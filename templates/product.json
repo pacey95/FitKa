@@ -15,7 +15,7 @@
         "custom_liquid_YrRkMX": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{%- comment -%} Custom Liquid blok – vlož NAHORU v buy boxu (nad Title). Zobrazí se jen na Brief/Tanga. {%- endcomment -%}\n{%- assign cur = product.handle -%}\n{%- if cur == 'brief-fitka' or cur == 'brazilky-fitka' -%}\n  <div class=\"fitka-switch\" role=\"tablist\" aria-label=\"Vyber střih\">\n    <a href=\"/products/brief-fitka\" class=\"fitka-switch__tab{% if cur == 'brief-fitka' %} is-active{% endif %}\"{% if cur == 'brief-fitka' %} aria-current=\"page\"{% endif %}>Brief</a>\n    <a href=\"/products/brazilky-fitka\" class=\"fitka-switch__tab{% if cur == 'brazilky-fitka' %} is-active{% endif %}\"{% if cur == 'brazilky-fitka' %} aria-current=\"page\"{% endif %}>Tanga</a>\n  </div>\n  <style>\n    .fitka-switch{ display:inline-flex; gap:6px; background:#f7f6f6; border:1px solid #efe7e9; border-radius:999px; padding:5px; margin:0 0 16px; }\n    .fitka-switch__tab{ padding:8px 24px; border-radius:999px; font-weight:600; font-size:.95rem; line-height:1; color:#393939; text-decoration:none; transition:background .15s,color .15s; }\n    .fitka-switch__tab.is-active{ background:#a0304e; color:#fff; }\n    .fitka-switch__tab:not(.is-active):hover{ background:#ffe2e3; }\n  </style>\n{%- endif -%}"
+            "custom_liquid": "{%- comment -%} PDP Brief↔Tanga switcher — FitKa {%- endcomment -%}\n{%- assign h = product.handle -%}\n{%- if h == 'brief-fitka' or h == 'brazilky-fitka' -%}\n  <div class=\"fitka-switch\">\n    <a href=\"/products/brief-fitka\"\n       class=\"fitka-switch__opt{% if h == 'brief-fitka' %} is-active{% endif %}\"\n       {% if h == 'brief-fitka' %}aria-current=\"page\"{% endif %}>Brief</a>\n    <a href=\"/products/brazilky-fitka\"\n       class=\"fitka-switch__opt{% if h == 'brazilky-fitka' %} is-active{% endif %}\"\n       {% if h == 'brazilky-fitka' %}aria-current=\"page\"{% endif %}>Tanga</a>\n  </div>\n\n  <style>\n    .fitka-switch{\n      display:grid; grid-template-columns:1fr 1fr; gap:8px;\n      background:#FFE2E3; border-radius:16px; padding:6px;\n      margin:0 0 22px; width:100%;\n    }\n    .fitka-switch__opt{\n      display:flex; align-items:center; justify-content:center;\n      padding:14px 12px; border-radius:12px;\n      font-size:17px; font-weight:600; line-height:1;\n      color:#a0304e; text-decoration:none; text-align:center;\n      border:0; background:transparent;\n      transition:background .18s ease, color .18s ease, box-shadow .18s ease;\n    }\n    .fitka-switch__opt:hover{ color:#7d2540; }\n    .fitka-switch__opt.is-active{\n      background:#a0304e; color:#fff;\n      box-shadow:0 2px 8px rgba(160,48,78,.28);\n    }\n    .fitka-switch__opt.is-active:hover{ color:#fff; }\n  </style>\n{%- endif -%}"
           }
         },
         "vendor": {
@@ -304,6 +304,24 @@
         "include_margins": true
       }
     },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Zákaznice také kupují",
+        "heading_size": "h2",
+        "products_to_show": 3,
+        "columns_desktop": 2,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "padding_top": 0,
+        "padding_bottom": 28
+      }
+    },
     "rich_text_GUynMr": {
       "type": "rich-text",
       "blocks": {
@@ -545,24 +563,6 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
-      }
-    },
-    "related-products": {
-      "type": "related-products",
-      "settings": {
-        "heading": "Zákaznice také kupují",
-        "heading_size": "h2",
-        "products_to_show": 3,
-        "columns_desktop": 2,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "padding_top": 0,
-        "padding_bottom": 28
       }
     }
   },
