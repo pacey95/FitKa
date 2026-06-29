@@ -61,6 +61,7 @@
         "text_HBaMDz",
         "button_GhJicJ"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -73,10 +74,11 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "products_per_page": 16,
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "columns_mobile": "1",
         "color_scheme": "background-1",
         "image_ratio": "square",
@@ -93,6 +95,47 @@
         "enable_sorting": false,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "fitka_cut_tiles_eFqtA4": {
+      "type": "fitka-cut-tiles",
+      "blocks": {
+        "tile_qwWUnM": {
+          "type": "tile",
+          "settings": {
+            "product": "brief-fitka",
+            "description": "",
+            "button_label": "Zobrazit Brief",
+            "chip_1": "",
+            "chip_2": "",
+            "chip_3": ""
+          }
+        },
+        "tile_pDy6Jf": {
+          "type": "tile",
+          "settings": {
+            "product": "brazilky-fitka",
+            "description": "",
+            "button_label": "Zobrazit Tanga",
+            "chip_1": "",
+            "chip_2": "",
+            "chip_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "tile_qwWUnM",
+        "tile_pDy6Jf"
+      ],
+      "name": "FitKa – Vyber střih",
+      "settings": {
+        "heading": "Vyber si svůj střih",
+        "subheading": "Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě.",
+        "bg_color": "#F7F6F6",
+        "tile_bg": "#ffffff",
+        "image_fit": "cover",
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "fitka_icons_text_G9P4Fc": {
@@ -151,6 +194,100 @@
         "padding_y": 26
       }
     },
+    "fitka_pdp_info_cgPchQ": {
+      "type": "fitka-pdp-info",
+      "blocks": {
+        "benefit_YiHWLm": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "Spolehlivé krytí",
+            "subtitle": "v přední i zadní části"
+          }
+        },
+        "benefit_Pxfrfk": {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "title": "Antibakteriální bambusová vložka",
+            "subtitle": "pro svěžest po celý den"
+          }
+        },
+        "benefit_W7NmLm": {
+          "type": "benefit",
+          "settings": {
+            "icon": "eye-off",
+            "title": "Neviditelné pod oblečením",
+            "subtitle": "žádné rýhy ani švy"
+          }
+        },
+        "benefit_JEFdqm": {
+          "type": "benefit",
+          "settings": {
+            "icon": "heart",
+            "title": "Jemný, prodyšný a šetrný",
+            "subtitle": "k pokožce"
+          }
+        },
+        "trust_JqmjJ9": {
+          "type": "trust",
+          "settings": {
+            "icon": "needle",
+            "title": "Ušito v Česku",
+            "subtitle": "s láskou a důrazem na kvalitu"
+          }
+        },
+        "trust_f9pCj9": {
+          "type": "trust",
+          "settings": {
+            "icon": "leaf",
+            "title": "Antibakteriální bambusová vložka",
+            "subtitle": "pro svěžest a pohodlí po celý den"
+          }
+        },
+        "trust_bk9y3f": {
+          "type": "trust",
+          "settings": {
+            "icon": "truck",
+            "title": "Doprava zdarma",
+            "subtitle": "od 1 500 Kč po celé ČR"
+          }
+        },
+        "trust_yfp7Dk": {
+          "type": "trust",
+          "settings": {
+            "icon": "card",
+            "title": "Bezpečná platba",
+            "subtitle": "kartou, Apple Pay, Google Pay nebo na dobírku"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_YiHWLm",
+        "benefit_Pxfrfk",
+        "benefit_W7NmLm",
+        "benefit_JEFdqm",
+        "trust_JqmjJ9",
+        "trust_f9pCj9",
+        "trust_bk9y3f",
+        "trust_yfp7Dk"
+      ],
+      "name": "FitKa – PDP info",
+      "settings": {
+        "left_heading": "Proč si je zamiluješ",
+        "helper_heading": "Nevíš velikost?",
+        "helper_text": "Pomůžeme ti vybrat tu pravou.",
+        "helper_button_label": "Pomozte mi vybrat",
+        "helper_button_link": "",
+        "helper_subtext": "Rychlé doporučení na základě tvé výšky a obvodu boků.",
+        "bg_color": "#F7F6F6",
+        "text_size": 15,
+        "icon_size": 28,
+        "helper_icon_size": 46,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
     "17659995300940563f": {
       "type": "apps",
       "blocks": {
@@ -177,18 +314,14 @@
             "corner_styling": "soft",
             "header_text_color": "#000000",
             "text_color": "#000000",
-            "card_color": "#F9F9F9",
-            "stars_color": "",
+            "card_color": "#FFE2E3",
+            "stars_color": "#A0304E",
             "arrows_color": "#000000",
             "transition_speed": 5,
-            "header_text": "Customers are saying",
+            "header_text": "Recenze zákaznic",
             "show_average_rating": true,
             "rating_display": "default"
           }
-        },
-        "judge_me_reviews_all_reviews_text_9mxqMx": {
-          "type": "shopify://apps/judge-me-reviews/blocks/all_reviews_text/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
         },
         "judge_me_reviews_review_widget_DYXc44": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
@@ -202,7 +335,6 @@
       },
       "block_order": [
         "judge_me_reviews_cards_carousel_bfjrBH",
-        "judge_me_reviews_all_reviews_text_9mxqMx",
         "judge_me_reviews_review_widget_DYXc44"
       ],
       "settings": {
@@ -215,7 +347,9 @@
     "custom_liquid_M7BnNB",
     "rich_text_3ww66A",
     "product-grid",
+    "fitka_cut_tiles_eFqtA4",
     "fitka_icons_text_G9P4Fc",
-    "17659995300940563f"
+    "17659995300940563f",
+    "fitka_pdp_info_cgPchQ"
   ]
 }
