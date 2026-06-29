@@ -20,8 +20,8 @@
         "video_opacity": 55,
         "split_media_min_h": 520,
         "fade_color": "#f7f6f6",
-        "fade_start": 10,
-        "fade_end": 75,
+        "fade_start": 0,
+        "fade_end": 55,
         "overlay_opacity": 40,
         "overlay_color": "#f7f6f6",
         "height_desktop_vh": 80,
@@ -426,7 +426,7 @@
         "radius": 14,
         "bg_color": "#F7F6F6",
         "accent": "#a0304e",
-        "padding_top": 40,
+        "padding_top": 0,
         "padding_bottom": 40
       }
     },
