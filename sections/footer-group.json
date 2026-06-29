@@ -13,7 +13,6 @@
   "sections": {
     "fitka_newsletter_Tdrkqz": {
       "type": "fitka-newsletter",
-      "disabled": true,
       "name": "FitKa – Newsletter",
       "settings": {
         "bg_color": "#a0304e",
@@ -78,7 +77,7 @@
       ],
       "custom_css": [],
       "settings": {
-        "bg_color": "#FFE2E3",
+        "bg_color": "#F7F6F6",
         "heading_color": "#393939",
         "text_color": "#6b6b6b",
         "link_hover": "#a0304e",
