@@ -13,12 +13,15 @@
       "type": "hero-fitka",
       "name": "Hero – FitKa",
       "settings": {
-        "layout": "split",
+        "layout": "fade",
         "media_position": "right",
         "image": "shopify://shop_images/IMGL5289.jpg",
-        "video": "https://cdn.shopify.com/videos/c/o/v/0e8d104faecb410785dee284634e5d37.mov",
+        "video": "https://cdn.shopify.com/videos/c/o/v/a213ee1c8161418e890c3b24b4f728ee.mp4",
         "video_opacity": 55,
         "split_media_min_h": 520,
+        "fade_color": "#ffffff",
+        "fade_start": 10,
+        "fade_end": 75,
         "overlay_opacity": 40,
         "overlay_color": "#f7f6f6",
         "height_desktop_vh": 80,
@@ -83,7 +86,7 @@
         "heading": "",
         "icon_size": 60,
         "invert_icons": false,
-        "bg_color": "#F7F6F6",
+        "bg_color": "#f7f6f6",
         "bg_image_opacity": 100,
         "text_color": "#393939",
         "padding_y": 26
@@ -136,7 +139,7 @@
       "settings": {
         "heading": "Vyber si svůj střih",
         "subheading": "Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě.",
-        "bg_color": "#F7F6F6",
+        "bg_color": "#f7f6f6",
         "padding_top": 28,
         "padding_bottom": 28
       }
@@ -190,7 +193,7 @@
       "settings": {
         "heading": "Zásoba kalhotek za výhodnější cenu!",
         "note": "Množstevní sleva se uplatní automaticky v košíku.",
-        "bg_color": "#F7F6F6",
+        "bg_color": "#f7f6f6",
         "button_label": "",
         "button_link": "shopify://collections/all",
         "padding_top": 0,
