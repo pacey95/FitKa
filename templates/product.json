@@ -140,6 +140,29 @@
         "padding_bottom": 60
       }
     },
+    "blocks_8yMgYW": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_7cf81bc_qwKwVG": {
+          "type": "ai_gen_block_7cf81bc",
+          "settings": {
+            "divider_style": "solid",
+            "divider_thickness": 1,
+            "dash_length": 10,
+            "dash_gap": 10,
+            "divider_color": "#a0304e",
+            "divider_opacity": 50,
+            "desktop_width_percent": 60
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_7cf81bc_qwKwVG"
+      ],
+      "name": "Oddělovač",
+      "settings": {}
+    },
     "fitka_pdp_info_h7E4Dc": {
       "type": "fitka-pdp-info",
       "blocks": {
@@ -284,6 +307,29 @@
         "padding_bottom": 24
       }
     },
+    "blocks_gpnf4a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_7cf81bc_RbiBx7": {
+          "type": "ai_gen_block_7cf81bc",
+          "settings": {
+            "divider_style": "solid",
+            "divider_thickness": 1,
+            "dash_length": 10,
+            "dash_gap": 10,
+            "divider_color": "#a0304e",
+            "divider_opacity": 50,
+            "desktop_width_percent": 60
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_7cf81bc_RbiBx7"
+      ],
+      "name": "Oddělovač",
+      "settings": {}
+    },
     "17827257846fadd301": {
       "type": "apps",
       "blocks": {
@@ -306,6 +352,7 @@
     },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "Zákaznice také kupují",
         "heading_size": "h2",
@@ -568,8 +615,10 @@
   },
   "order": [
     "main",
+    "blocks_8yMgYW",
     "fitka_pdp_info_h7E4Dc",
     "fitka_tabs_6yEzxg",
+    "blocks_gpnf4a",
     "17827257846fadd301",
     "related-products",
     "rich_text_GUynMr",
