@@ -30,6 +30,9 @@
     --fade-color: {{ section.settings.fade_color | default: '#ffffff' }};
     --fade-start: {{ section.settings.fade_start | default: 30 }}%;
     --fade-end: {{ section.settings.fade_end | default: 75 }}%;
+    --fade-start-m: {{ section.settings.fade_start_mobile | default: 45 }}%;
+--fade-end-m: {{ section.settings.fade_end_mobile | default: 85 }}%;
+--media-opacity-m: {{ section.settings.video_opacity_mobile | default: 100 | divided_by: 100.0 }};
   "
 >
   <div class="fitka-hero__inner page-width">
@@ -136,8 +139,10 @@
       .fitka-hero__subtitle{ max-width:none; }
       /* stronger white fade on mobile so text stays readable over full-width video */
       .fitka-hero--fade{ min-height:calc(var(--hero-h-mobile,60) * 1vh); }
-      .fitka-hero--fade .fitka-hero__overlay{ background:linear-gradient(to right, var(--fade-color,#fff) 60%, transparent 105%); }
-      .fitka-hero--fade.fitka-hero--media-left .fitka-hero__overlay{ background:linear-gradient(to left, var(--fade-color,#fff) 60%, transparent 105%); }
+      .fitka-hero--fade .fitka-hero__overlay{ background:linear-gradient(to right, var(--fade-color,#fff) var(--fade-start-m,45%), transparent var(--fade-end-m,85%)); }
+      .fitka-hero--fade.fitka-hero--media-left .fitka-hero__overlay{ background:linear-gradient(to left, var(--fade-color,#fff) var(--fade-start-m,45%), transparent var(--fade-end-m,85%)); }
+      .fitka-hero--fade .fitka-hero__image,
+      .fitka-hero--fade .fitka-hero__video{ opacity:var(--media-opacity-m, var(--media-opacity,1)); }
       .fitka-hero--fade .fitka-hero__content{ max-width:none; }
     }
   </style>
@@ -179,6 +184,11 @@
     { "type": "color", "id": "fade_color", "label": "Fade color", "default": "#ffffff" },
     { "type": "range", "id": "fade_start", "min": 0, "max": 100, "step": 5, "default": 30, "label": "Fade – plná barva do (%)" },
     { "type": "range", "id": "fade_end", "min": 0, "max": 100, "step": 5, "default": 75, "label": "Fade – průhledné od (%)" },
+
+    { "type": "header", "content": "Fade layout – mobil" },
+    { "type": "range", "id": "fade_start_mobile", "min": 0, "max": 100, "step": 5, "default": 45, "label": "Mobil – plná barva do (%)" },
+    { "type": "range", "id": "fade_end_mobile", "min": 0, "max": 120, "step": 5, "default": 85, "label": "Mobil – průhledné od (%)" },
+    { "type": "range", "id": "video_opacity_mobile", "min": 0, "max": 100, "step": 5, "default": 100, "label": "Mobil – krytí média (%)" },
 
     { "type": "header", "content": "Background layout options" },
     { "type": "range", "id": "overlay_opacity", "min": 0, "max": 80, "step": 5, "default": 25, "label": "Overlay opacity (%)" },
