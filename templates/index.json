@@ -204,7 +204,7 @@
             "divider_thickness": 1,
             "dash_length": 10,
             "dash_gap": 10,
-            "divider_color": "#A0304E",
+            "divider_color": "#a0304e",
             "divider_opacity": 50,
             "desktop_width_percent": 60
           },
@@ -361,6 +361,75 @@
         "padding_bottom": 0
       }
     },
+    "fitka_instagram_39xVm6": {
+      "type": "fitka-instagram",
+      "blocks": {
+        "post_xTLNPJ": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/ig1.png",
+            "link": "https://www.instagram.com/p/DaI0brBiF1y/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+          }
+        },
+        "post_GRnyEK": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/ig2.png",
+            "link": "https://www.instagram.com/p/DaI0brBiF1y/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+          }
+        },
+        "post_mjmc6E": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/ig3.png",
+            "link": "https://www.instagram.com/p/DZLC-n1iKD3/?img_index=1"
+          }
+        },
+        "post_A3c3FN": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/ig4.png",
+            "link": "https://www.instagram.com/p/DZAs_AUiF2M/?img_index=1"
+          }
+        },
+        "post_fdiW3n": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/ig5.png",
+            "link": "https://www.instagram.com/p/DYU-01DooY-/"
+          }
+        },
+        "post_fh4jz6": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/ig6.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "post_xTLNPJ",
+        "post_GRnyEK",
+        "post_mjmc6E",
+        "post_A3c3FN",
+        "post_fdiW3n",
+        "post_fh4jz6"
+      ],
+      "name": "FitKa – Instagram",
+      "settings": {
+        "heading": "",
+        "handle": "fitka_underwear",
+        "cta_label": "Sleduj nás na Instagramu",
+        "cta_link": "",
+        "cols": 3,
+        "gap": 10,
+        "radius": 14,
+        "bg_color": "#F7F6F6",
+        "accent": "#a0304e",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "multicolumn_8ChCan": {
       "type": "multicolumn",
       "blocks": {
@@ -470,7 +539,7 @@
             "divider_thickness": 1,
             "dash_length": 10,
             "dash_gap": 10,
-            "divider_color": "#A0304E",
+            "divider_color": "#a0304e",
             "divider_opacity": 50,
             "desktop_width_percent": 60
           },
@@ -528,6 +597,7 @@
     "17659978780a22910d",
     "image_with_text_7NWejK",
     "image_with_text_xyBakx",
+    "fitka_instagram_39xVm6",
     "multicolumn_8ChCan",
     "rich_text_Yfa8Nw",
     "blocks_LPprdM",
