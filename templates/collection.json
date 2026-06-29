@@ -232,6 +232,29 @@
         "padding_bottom": 28
       }
     },
+    "blocks_FJBhiF": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_7cf81bc_qqfPNq": {
+          "type": "ai_gen_block_7cf81bc",
+          "settings": {
+            "divider_style": "solid",
+            "divider_thickness": 1,
+            "dash_length": 10,
+            "dash_gap": 10,
+            "divider_color": "#A0304E",
+            "divider_opacity": 50,
+            "desktop_width_percent": 60
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_7cf81bc_qqfPNq"
+      ],
+      "name": "Oddělovač",
+      "settings": {}
+    },
     "17659995300940563f": {
       "type": "apps",
       "blocks": {
@@ -284,6 +307,29 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "blocks_MrWVGi": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_7cf81bc_LU43mp": {
+          "type": "ai_gen_block_7cf81bc",
+          "settings": {
+            "divider_style": "solid",
+            "divider_thickness": 1,
+            "dash_length": 10,
+            "dash_gap": 10,
+            "divider_color": "#A0304E",
+            "divider_opacity": 50,
+            "desktop_width_percent": 60
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_7cf81bc_LU43mp"
+      ],
+      "name": "Oddělovač",
+      "settings": {}
     }
   },
   "order": [
@@ -293,6 +339,8 @@
     "product-grid",
     "fitka_cut_tiles_eFqtA4",
     "fitka_pdp_info_cgPchQ",
-    "17659995300940563f"
+    "blocks_FJBhiF",
+    "17659995300940563f",
+    "blocks_MrWVGi"
   ]
 }
