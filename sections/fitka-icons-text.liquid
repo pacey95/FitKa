@@ -1,8 +1,9 @@
-{% comment %} sections/icons-with-text.liquid — FitKa (mobil 2×2 grid, desktop 4×1) {% endcomment %}
-{%- assign icon_size = section.settings.icon_size | default: 64 -%}
+{% comment %} sections/fitka-icons-text.liquid — FitKa (inline: ikona vlevo / stacked: ikona nahoře) {% endcomment %}
+{%- assign icon_size = section.settings.icon_size | default: 56 -%}
+{%- assign layout = section.settings.layout | default: 'inline' -%}
 
 <section
-  class="fitka-icons"
+  class="fitka-icons fitka-icons--{{ layout }}{% if section.settings.show_dividers %} fitka-icons--divided{% endif %}"
   style="
     --icon-size: {{ icon_size }}px;
     --text-color: {{ section.settings.text_color }};
@@ -14,13 +15,11 @@
   <div class="fitka-icons__bg"></div>
 
   <div class="page-width fitka-icons__inner">
-  <!-- SKRYTÝ H2 PRO SEO -->
-  <h2 class="visually-hidden">Proč sportovní kalhotky FitKa</h2>
+    <h2 class="visually-hidden">Proč sportovní kalhotky FitKa</h2>
 
-  {% if section.settings.heading != blank %}
-    <h2 class="fitka-icons__heading" style="color: var(--text-color, inherit)">{{ section.settings.heading }}</h2>
-  {% endif %}
-
+    {% if section.settings.heading != blank %}
+      <h2 class="fitka-icons__heading" style="color: var(--text-color, inherit)">{{ section.settings.heading }}</h2>
+    {% endif %}
 
     <div id="icons-grid-{{ section.id }}" class="fitka-icons__grid">
       {% for block in section.blocks %}
@@ -28,10 +27,12 @@
           {% if block.settings.icon != blank %}
             {{ block.settings.icon | image_url: width: 256 | image_tag: class: 'fitka-icons__icon', alt: block.settings.title }}
           {% endif %}
-          <h3 class="fitka-icons__title" style="color: var(--text-color, inherit)">{{ block.settings.title }}</h3>
-          {% if block.settings.text != blank %}
-            <p class="fitka-icons__text" style="color: var(--text-color, inherit)">{{ block.settings.text }}</p>
-          {% endif %}
+          <div class="fitka-icons__body">
+            <h3 class="fitka-icons__title" style="color: var(--text-color, inherit)">{{ block.settings.title }}</h3>
+            {% if block.settings.text != blank %}
+              <p class="fitka-icons__text" style="color: var(--text-color, inherit)">{{ block.settings.text }}</p>
+            {% endif %}
+          </div>
         </div>
       {% endfor %}
     </div>
@@ -49,62 +50,61 @@
       opacity: var(--bg-image-opacity, 1);
       pointer-events:none;
     }
-    .fitka-icons__inner{position:relative; z-index:1}
-    .fitka-icons__heading{text-align:center; margin-bottom:clamp(12px, 3.5vw, 20px)}
+    .fitka-icons__inner{ position:relative; z-index:1; }
+    .fitka-icons__heading{ text-align:center; margin-bottom:clamp(12px, 3.5vw, 20px); }
 
-    /* GRID: desktop 4 sloupce, tablet/mobile 2 sloupce (2×2 pro 4 USP) */
     .fitka-icons__grid{
-      display:grid; gap:clamp(12px, 3.5vw, 20px);
+      display:grid; gap:clamp(12px, 3vw, 20px);
       grid-template-columns: repeat(4, 1fr);
     }
     @media (max-width: 1024px){
-      .fitka-icons__grid{grid-template-columns: repeat(2, 1fr);}
+      .fitka-icons__grid{ grid-template-columns: repeat(2, 1fr); }
     }
 
-    .fitka-icons__item{
-      text-align:center; padding:clamp(8px, 2.5vw, 16px);
-      border: none; box-shadow: none; background: transparent;
-      cursor: default;
-    }
+    .fitka-icons__item{ display:flex; gap:14px; padding:clamp(6px, 2vw, 14px); background:transparent; }
 
-    /* Ikona */
+    /* INLINE: ikona vlevo, text vpravo */
+    .fitka-icons--inline .fitka-icons__item{ flex-direction:row; align-items:center; text-align:left; }
+    /* STACKED: ikona nahoře, na střed */
+    .fitka-icons--stacked .fitka-icons__item{ flex-direction:column; align-items:center; text-align:center; }
+
     .fitka-icons__icon{
-      width: clamp(44px, 12vw, var(--icon-size));
-      height: clamp(44px, 12vw, var(--icon-size));
-      object-fit: contain; margin: 0 auto clamp(6px, 1.8vw, 10px);
-      transition: transform .18s ease-out;
+      flex:0 0 auto; object-fit:contain; transition:transform .18s ease-out;
+      width: clamp(36px, 9vw, var(--icon-size));
+      height: clamp(36px, 9vw, var(--icon-size));
       {% if section.settings.invert_icons %}filter: invert(1);{% endif %}
     }
-
-    /* Hover efekt – jemné zvětšení ikony */
+    .fitka-icons--stacked .fitka-icons__icon{ margin:0 auto clamp(6px, 1.8vw, 10px); }
     .fitka-icons__item:hover .fitka-icons__icon,
-    .fitka-icons__item:focus-within .fitka-icons__icon{
-      transform: scale(1.08);
-    }
+    .fitka-icons__item:focus-within .fitka-icons__icon{ transform: scale(1.08); }
 
-    .fitka-icons__title{
-      margin: 6px 0;
-      font-size: clamp(14px, 2.6vw, 18px);
-      line-height: 1.25;
-      font-weight: 600;
-    }
-    .fitka-icons__text{
-      opacity:.9;
-      font-size: clamp(12px, 2.4vw, 15px);
-      line-height: 1.45;
-      margin:0;
+    .fitka-icons__body{ min-width:0; }
+    .fitka-icons__title{ margin:0 0 4px; font-size:clamp(14px, 2.4vw, 17px); line-height:1.2; font-weight:600; }
+    .fitka-icons__text{ margin:0; opacity:.8; font-size:clamp(12px, 2.2vw, 14px); line-height:1.45; }
+
+    /* Svislé oddělovače mezi položkami – jen na desktopu (4 v řadě) */
+    @media (min-width: 1025px){
+      .fitka-icons--divided .fitka-icons__item:not(:first-child){
+        border-left:1px solid #e8e0e2; padding-left:28px;
+      }
     }
   </style>
 </section>
-
 
 {% schema %}
 {
   "name": "Ikony s textem",
   "settings": [
     { "type": "text", "id": "heading", "label": "Nadpis", "default": "Proč FitKa?" },
-
-    { "type": "range", "id": "icon_size", "min": 24, "max": 160, "step": 4, "default": 64, "label": "Max. velikost ikon (px)" },
+    {
+      "type": "select", "id": "layout", "label": "Rozložení", "default": "inline",
+      "options": [
+        { "value": "inline", "label": "Ikona vlevo od textu" },
+        { "value": "stacked", "label": "Ikona nad textem (na střed)" }
+      ]
+    },
+    { "type": "checkbox", "id": "show_dividers", "default": true, "label": "Svislé oddělovače mezi položkami (desktop)" },
+    { "type": "range", "id": "icon_size", "min": 24, "max": 160, "step": 4, "default": 56, "label": "Max. velikost ikon (px)" },
     { "type": "checkbox", "id": "invert_icons", "default": false, "label": "Invertovat barvy ikon (pro tmavé pozadí)" },
 
     { "type": "color", "id": "bg_color", "label": "Barva pozadí sekce" },
