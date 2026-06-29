@@ -34,12 +34,12 @@
           "type": "ai_gen_block_7cf81bc",
           "settings": {
             "divider_style": "solid",
-            "divider_thickness": 2,
+            "divider_thickness": 1,
             "dash_length": 10,
             "dash_gap": 10,
             "divider_color": "#A0304E",
-            "divider_opacity": 80,
-            "desktop_width_percent": 100
+            "divider_opacity": 60,
+            "desktop_width_percent": 90
           },
           "blocks": {}
         }
