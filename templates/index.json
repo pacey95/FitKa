@@ -19,7 +19,7 @@
         "video": "https://cdn.shopify.com/videos/c/o/v/a213ee1c8161418e890c3b24b4f728ee.mp4",
         "video_opacity": 55,
         "split_media_min_h": 520,
-        "fade_color": "#ffffff",
+        "fade_color": "#F7F6F6",
         "fade_start": 10,
         "fade_end": 75,
         "overlay_opacity": 40,
