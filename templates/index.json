@@ -103,7 +103,7 @@
           "settings": {
             "product": "brief-fitka",
             "description": "{{ block.settings.product.metafields.descriptors.subtitle.value }}",
-            "button_label": "Zobrazit {{ block.settings.product.title }}",
+            "button_label": "Zobrazit Brief",
             "chip_1": "",
             "chip_2": "",
             "chip_3": ""
@@ -130,7 +130,7 @@
         "heading": "",
         "subheading": "",
         "bg_color": "#f7f6f6",
-        "tile_bg": "#FFFFFF",
+        "tile_bg": "#FFE2E3",
         "padding_top": 28,
         "padding_bottom": 28
       }
