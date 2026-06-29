@@ -139,8 +139,8 @@
       ],
       "name": "FitKa – Vyber střih",
       "settings": {
-        "heading": "Vyber si svůj střih",
-        "subheading": "Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě.",
+        "heading": "",
+        "subheading": "",
         "bg_color": "#f7f6f6",
         "padding_top": 28,
         "padding_bottom": 28
