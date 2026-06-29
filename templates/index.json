@@ -19,7 +19,7 @@
         "video": "https://cdn.shopify.com/videos/c/o/v/a213ee1c8161418e890c3b24b4f728ee.mp4",
         "video_opacity": 55,
         "split_media_min_h": 520,
-        "fade_color": "#F7F6F6",
+        "fade_color": "#f7f6f6",
         "fade_start": 10,
         "fade_end": 75,
         "overlay_opacity": 40,
@@ -46,8 +46,8 @@
           "type": "icon",
           "settings": {
             "icon": "shopify://shop_images/usp2.png",
-            "title": "Navrženy pro pohyb",
-            "text": "Prodyšná a pružná látka pro intenzivní trénink i celodenní nošení."
+            "title": "Pro aktivní ženy",
+            "text": "Navrženo pro sport a každodenní pohyb"
           }
         },
         "icon_FGaGEQ": {
@@ -62,8 +62,8 @@
           "type": "icon",
           "settings": {
             "icon": "shopify://shop_images/usp1_0665447e-ea11-41b9-b231-6111510402fe.png",
-            "title": "Šité na Moravě",
-            "text": "Každý kus vzniká v lokální šicí dílně s důrazem na precizní zpracování."
+            "title": "Ušito v Česku",
+            "text": "Lokální výroba s důrazem na kvalitu a férovost"
           }
         },
         "icon_yaMV9r": {
@@ -71,7 +71,7 @@
           "settings": {
             "icon": "shopify://shop_images/usp3.png",
             "title": "Antibakteriální",
-            "text": "Bambusová antibakteriální vložka pro svěžest a pohodlí i při celodenním nošení."
+            "text": "Pro svěžest a pohodlí po celý den"
           }
         }
       },
@@ -84,12 +84,14 @@
       "name": "Ikony s textem",
       "settings": {
         "heading": "",
-        "icon_size": 60,
+        "layout": "inline",
+        "show_dividers": false,
+        "icon_size": 40,
         "invert_icons": false,
         "bg_color": "#f7f6f6",
         "bg_image_opacity": 100,
         "text_color": "#393939",
-        "padding_y": 26
+        "padding_y": 0
       }
     },
     "fitka_cut_tiles_qBnGNw": {
