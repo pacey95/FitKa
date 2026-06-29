@@ -6,6 +6,7 @@
   class="fitka-icons fitka-icons--{{ layout }}{% if section.settings.show_dividers %} fitka-icons--divided{% endif %}"
   style="
     --icon-size: {{ icon_size }}px;
+    --title-size: {{ section.settings.title_size | default: 15 }}px;
     --text-color: {{ section.settings.text_color }};
     {% if section.settings.bg_color != blank %}--bg-color: {{ section.settings.bg_color }};{% endif %}
     {% if section.settings.bg_image != blank %}--bg-image: url({{ section.settings.bg_image | image_url: width: 2400 }});{% endif %}
@@ -79,7 +80,7 @@
     .fitka-icons__item:focus-within .fitka-icons__icon{ transform: scale(1.08); }
 
     .fitka-icons__body{ min-width:0; }
-    .fitka-icons__title{ margin:0 0 4px; font-size:clamp(14px, 2.4vw, 17px); line-height:1.2; font-weight:600; }
+    .fitka-icons__title{ margin:0 0 4px; font-size:var(--title-size, 15px); line-height:1.2; font-weight:600; }
     .fitka-icons__text{ margin:0; opacity:.8; font-size:clamp(12px, 2.2vw, 14px); line-height:1.45; }
 
     /* Svislé oddělovače mezi položkami – jen na desktopu (4 v řadě) */
@@ -105,6 +106,7 @@
     },
     { "type": "checkbox", "id": "show_dividers", "default": true, "label": "Svislé oddělovače mezi položkami (desktop)" },
     { "type": "range", "id": "icon_size", "min": 24, "max": 160, "step": 4, "default": 56, "label": "Max. velikost ikon (px)" },
+    { "type": "range", "id": "title_size", "min": 11, "max": 24, "step": 1, "default": 15, "label": "Velikost titulku (px)" },
     { "type": "checkbox", "id": "invert_icons", "default": false, "label": "Invertovat barvy ikon (pro tmavé pozadí)" },
 
     { "type": "color", "id": "bg_color", "label": "Barva pozadí sekce" },
