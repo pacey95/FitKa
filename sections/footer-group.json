@@ -18,7 +18,7 @@
         "bg_color": "#a0304e",
         "text_color": "#ffffff",
         "padding_top": 16,
-        "padding_bottom": 16,
+        "padding_bottom": 30,
         "title": "Buď první, kdo se dozví novinky",
         "subtitle": "a získá tipy pro pohodlí i výkon.",
         "placeholder": "Váš e-mail",
@@ -38,8 +38,8 @@
             "dash_length": 10,
             "dash_gap": 10,
             "divider_color": "#A0304E",
-            "divider_opacity": 60,
-            "desktop_width_percent": 70
+            "divider_opacity": 50,
+            "desktop_width_percent": 60
           },
           "blocks": {}
         }
