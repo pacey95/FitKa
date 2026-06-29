@@ -151,6 +151,12 @@
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Každý střih má své výhody. Vyber ten, který sedí nejvíc tobě." },
     { "type": "color", "id": "bg_color", "label": "Pozadí sekce", "default": "#ffffff" },
     { "type": "color", "id": "tile_bg", "label": "Pozadí dlaždice", "default": "#ffffff" },
+    { "type": "select", "id": "image_fit", "label": "Přizpůsobení obrázku", "default": "cover",
+  "options": [
+    { "value": "cover", "label": "Vyplnit (běžná fotka s pozadím)" },
+    { "value": "contain", "label": "Celé tělo (PNG bez pozadí)" }
+  ],
+  "info": "Pro PNG bez pozadí zvol „Celé tělo“ – ukáže celou siluetu a pozadí dlaždice prosvítá za modelkou." },
     { "type": "range", "id": "padding_top", "min": 0, "max": 80, "step": 4, "default": 28, "label": "Padding top" },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 80, "step": 4, "default": 28, "label": "Padding bottom" }
   ],
