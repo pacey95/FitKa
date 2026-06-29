@@ -21,7 +21,7 @@
         "padding_bottom": 30,
         "title": "Buď první, kdo se dozví novinky",
         "subtitle": "a získá tipy pro pohodlí i výkon.",
-        "placeholder": "Váš e-mail",
+        "placeholder": "Tvůj e-mail",
         "button_label": "Chci být v obraze",
         "perk_1": "Sleva 10 % na první nákup",
         "perk_2": "Žádný spam, jen to důležité"
@@ -37,7 +37,7 @@
             "divider_thickness": 1,
             "dash_length": 10,
             "dash_gap": 10,
-            "divider_color": "#A0304E",
+            "divider_color": "#a0304e",
             "divider_opacity": 50,
             "desktop_width_percent": 60
           },
@@ -100,7 +100,7 @@
       ],
       "custom_css": [],
       "settings": {
-        "bg_color": "#F7F6F6",
+        "bg_color": "#f7f6f6",
         "heading_color": "#393939",
         "text_color": "#6b6b6b",
         "link_hover": "#a0304e",
