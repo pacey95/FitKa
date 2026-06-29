@@ -222,13 +222,13 @@
         "helper_heading": "Nevíš velikost?",
         "helper_text": "Pomůžeme ti vybrat tu pravou.",
         "helper_button_label": "Pomozte mi vybrat",
-        "helper_button_link": "",
+        "helper_button_link": "shopify://blogs/news/jak-vybrat-idealni-sportovni-kalhotky-kompletni-pruvodce-pro-aktivni-zeny",
         "helper_subtext": "Rychlé doporučení na základě tvé výšky a obvodu boků.",
         "bg_color": "#f7f6f6",
         "text_size": 15,
         "icon_size": 28,
         "helper_icon_size": 46,
-        "padding_top": 28,
+        "padding_top": 36,
         "padding_bottom": 28
       }
     },
