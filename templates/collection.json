@@ -138,60 +138,57 @@
         "padding_bottom": 28
       }
     },
-    "fitka_icons_text_G9P4Fc": {
-      "type": "fitka-icons-text",
+    "17659995300940563f": {
+      "type": "apps",
       "blocks": {
-        "icon_bJJwVh": {
-          "type": "icon",
+        "judge_me_reviews_cards_carousel_bfjrBH": {
+          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
-            "icon": "shopify://shop_images/usp4.png",
-            "title": "Střih, co lichotí",
-            "text": "Promyšlený střih, který lichotí postavě a drží tvar."
+            "show_sample_reviews": false,
+            "reviews_selection": "all",
+            "products": [],
+            "star_rating": "4_to_5_star",
+            "show_review_media": false,
+            "display_order": "media_first",
+            "no_image_fallback": "review_text_only",
+            "max_reviews": 20,
+            "review_length": "medium",
+            "text_size": "medium",
+            "image_ratio": "1",
+            "reviews_shown": 4,
+            "show_reviewer_name": true,
+            "show_product_name": true,
+            "hide_arrows_mobile": true,
+            "arrows_position": "sides",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "header_text_color": "#000000",
+            "text_color": "#000000",
+            "card_color": "#FFE2E3",
+            "stars_color": "#A0304E",
+            "arrows_color": "#000000",
+            "transition_speed": 5,
+            "header_text": "Recenze zákaznic",
+            "show_average_rating": true,
+            "rating_display": "default"
           }
         },
-        "icon_hmxwxR": {
-          "type": "icon",
+        "judge_me_reviews_review_widget_DYXc44": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
-            "icon": "shopify://shop_images/usp1_0665447e-ea11-41b9-b231-6111510402fe.png",
-            "title": "Ušito v Česku",
-            "text": "Spolupracujeme s českou šicí dílnou."
-          }
-        },
-        "icon_7trN3Q": {
-          "type": "icon",
-          "settings": {
-            "icon": "shopify://shop_images/usp2.png",
-            "title": "Pro aktivní ženy",
-            "text": "Funkční materiál, co dýchá, pruží a zvládne každé tempo."
-          }
-        },
-        "icon_PfXLTA": {
-          "type": "icon",
-          "settings": {
-            "icon": "shopify://shop_images/usp3.png",
-            "title": "Antibakteriální",
-            "text": "Bambusová vložka pro komfort a čistotu tam, kde je to nejvíc potřeba."
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
           }
         }
       },
       "block_order": [
-        "icon_bJJwVh",
-        "icon_hmxwxR",
-        "icon_7trN3Q",
-        "icon_PfXLTA"
+        "judge_me_reviews_cards_carousel_bfjrBH",
+        "judge_me_reviews_review_widget_DYXc44"
       ],
-      "name": "Ikony s textem",
       "settings": {
-        "heading": "",
-        "layout": "inline",
-        "show_dividers": false,
-        "icon_size": 60,
-        "title_size": 15,
-        "invert_icons": false,
-        "bg_color": "#f7f6f6",
-        "bg_image_opacity": 100,
-        "text_color": "#393939",
-        "padding_y": 26
+        "include_margins": true
       }
     },
     "fitka_pdp_info_cgPchQ": {
@@ -287,59 +284,6 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
-    },
-    "17659995300940563f": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_cards_carousel_bfjrBH": {
-          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "show_sample_reviews": false,
-            "reviews_selection": "all",
-            "products": [],
-            "star_rating": "4_to_5_star",
-            "show_review_media": false,
-            "display_order": "media_first",
-            "no_image_fallback": "review_text_only",
-            "max_reviews": 20,
-            "review_length": "medium",
-            "text_size": "medium",
-            "image_ratio": "1",
-            "reviews_shown": 4,
-            "show_reviewer_name": true,
-            "show_product_name": true,
-            "hide_arrows_mobile": true,
-            "arrows_position": "sides",
-            "max_width": 1100,
-            "corner_styling": "soft",
-            "header_text_color": "#000000",
-            "text_color": "#000000",
-            "card_color": "#FFE2E3",
-            "stars_color": "#A0304E",
-            "arrows_color": "#000000",
-            "transition_speed": 5,
-            "header_text": "Recenze zákaznic",
-            "show_average_rating": true,
-            "rating_display": "default"
-          }
-        },
-        "judge_me_reviews_review_widget_DYXc44": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "other_products_reviews"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_cards_carousel_bfjrBH",
-        "judge_me_reviews_review_widget_DYXc44"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
@@ -348,8 +292,7 @@
     "rich_text_3ww66A",
     "product-grid",
     "fitka_cut_tiles_eFqtA4",
-    "fitka_icons_text_G9P4Fc",
-    "17659995300940563f",
-    "fitka_pdp_info_cgPchQ"
+    "fitka_pdp_info_cgPchQ",
+    "17659995300940563f"
   ]
 }
