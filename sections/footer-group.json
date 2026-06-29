@@ -11,22 +11,6 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "fitka_newsletter_Tdrkqz": {
-      "type": "fitka-newsletter",
-      "name": "FitKa – Newsletter",
-      "settings": {
-        "bg_color": "#a0304e",
-        "text_color": "#ffffff",
-        "padding_top": 16,
-        "padding_bottom": 30,
-        "title": "Buď první, kdo se dozví novinky",
-        "subtitle": "a získá tipy pro pohodlí i výkon.",
-        "placeholder": "Tvůj e-mail",
-        "button_label": "Chci být v obraze",
-        "perk_1": "Sleva 10 % na první nákup",
-        "perk_2": "Žádný spam, jen to důležité"
-      }
-    },
     "blocks_E4q8Qn": {
       "type": "_blocks",
       "blocks": {
@@ -112,7 +96,6 @@
     }
   },
   "order": [
-    "fitka_newsletter_Tdrkqz",
     "blocks_E4q8Qn",
     "footer"
   ]
