@@ -1,0 +1,242 @@
+{% comment %} sections/fitka-cut-advisor.liquid — modal rádce výběru střihu {% endcomment %}
+{%- assign tp = section.settings.tanga_product -%}
+{%- assign bp = section.settings.brief_product -%}
+<div class="fca-modal" id="fitka-advisor" aria-hidden="true" data-tiebreak="{{ section.settings.tiebreak_default | default: 'brief' }}">
+  <div class="fca-overlay" data-fca-close></div>
+  <div class="fca-dialog" role="dialog" aria-modal="true" aria-label="Rádce výběru střihu">
+    <button class="fca-close" data-fca-close aria-label="Zavřít">&times;</button>
+
+    <div class="fca-head">
+      <h2>{{ section.settings.heading | default: 'Najdi svůj střih' }}</h2>
+      <p>{{ section.settings.intro | default: 'Odpověz na 3 rychlé otázky a poradíme ti.' }}</p>
+      <div class="fca-dots" aria-hidden="true"></div>
+    </div>
+
+    <div class="fca-steps">
+      {% for block in section.blocks %}
+        {% if block.type == 'question' %}
+          <div class="fca-step" data-step="{{ forloop.index0 }}" hidden {{ block.shopify_attributes }}>
+            <h3 class="fca-q">{{ block.settings.question }}</h3>
+            <div class="fca-opts">
+              {% for i in (1..4) %}
+                {%- assign key_lbl = 'option_' | append: i | append: '_label' -%}
+                {%- assign key_tgt = 'option_' | append: i | append: '_target' -%}
+                {%- assign lbl = block.settings[key_lbl] -%}
+                {%- assign tgt = block.settings[key_tgt] -%}
+                {% if lbl != blank %}
+                  <button type="button" class="fca-opt" data-target="{{ tgt | default: 'tanga' }}">{{ lbl }}</button>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="fca-result" data-result="tanga" hidden>
+      <span class="fca-badge">Náš tip pro tebe</span>
+      <h3>{{ tp.title | default: 'Tanga FitKa' }}</h3>
+      <ul class="fca-reasons">
+        {% if section.settings.tanga_r1 != blank %}<li>{{ section.settings.tanga_r1 }}</li>{% endif %}
+        {% if section.settings.tanga_r2 != blank %}<li>{{ section.settings.tanga_r2 }}</li>{% endif %}
+        {% if section.settings.tanga_r3 != blank %}<li>{{ section.settings.tanga_r3 }}</li>{% endif %}
+      </ul>
+      {% if section.settings.tanga_tagline != blank %}<p class="fca-tagline">{{ section.settings.tanga_tagline }}</p>{% endif %}
+      {% if tp %}<div class="fca-price">{{ tp.price | money }}</div>{% endif %}
+      <a class="button button--primary" href="{{ tp.url | default: '/products/brazilky-fitka' }}">Zobrazit Tanga</a>
+      <button type="button" class="fca-other" data-show="brief">Nebo mrkni na Brief →</button>
+      {% if section.settings.article_url != blank %}<a class="fca-more" href="{{ section.settings.article_url }}">Chci vědět víc o výběru</a>{% endif %}
+      <button type="button" class="fca-restart" data-fca-restart>Začít znovu</button>
+    </div>
+
+    <div class="fca-result" data-result="brief" hidden>
+      <span class="fca-badge">Náš tip pro tebe</span>
+      <h3>{{ bp.title | default: 'Brief FitKa' }}</h3>
+      <ul class="fca-reasons">
+        {% if section.settings.brief_r1 != blank %}<li>{{ section.settings.brief_r1 }}</li>{% endif %}
+        {% if section.settings.brief_r2 != blank %}<li>{{ section.settings.brief_r2 }}</li>{% endif %}
+        {% if section.settings.brief_r3 != blank %}<li>{{ section.settings.brief_r3 }}</li>{% endif %}
+      </ul>
+      {% if section.settings.brief_tagline != blank %}<p class="fca-tagline">{{ section.settings.brief_tagline }}</p>{% endif %}
+      {% if bp %}<div class="fca-price">{{ bp.price | money }}</div>{% endif %}
+      <a class="button button--primary" href="{{ bp.url | default: '/products/brief-fitka' }}">Zobrazit Brief</a>
+      <button type="button" class="fca-other" data-show="tanga">Nebo mrkni na Tanga →</button>
+      {% if section.settings.article_url != blank %}<a class="fca-more" href="{{ section.settings.article_url }}">Chci vědět víc o výběru</a>{% endif %}
+      <button type="button" class="fca-restart" data-fca-restart>Začít znovu</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .fca-modal{ position:fixed; inset:0; z-index:99999; display:none; }
+  .fca-modal.is-open{ display:block; }
+  .fca-overlay{ position:absolute; inset:0; background:rgba(57,57,57,.55); animation:fcaFade .2s ease; }
+  .fca-dialog{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:min(520px,92vw); max-height:90vh; overflow:auto; background:#fff; border-radius:22px; padding:32px 28px; box-shadow:0 24px 64px rgba(0,0,0,.28); animation:fcaPop .25s ease; }
+  @keyframes fcaFade{ from{opacity:0} to{opacity:1} }
+  @keyframes fcaPop{ from{opacity:0; transform:translate(-50%,-46%) scale(.97)} to{opacity:1; transform:translate(-50%,-50%) scale(1)} }
+  .fca-close{ position:absolute; top:14px; right:16px; border:0; background:transparent; font-size:28px; line-height:1; color:#393939; cursor:pointer; opacity:.55; }
+  .fca-close:hover{ opacity:1; }
+  .fca-head h2{ margin:0 0 6px; font-size:clamp(22px,3vw,28px); color:#393939; }
+  .fca-head p{ margin:0 0 18px; opacity:.75; font-size:15px; }
+  .fca-dots{ display:flex; gap:6px; margin-bottom:22px; }
+  .fca-dot{ width:26px; height:4px; border-radius:999px; background:#efe1e5; transition:background .2s ease; }
+  .fca-dot.is-on{ background:#a0304e; }
+  .fca-q{ font-size:18px; margin:0 0 16px; color:#393939; }
+  .fca-opts{ display:flex; flex-direction:column; gap:10px; }
+  .fca-opt{ text-align:left; border:0; background:#ffe2e3; color:#393939; border-radius:14px; padding:16px 18px; font-size:15.5px; font-weight:500; cursor:pointer; transition:background .15s ease, color .15s ease, transform .1s ease; }
+  .fca-opt:hover{ background:#a0304e; color:#fff; }
+  .fca-opt.is-sel{ background:#a0304e; color:#fff; transform:scale(.99); }
+  .fca-result{ text-align:center; }
+  .fca-badge{ display:inline-block; background:#ffe2e3; color:#a0304e; font-size:12px; font-weight:600; padding:5px 12px; border-radius:999px; margin-bottom:10px; }
+  .fca-result h3{ margin:0 0 14px; font-size:clamp(22px,3vw,28px); color:#393939; }
+  .fca-reasons{ list-style:none; margin:0 auto 14px; padding:0; display:inline-flex; flex-direction:column; gap:10px; text-align:left; }
+  .fca-reasons li{ position:relative; padding-left:28px; font-size:15px; color:#393939; }
+  .fca-reasons li::before{ content:"✓"; position:absolute; left:0; color:#a0304e; font-weight:700; }
+  .fca-tagline{ font-size:14px; opacity:.78; margin:0 0 16px; }
+  .fca-price{ font-size:22px; font-weight:700; color:#393939; margin-bottom:14px; }
+  .fca-result .button{ width:100%; }
+  .fca-other{ display:block; margin:12px auto 0; border:0; background:transparent; color:#a0304e; font-weight:600; cursor:pointer; font-size:14px; }
+  .fca-more{ display:inline-block; margin-top:12px; font-size:13px; color:#393939; opacity:.7; }
+  .fca-restart{ display:block; margin:16px auto 0; border:0; background:transparent; color:#9a9a9a; font-size:13px; cursor:pointer; text-decoration:underline; }
+  @media (max-width:600px){ .fca-dialog{ padding:26px 20px; border-radius:18px; } }
+</style>
+
+<script>
+(function(){
+  var root = document.getElementById('fitka-advisor');
+  if(!root || root.dataset.fcaInit) return;
+  root.dataset.fcaInit = '1';
+  var steps = [].slice.call(root.querySelectorAll('.fca-step'));
+  var dotsWrap = root.querySelector('.fca-dots');
+  var stepsWrap = root.querySelector('.fca-steps');
+  var results = { tanga: root.querySelector('[data-result="tanga"]'), brief: root.querySelector('[data-result="brief"]') };
+  var tiebreak = root.dataset.tiebreak || 'brief';
+  var answers = [], current = 0;
+
+  steps.forEach(function(){ var d=document.createElement('span'); d.className='fca-dot'; dotsWrap.appendChild(d); });
+  var dots = [].slice.call(dotsWrap.children);
+
+  function showStep(n){
+    steps.forEach(function(s,i){ s.hidden = i!==n; });
+    dots.forEach(function(d,i){ d.classList.toggle('is-on', i<=n); });
+  }
+  function reset(){
+    answers=[]; current=0;
+    stepsWrap.hidden=false; dotsWrap.hidden=false;
+    if(results.tanga) results.tanga.hidden=true;
+    if(results.brief) results.brief.hidden=true;
+    if(steps.length) showStep(0);
+  }
+  function showResult(){
+    var t=answers.filter(function(a){return a==='tanga';}).length;
+    var b=answers.filter(function(a){return a==='brief';}).length;
+    var win = t>b ? 'tanga' : (b>t ? 'brief' : tiebreak);
+    stepsWrap.hidden=true; dotsWrap.hidden=true;
+    if(results.tanga) results.tanga.hidden = (win!=='tanga');
+    if(results.brief) results.brief.hidden = (win!=='brief');
+  }
+  steps.forEach(function(step){
+    [].forEach.call(step.querySelectorAll('.fca-opt'), function(btn){
+      btn.addEventListener('click', function(){
+        [].forEach.call(step.querySelectorAll('.fca-opt'), function(b){ b.classList.remove('is-sel'); });
+        btn.classList.add('is-sel');
+        answers[current] = btn.dataset.target;
+        setTimeout(function(){
+          current++;
+          if(current < steps.length) showStep(current); else showResult();
+        }, 220);
+      });
+    });
+  });
+  [].forEach.call(root.querySelectorAll('[data-show]'), function(b){
+    b.addEventListener('click', function(){
+      var k=b.dataset.show;
+      if(results.tanga) results.tanga.hidden=(k!=='tanga');
+      if(results.brief) results.brief.hidden=(k!=='brief');
+    });
+  });
+  [].forEach.call(root.querySelectorAll('[data-fca-restart]'), function(b){ b.addEventListener('click', reset); });
+
+  function open(){ reset(); root.classList.add('is-open'); root.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function close(){ root.classList.remove('is-open'); root.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  window.fitkaOpenAdvisor = open;
+
+  [].forEach.call(root.querySelectorAll('[data-fca-close]'), function(b){ b.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && root.classList.contains('is-open')) close(); });
+  document.addEventListener('click', function(e){
+    var trg = e.target.closest('[data-fitka-advisor], a[href$="#fitka-advisor"]');
+    if(trg){ e.preventDefault(); open(); }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "FitKa – Rádce střihu",
+  "settings": [
+    { "type": "paragraph", "content": "Skrytý modal. Přidej sekci jednou (ideálně do Footer skupiny). Spustí se z jakéhokoli odkazu s adresou #fitka-advisor nebo prvku s atributem data-fitka-advisor." },
+    { "type": "header", "content": "Obsah" },
+    { "type": "text", "id": "heading", "label": "Nadpis", "default": "Najdi svůj střih" },
+    { "type": "text", "id": "intro", "label": "Podnadpis", "default": "Odpověz na 3 rychlé otázky a poradíme ti." },
+    { "type": "header", "content": "Produkty" },
+    { "type": "product", "id": "tanga_product", "label": "Produkt – Tanga" },
+    { "type": "product", "id": "brief_product", "label": "Produkt – Brief" },
+    { "type": "header", "content": "Výsledek – Tanga (z článku)" },
+    { "type": "text", "id": "tanga_r1", "label": "Důvod 1", "default": "Minimální rýsování pod oblečením" },
+    { "type": "text", "id": "tanga_r2", "label": "Důvod 2", "default": "Ideální pod těsné legíny" },
+    { "type": "text", "id": "tanga_r3", "label": "Důvod 3", "default": "Lehký, svobodný pocit" },
+    { "type": "text", "id": "tanga_tagline", "label": "Pro koho", "default": "Sedne na běh, silový trénink i fitko." },
+    { "type": "header", "content": "Výsledek – Brief (z článku)" },
+    { "type": "text", "id": "brief_r1", "label": "Důvod 1", "default": "Větší pocit jistoty a opory" },
+    { "type": "text", "id": "brief_r2", "label": "Důvod 2", "default": "Více krytí" },
+    { "type": "text", "id": "brief_r3", "label": "Důvod 3", "default": "Stabilita i při hlubokých dřepech" },
+    { "type": "text", "id": "brief_tagline", "label": "Pro koho", "default": "Skvělá na jógu, pilates i dynamické lekce." },
+    { "type": "header", "content": "Ostatní" },
+    { "type": "url", "id": "article_url", "label": "Odkaz na celý článek" },
+    { "type": "select", "id": "tiebreak_default", "label": "Při remíze doporučit", "default": "brief",
+      "options": [ { "value": "tanga", "label": "Tanga" }, { "value": "brief", "label": "Brief" } ] }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Otázka",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Otázka", "default": "Jaký sport děláš nejčastěji?" },
+        { "type": "text", "id": "option_1_label", "label": "Možnost 1" },
+        { "type": "select", "id": "option_1_target", "label": "Možnost 1 → střih", "default": "tanga", "options": [ { "value": "tanga", "label": "Tanga" }, { "value": "brief", "label": "Brief" } ] },
+        { "type": "text", "id": "option_2_label", "label": "Možnost 2" },
+        { "type": "select", "id": "option_2_target", "label": "Možnost 2 → střih", "default": "tanga", "options": [ { "value": "tanga", "label": "Tanga" }, { "value": "brief", "label": "Brief" } ] },
+        { "type": "text", "id": "option_3_label", "label": "Možnost 3" },
+        { "type": "select", "id": "option_3_target", "label": "Možnost 3 → střih", "default": "brief", "options": [ { "value": "tanga", "label": "Tanga" }, { "value": "brief", "label": "Brief" } ] },
+        { "type": "text", "id": "option_4_label", "label": "Možnost 4" },
+        { "type": "select", "id": "option_4_target", "label": "Možnost 4 → střih", "default": "brief", "options": [ { "value": "tanga", "label": "Tanga" }, { "value": "brief", "label": "Brief" } ] }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "FitKa – Rádce střihu",
+      "blocks": [
+        { "type": "question", "settings": {
+          "question": "Jaký sport děláš nejčastěji?",
+          "option_1_label": "Běh / kardio", "option_1_target": "tanga",
+          "option_2_label": "Posilovna / silový trénink", "option_2_target": "tanga",
+          "option_3_label": "Jóga / pilates", "option_3_target": "brief",
+          "option_4_label": "Dynamické lekce / hluboké dřepy", "option_4_target": "brief"
+        } },
+        { "type": "question", "settings": {
+          "question": "Co je pro tebe důležitější?",
+          "option_1_label": "Neviditelnost pod legínami a lehkost", "option_1_target": "tanga",
+          "option_2_label": "Větší krytí a pocit jistoty", "option_2_target": "brief"
+        } },
+        { "type": "question", "settings": {
+          "question": "Jak to máš nejradši s krytím?",
+          "option_1_label": "Minimalistické – co nejmíň látky", "option_1_target": "tanga",
+          "option_2_label": "Radši víc krytí a oporu", "option_2_target": "brief"
+        } }
+      ]
+    }
+  ]
+}
+{% endschema %}
