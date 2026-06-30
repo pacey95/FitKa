@@ -11,6 +11,75 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "fitka_advisor_VNwwrz": {
+      "type": "fitka-advisor",
+      "blocks": {
+        "question_xzjxaC": {
+          "type": "question",
+          "settings": {
+            "question": "Jaký sport děláš nejčastěji?",
+            "option_1_label": "Běh / kardio",
+            "option_1_target": "tanga",
+            "option_2_label": "Posilovna / silový trénink",
+            "option_2_target": "tanga",
+            "option_3_label": "Jóga / pilates",
+            "option_3_target": "brief",
+            "option_4_label": "Dynamické lekce / hluboké dřepy",
+            "option_4_target": "brief"
+          }
+        },
+        "question_jt3gCB": {
+          "type": "question",
+          "settings": {
+            "question": "Co je pro tebe důležitější?",
+            "option_1_label": "Neviditelnost pod legínami a lehkost",
+            "option_1_target": "tanga",
+            "option_2_label": "Větší krytí a pocit jistoty",
+            "option_2_target": "brief",
+            "option_3_label": "",
+            "option_3_target": "brief",
+            "option_4_label": "",
+            "option_4_target": "brief"
+          }
+        },
+        "question_KjNATM": {
+          "type": "question",
+          "settings": {
+            "question": "Jak to máš nejradši s krytím?",
+            "option_1_label": "Minimalistické – co nejmíň látky",
+            "option_1_target": "tanga",
+            "option_2_label": "Radši víc krytí a oporu",
+            "option_2_target": "brief",
+            "option_3_label": "",
+            "option_3_target": "brief",
+            "option_4_label": "",
+            "option_4_target": "brief"
+          }
+        }
+      },
+      "block_order": [
+        "question_xzjxaC",
+        "question_jt3gCB",
+        "question_KjNATM"
+      ],
+      "name": "FitKa – Rádce střihu",
+      "settings": {
+        "heading": "Najdi svůj střih",
+        "intro": "Odpověz na 3 rychlé otázky a poradíme ti.",
+        "tanga_product": "",
+        "brief_product": "",
+        "tanga_r1": "Minimální rýsování pod oblečením",
+        "tanga_r2": "Ideální pod těsné legíny",
+        "tanga_r3": "Lehký, svobodný pocit",
+        "tanga_tagline": "Sedne na běh, silový trénink i fitko.",
+        "brief_r1": "Větší pocit jistoty a opory",
+        "brief_r2": "Více krytí",
+        "brief_r3": "Stabilita i při hlubokých dřepech",
+        "brief_tagline": "Skvělá na jógu, pilates i dynamické lekce.",
+        "article_url": "",
+        "tiebreak_default": "brief"
+      }
+    },
     "blocks_E4q8Qn": {
       "type": "_blocks",
       "blocks": {
@@ -96,6 +165,7 @@
     }
   },
   "order": [
+    "fitka_advisor_VNwwrz",
     "blocks_E4q8Qn",
     "footer"
   ]
