@@ -148,7 +148,7 @@
           "type": "tier",
           "settings": {
             "qty_label": "1 kus",
-            "unit_price": "649 Kč / ks",
+            "unit_price": "669 Kč / ks",
             "save_text": "",
             "badge": ""
           }
@@ -157,8 +157,8 @@
           "type": "tier",
           "settings": {
             "qty_label": "2 kusy",
-            "unit_price": "629 Kč / ks",
-            "save_text": "ušetříš 40 Kč",
+            "unit_price": "639 Kč / ks",
+            "save_text": "ušetříš 60 Kč",
             "badge": ""
           }
         },
@@ -166,8 +166,8 @@
           "type": "tier",
           "settings": {
             "qty_label": "3 kusy",
-            "unit_price": "599 Kč / ks",
-            "save_text": "ušetříš 150 Kč",
+            "unit_price": "619 Kč / ks",
+            "save_text": "ušetříš 120 Kč",
             "badge": "Nejoblíbenější"
           }
         },
@@ -175,8 +175,8 @@
           "type": "tier",
           "settings": {
             "qty_label": "4+ kusy",
-            "unit_price": "569 Kč / ks",
-            "save_text": "ušetříš 320 Kč",
+            "unit_price": "599 Kč / ks",
+            "save_text": "ušetříš 280 Kč",
             "badge": "Nejlepší cena"
           }
         }
