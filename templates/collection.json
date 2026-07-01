@@ -169,6 +169,7 @@
         "benefit_YiHWLm": {
           "type": "benefit",
           "settings": {
+            "custom_icon": "shopify://shop_images/19_14c5e50f-de00-4f0e-a761-8a359829bb82.svg",
             "icon": "shield",
             "title": "Střih, který drží",
             "subtitle": "Při pohybu zůstávají tam, kde mají."
@@ -177,6 +178,7 @@
         "benefit_Pxfrfk": {
           "type": "benefit",
           "settings": {
+            "custom_icon": "shopify://shop_images/21_ebcefa90-edf9-4ff6-843f-ed543fa8cb4d.svg",
             "icon": "leaf",
             "title": "Antibakteriální bambusová vložka",
             "subtitle": "pro svěžest po celý den"
@@ -185,6 +187,7 @@
         "benefit_W7NmLm": {
           "type": "benefit",
           "settings": {
+            "custom_icon": "shopify://shop_images/20_19ac0c8b-45df-46de-9f11-a3a046aafc8f.svg",
             "icon": "eye-off",
             "title": "Materiál na sport",
             "subtitle": "Příjemný na těle, funkční při zátěži."
@@ -193,6 +196,7 @@
         "trust_JqmjJ9": {
           "type": "trust",
           "settings": {
+            "custom_icon": "shopify://shop_images/24.svg",
             "icon": "needle",
             "title": "Ušito v Česku",
             "subtitle": "s pečlivostí a důrazem na kvalitu."
@@ -201,6 +205,7 @@
         "trust_f9pCj9": {
           "type": "trust",
           "settings": {
+            "custom_icon": "shopify://shop_images/23.svg",
             "icon": "leaf",
             "title": "Více kusů, lepší cena",
             "subtitle": "Udělej si zásobu a ušetři."
@@ -209,6 +214,7 @@
         "trust_bk9y3f": {
           "type": "trust",
           "settings": {
+            "custom_icon": "shopify://shop_images/22_29bda825-c6d3-4650-91de-e193adc1a7da.svg",
             "icon": "truck",
             "title": "Doprava zdarma",
             "subtitle": "od koupi 2 ks po celé ČR"
