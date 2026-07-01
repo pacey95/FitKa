@@ -35,7 +35,7 @@
         "badge_text": "Ušité v České republice 🪡",
         "title": "První vrstva, která tě",
         "title_highlight": "podrží.",
-        "subtitle": "Sportovní kalhotky navržené pro pohyb, pohodlí a sebevědomí",
+        "subtitle": "České sportovní kalhotky, které drží, dýchají a nikde neruší.",
         "primary_label": "Jdu si pro ně!",
         "primary_link": "shopify://collections/nase-kalhotky",
         "secondary_label": "Jak vybrat střih",
@@ -49,16 +49,16 @@
           "type": "icon",
           "settings": {
             "icon": "shopify://shop_images/usp2.png",
-            "title": "Pro aktivní ženy",
-            "text": "Navrženo pro sport a každodenní pohyb"
+            "title": "Drží při pohybu",
+            "text": "A ty se můžeš soustředit na sebe."
           }
         },
         "icon_FGaGEQ": {
           "type": "icon",
           "settings": {
             "icon": "shopify://shop_images/usp4.png",
-            "title": "Střih, který ti sedne",
-            "text": "Drží tam, kde má, neklouže a neomezuje při běhu, posilování ani józe."
+            "title": "Dýchají s tebou",
+            "text": "Funkční materiál zvládne i pořádný trénink."
           }
         },
         "icon_8pgVkx": {
@@ -66,15 +66,15 @@
           "settings": {
             "icon": "shopify://shop_images/usp1_0665447e-ea11-41b9-b231-6111510402fe.png",
             "title": "Ušito v Česku",
-            "text": "Lokální výroba s důrazem na kvalitu a férovost"
+            "text": "Férově, lokálně a s důrazem na detail."
           }
         },
         "icon_yaMV9r": {
           "type": "icon",
           "settings": {
             "icon": "shopify://shop_images/usp3.png",
-            "title": "Antibakteriální",
-            "text": "Pro svěžest a pohodlí po celý den"
+            "title": "Zásoba se vyplatí",
+            "text": "Nebudeš je chtít sundat. Vezmi víc kusů a ušetři."
           }
         }
       },
@@ -508,7 +508,7 @@
         "button_aphPcB": {
           "type": "button",
           "settings": {
-            "button_label": "Jasně, jdu si pro ni :)",
+            "button_label": "JDU SI PRO NI",
             "button_link": "shopify://collections/nase-kalhotky",
             "button_style_secondary": false,
             "button_label_2": "",
@@ -557,35 +557,12 @@
     },
     "17824203517a0ce090": {
       "type": "apps",
-      "blocks": {
-        "instafeed_app_block_feeds_emYmBe": {
-          "type": "shopify://apps/instafeed/blocks/app-block-feeds/4169bff3-1d6b-44ad-9377-2ebc3d31f01c",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "instafeed_app_block_feeds_emYmBe"
-      ],
       "settings": {
         "include_margins": true
       }
     },
     "1777406714e8820c21": {
       "type": "apps",
-      "blocks": {
-        "instafeed_app_block_story_mN7ewa": {
-          "type": "shopify://apps/instafeed/blocks/app-block-story/4169bff3-1d6b-44ad-9377-2ebc3d31f01c",
-          "settings": {}
-        },
-        "instafeed_app_block_feeds_FBc3mt": {
-          "type": "shopify://apps/instafeed/blocks/app-block-feeds/4169bff3-1d6b-44ad-9377-2ebc3d31f01c",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "instafeed_app_block_story_mN7ewa",
-        "instafeed_app_block_feeds_FBc3mt"
-      ],
       "settings": {
         "include_margins": true
       }
@@ -602,7 +579,7 @@
         "subtitle": "a získá tipy pro pohodlí i výkon.",
         "placeholder": "Váš e-mail",
         "button_label": "Chci být v obraze",
-        "perk_1": "Sleva 10 % na první nákup",
+        "perk_1": "Sleva 5 % na první nákup",
         "perk_2": "Žádný spam, jen to důležité"
       }
     }
