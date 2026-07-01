@@ -170,8 +170,8 @@
           "type": "benefit",
           "settings": {
             "icon": "shield",
-            "title": "Spolehlivé krytí",
-            "subtitle": "v přední i zadní části"
+            "title": "Střih, který drží",
+            "subtitle": "Při pohybu zůstávají tam, kde mají."
           }
         },
         "benefit_Pxfrfk": {
@@ -186,16 +186,8 @@
           "type": "benefit",
           "settings": {
             "icon": "eye-off",
-            "title": "Neviditelné pod oblečením",
-            "subtitle": "žádné rýhy ani švy"
-          }
-        },
-        "benefit_JEFdqm": {
-          "type": "benefit",
-          "settings": {
-            "icon": "heart",
-            "title": "Jemný, prodyšný a šetrný",
-            "subtitle": "k pokožce"
+            "title": "Materiál na sport",
+            "subtitle": "Příjemný na těle, funkční při zátěži."
           }
         },
         "trust_JqmjJ9": {
@@ -203,15 +195,15 @@
           "settings": {
             "icon": "needle",
             "title": "Ušito v Česku",
-            "subtitle": "s láskou a důrazem na kvalitu"
+            "subtitle": "s pečlivostí a důrazem na kvalitu."
           }
         },
         "trust_f9pCj9": {
           "type": "trust",
           "settings": {
             "icon": "leaf",
-            "title": "Antibakteriální bambusová vložka",
-            "subtitle": "pro svěžest a pohodlí po celý den"
+            "title": "Více kusů, lepší cena",
+            "subtitle": "Udělej si zásobu a ušetři."
           }
         },
         "trust_bk9y3f": {
@@ -219,7 +211,7 @@
           "settings": {
             "icon": "truck",
             "title": "Doprava zdarma",
-            "subtitle": "od 1 500 Kč po celé ČR"
+            "subtitle": "od koupi 2 ks po celé ČR"
           }
         },
         "trust_yfp7Dk": {
@@ -235,7 +227,6 @@
         "benefit_YiHWLm",
         "benefit_Pxfrfk",
         "benefit_W7NmLm",
-        "benefit_JEFdqm",
         "trust_JqmjJ9",
         "trust_f9pCj9",
         "trust_bk9y3f",
@@ -248,7 +239,7 @@
         "helper_text": "Pomůžeme ti vybrat tu pravou.",
         "helper_button_label": "Pomozte mi vybrat",
         "helper_button_link": "#fitka-advisor",
-        "helper_subtext": "Rychlé doporučení na základě tvé výšky a obvodu boků.",
+        "helper_subtext": "Rychlé doporučení podle výšky a obvodu boků.",
         "bg_color": "#f7f6f6",
         "text_size": 15,
         "icon_size": 28,
