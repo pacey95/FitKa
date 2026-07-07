@@ -167,7 +167,7 @@
           "settings": {
             "qty_label": "3 kusy",
             "unit_price": "619 Kč / ks",
-            "save_text": "ušetříš 120 Kč",
+            "save_text": "ušetříš 150 Kč",
             "badge": "Nejoblíbenější"
           }
         },
@@ -176,7 +176,7 @@
           "settings": {
             "qty_label": "4+ kusy",
             "unit_price": "599 Kč / ks",
-            "save_text": "ušetříš 280 Kč",
+            "save_text": "ušetříš 210 Kč",
             "badge": "Nejlepší cena"
           }
         }
