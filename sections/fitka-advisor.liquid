@@ -102,7 +102,7 @@
     <!-- PORADCE VELIKOSTI: krok 2 – míra -->
     <div class="fca-measure" hidden>
       <h3 class="fca-q">{{ section.settings.measure_q | default: 'Jaký máš obvod v místě, kde kalhotky nosíš?' }}</h3>
-      <p class="fca-hint">{{ section.settings.measure_hint | default: 'Změř se krejčovským metrem přes boky v místě, kde ti sedí lem kalhotek – volně, bez zatahování.' }}</p>
+      <p class="fca-hint">{{ section.settings.measure_hint | default: 'Změř se krejčovským metrem přes boky v místě, kde ti sedí lem kalhotek – volně, bez zatahování.' }}{% if section.settings.size_table_url != blank %} <a class="fca-tablelink" href="{{ section.settings.size_table_url }}">Tabulka velikostí</a>{% endif %}</p>
       <div class="fca-input">
         <input type="number" inputmode="decimal" min="40" max="130" step="0.5" placeholder="např. 68" aria-label="Obvod v cm">
         <span>cm</span>
@@ -126,9 +126,17 @@
       <div class="fca-sizeletter" aria-live="polite">M</div>
       <p class="fca-sizematch"></p>
       <p class="fca-sizefeel"></p>
-      <div class="fca-sizebars"></div>
-      {% if section.settings.stretch_note != blank %}<p class="fca-stretchnote">{{ section.settings.stretch_note }}</p>{% endif %}
-      <p class="fca-disclaimer">{{ section.settings.size_disclaimer | default: 'Doporučení vychází z naší tabulky velikostí a není 100% zárukou – každé tělo je jiné. Pokud ti velikost nesedne, vyměníme ti ji.' }}</p>
+      <div class="fca-sizealts"></div>
+      <p class="fca-sizenote">
+        <span>{{ section.settings.size_disclaimer | default: 'Není to 100% záruka – pokud velikost nesedne, vyměníme ti ji.' }}</span>
+        {% if section.settings.size_table_url != blank %}<a class="fca-tablelink" href="{{ section.settings.size_table_url }}">Tabulka velikostí</a>{% endif %}
+        {% if section.settings.stretch_note != blank %}
+          <span class="fca-tip">
+            <button type="button" class="fca-tip__btn" aria-label="Více o velikostech">?</button>
+            <span class="fca-tip__pop" role="tooltip">{{ section.settings.stretch_note }}</span>
+          </span>
+        {% endif %}
+      </p>
       <a class="button button--primary fca-sizecta" href="#">Zobrazit produkt</a>
       <button type="button" class="fca-restart" data-fca-restart>Začít znovu</button>
     </div>
@@ -139,7 +147,17 @@
   .fca-modal{ position:fixed; inset:0; z-index:99999; display:none; }
   .fca-modal [hidden]{ display:none !important; }
   .fca-sizefeel{ font-size:14px; color:#a0304e; font-weight:600; margin:0 0 14px; }
-  .fca-stretchnote{ font-size:12.5px; opacity:.75; line-height:1.5; margin:0 0 10px; background:#fff4f5; border-radius:10px; padding:10px 12px; }
+  .fca-sizealts{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:0 0 16px; }
+  .fca-alt{ background:#f7f6f6; color:#393939; border-radius:999px; padding:7px 14px; font-size:13px; }
+  .fca-alt b{ color:#a0304e; }
+  .fca-sizenote{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:6px 10px; font-size:12.5px; opacity:.85; line-height:1.5; margin:0 0 16px; }
+  .fca-tablelink{ color:#a0304e; font-weight:600; text-decoration:underline; }
+  .fca-tip{ position:relative; display:inline-flex; }
+  .fca-tip__btn{ width:20px; height:20px; border-radius:50%; border:1.4px solid #a0304e; color:#a0304e; background:#fff; font-size:12px; font-weight:700; line-height:1; cursor:pointer; display:grid; place-items:center; padding:0; }
+  .fca-tip__pop{ position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%); width:min(280px,80vw); background:#393939; color:#fff; border-radius:10px; padding:10px 12px; font-size:12px; line-height:1.5; text-align:left; opacity:0; visibility:hidden; transition:opacity .15s ease; z-index:5; pointer-events:none; }
+  .fca-tip__pop::after{ content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:6px solid transparent; border-top-color:#393939; }
+  .fca-tip__btn:hover + .fca-tip__pop,
+  .fca-tip__btn:focus + .fca-tip__pop{ opacity:1; visibility:visible; }
   .fca-modal.is-open{ display:block; }
   .fca-overlay{ position:absolute; inset:0; background:rgba(57,57,57,.55); animation:fcaFade .2s ease; }
   .fca-dialog{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:min(520px,92vw); max-height:90vh; overflow:auto; background:#fff; border-radius:22px; padding:32px 28px; box-shadow:0 24px 64px rgba(0,0,0,.28); animation:fcaPop .25s ease; }
@@ -183,12 +201,6 @@
   .fca-calc[disabled]{ opacity:.45; cursor:not-allowed; }
   .fca-sizeletter{ font-size:56px; font-weight:800; color:#a0304e; line-height:1; margin:6px 0 8px; }
   .fca-sizematch{ font-size:15px; color:#393939; margin:0 0 14px; }
-  .fca-sizebars{ display:flex; flex-direction:column; gap:8px; margin:0 auto 16px; max-width:320px; }
-  .fca-bar{ display:grid; grid-template-columns:26px 1fr 44px; align-items:center; gap:10px; font-size:13px; color:#393939; }
-  .fca-bar .t{ height:8px; border-radius:999px; background:#f1e6e9; overflow:hidden; }
-  .fca-bar .f{ height:100%; background:#a0304e; border-radius:999px; }
-  .fca-bar.dim .f{ background:#e3b7c3; }
-  .fca-disclaimer{ font-size:12.5px; opacity:.7; line-height:1.5; margin:0 0 16px; }
   @media (max-width:600px){ .fca-dialog{ padding:26px 20px; border-radius:18px; } }
 </style>
 
@@ -217,7 +229,7 @@
     sletter: root.querySelector('.fca-sizeletter'),
     smatch: root.querySelector('.fca-sizematch'),
     sfeel: root.querySelector('.fca-sizefeel'),
-    sbars: root.querySelector('.fca-sizebars'),
+    salts: root.querySelector('.fca-sizealts'),
     scta: root.querySelector('.fca-sizecta')
   };
 
@@ -283,11 +295,13 @@
     }
     var best=order[0];
     order.forEach(function(k){ if(scores[k]>scores[best]) best=k; });
-    var all={};
-    order.forEach(function(k){ all[k] = Math.round(100*scores[k]/total); });
-    var p = pos[best];
-    var feel = p < 0.35 ? 'volnější' : (p < 0.65 ? 'vyvážený' : 'pevnější');
-    return { best:best, pct:all[best], all:all, feel:feel, outside:false };
+    function feelOf(p){ return p < 0.35 ? 'volnější' : (p < 0.65 ? 'vyvážený' : 'pevnější'); }
+    var alts = [];
+    order.forEach(function(k){
+      if(k!==best && scores[k]>0) alts.push({ size:k, feel:feelOf(pos[k]) });
+    });
+    var pct = Math.round(70 + 30*scores[best]); // v tabulce sedí vždy => 70–100 % dle blízkosti preferenci
+    return { best:best, pct:pct, alts:alts, feel:feelOf(pos[best]), outside:false };
   }
 
   function showSizeResult(){
@@ -298,19 +312,18 @@
     el.sletter.textContent = r.best;
     el.scta.href = PRODUCT_URLS[sizeCut];
     el.scta.textContent = 'Zobrazit ' + (sizeCut==='tanga'?'Tanga':'Brief');
-    el.sbars.innerHTML='';
+    el.salts.innerHTML='';
     el.sfeel.textContent='';
     if(r.outside){
       el.smatch.textContent = 'Tvoje míra je mimo rozsah tabulky – nejblíž ti bude velikost ' + r.best + '. Radši nám napiš, poradíme osobně.';
     } else {
-      el.smatch.textContent = 'Tvoje míra (' + x + ' cm) odpovídá z ' + r.pct + ' % velikosti ' + r.best + '.';
+      el.smatch.textContent = 'Tvoje míra (' + x + ' cm) se shoduje s tabulkou velikostí na ' + r.pct + ' %.';
       el.sfeel.textContent = 'Ve velikosti ' + r.best + ' budeš mít ' + r.feel + ' pocit.';
-      ['S','M','L'].forEach(function(k){
-        if(r.all[k]<=0) return;
-        var row=document.createElement('div');
-        row.className='fca-bar' + (k===r.best?'':' dim');
-        row.innerHTML='<span>'+k+'</span><span class="t"><span class="f" style="width:'+r.all[k]+'%"></span></span><span>'+r.all[k]+' %</span>';
-        el.sbars.appendChild(row);
+      r.alts.forEach(function(a){
+        var chip=document.createElement('span');
+        chip.className='fca-alt';
+        chip.innerHTML='Seděla by ti i <b>'+a.size+'</b> · '+a.feel+' pocit';
+        el.salts.appendChild(chip);
       });
     }
   }
@@ -414,8 +427,9 @@
     { "type": "header", "content": "Poradce velikosti" },
     { "type": "text", "id": "measure_q", "label": "Otázka na míru", "default": "Jaký máš obvod v místě, kde kalhotky nosíš?" },
     { "type": "text", "id": "measure_hint", "label": "Nápověda k měření", "default": "Změř se krejčovským metrem přes boky v místě, kde ti sedí lem kalhotek – volně, bez zatahování." },
-    { "type": "textarea", "id": "stretch_note", "label": "Poznámka o pružnosti (u výsledku)", "default": "Rozsahy v tabulce značí pružnost materiálu – první číslo je klidový stav, druhé při natažení. Pokud váháš mezi dvěma velikostmi, zvol menší pro těsnější, nebo větší pro volnější pocit." },
-    { "type": "textarea", "id": "size_disclaimer", "label": "Disclaimer u výsledku", "default": "Doporučení vychází z naší tabulky velikostí a není 100% zárukou – každé tělo je jiné. Pokud ti velikost nesedne, vyměníme ti ji." },
+    { "type": "textarea", "id": "stretch_note", "label": "Poznámka o pružnosti (tooltip pod ?)", "default": "Rozsahy v tabulce značí pružnost materiálu – první číslo je klidový stav, druhé při natažení. Pokud váháš mezi dvěma velikostmi, zvol menší pro těsnější, nebo větší pro volnější pocit." },
+    { "type": "text", "id": "size_disclaimer", "label": "Krátká poznámka u výsledku", "default": "Není to 100% záruka – pokud velikost nesedne, vyměníme ti ji." },
+    { "type": "url", "id": "size_table_url", "label": "Odkaz na tabulku velikostí" },
     { "type": "header", "content": "Tabulka – Brief (cm)" },
     { "type": "number", "id": "b_s_min", "label": "S od", "default": 62 },
     { "type": "number", "id": "b_s_max", "label": "S do", "default": 68 },
