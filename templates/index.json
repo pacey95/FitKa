@@ -48,7 +48,7 @@
         "icon_TBjTfD": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/20.svg",
+            "icon": "shopify://shop_images/27.svg",
             "title": "Drží při pohybu",
             "text": "A ty se můžeš soustředit na sebe."
           }
@@ -56,7 +56,7 @@
         "icon_FGaGEQ": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/19.svg",
+            "icon": "shopify://shop_images/29.svg",
             "title": "Dýchají s tebou",
             "text": "Funkční materiál zvládne i pořádný trénink."
           }
@@ -64,7 +64,7 @@
         "icon_8pgVkx": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/21.svg",
+            "icon": "shopify://shop_images/30.svg",
             "title": "Ušito v Česku",
             "text": "Férově, lokálně a s důrazem na detail."
           }
@@ -108,9 +108,9 @@
             "image": "shopify://shop_images/Brief_-_bez_pozadi.png",
             "description": "{{ block.settings.product.metafields.descriptors.subtitle.value }}",
             "button_label": "Zobrazit Brief",
-            "chip_1": "Sportovní kalhotky",
-            "chip_2": "Větší krytí",
-            "chip_3": "Na sport i celý den"
+            "chip_1": "",
+            "chip_2": "",
+            "chip_3": ""
           }
         },
         "tile_DtgWJr": {
@@ -120,9 +120,9 @@
             "image": "shopify://shop_images/Tanga_-_bez_pozadi.png",
             "description": "",
             "button_label": "Zobrazit Tanga",
-            "chip_1": "Sportovní tanga",
-            "chip_2": "Ploché švy",
-            "chip_3": "Volnost pohybu"
+            "chip_1": "",
+            "chip_2": "",
+            "chip_3": ""
           }
         }
       },
