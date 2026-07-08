@@ -110,12 +110,24 @@
       <button type="button" class="button button--primary fca-calc" disabled>Doporučit velikost</button>
     </div>
 
+    <!-- PORADCE VELIKOSTI: krok 3 – preferovaný pocit -->
+    <div class="fca-feel" hidden>
+      <h3 class="fca-q">Jaký pocit na těle preferuješ?</h3>
+      <div class="fca-opts">
+        <button type="button" class="fca-opt" data-feel="tight">Pevnější – ať pěkně drží</button>
+        <button type="button" class="fca-opt" data-feel="balanced">Vyvážený</button>
+        <button type="button" class="fca-opt" data-feel="loose">Volnější – hlavně ať nikde netlačí</button>
+      </div>
+    </div>
+
     <!-- PORADCE VELIKOSTI: výsledek -->
     <div class="fca-sizeresult" hidden>
       <span class="fca-badge">Doporučená velikost</span>
       <div class="fca-sizeletter" aria-live="polite">M</div>
       <p class="fca-sizematch"></p>
+      <p class="fca-sizefeel"></p>
       <div class="fca-sizebars"></div>
+      {% if section.settings.stretch_note != blank %}<p class="fca-stretchnote">{{ section.settings.stretch_note }}</p>{% endif %}
       <p class="fca-disclaimer">{{ section.settings.size_disclaimer | default: 'Doporučení vychází z naší tabulky velikostí a není 100% zárukou – každé tělo je jiné. Pokud ti velikost nesedne, vyměníme ti ji.' }}</p>
       <a class="button button--primary fca-sizecta" href="#">Zobrazit produkt</a>
       <button type="button" class="fca-restart" data-fca-restart>Začít znovu</button>
@@ -126,6 +138,8 @@
 <style>
   .fca-modal{ position:fixed; inset:0; z-index:99999; display:none; }
   .fca-modal [hidden]{ display:none !important; }
+  .fca-sizefeel{ font-size:14px; color:#a0304e; font-weight:600; margin:0 0 14px; }
+  .fca-stretchnote{ font-size:12.5px; opacity:.75; line-height:1.5; margin:0 0 10px; background:#fff4f5; border-radius:10px; padding:10px 12px; }
   .fca-modal.is-open{ display:block; }
   .fca-overlay{ position:absolute; inset:0; background:rgba(57,57,57,.55); animation:fcaFade .2s ease; }
   .fca-dialog{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:min(520px,92vw); max-height:90vh; overflow:auto; background:#fff; border-radius:22px; padding:32px 28px; box-shadow:0 24px 64px rgba(0,0,0,.28); animation:fcaPop .25s ease; }
@@ -196,16 +210,18 @@
     results: { tanga: root.querySelector('[data-result="tanga"]'), brief: root.querySelector('[data-result="brief"]') },
     sizecut: root.querySelector('.fca-sizecut'),
     measure: root.querySelector('.fca-measure'),
+    feel: root.querySelector('.fca-feel'),
     input: root.querySelector('.fca-input input'),
     calc: root.querySelector('.fca-calc'),
     sres: root.querySelector('.fca-sizeresult'),
     sletter: root.querySelector('.fca-sizeletter'),
     smatch: root.querySelector('.fca-sizematch'),
+    sfeel: root.querySelector('.fca-sizefeel'),
     sbars: root.querySelector('.fca-sizebars'),
     scta: root.querySelector('.fca-sizecta')
   };
 
-  var answers = [], current = 0, sizeCut = null;
+  var answers = [], current = 0, sizeCut = null, sizePref = null;
 
   el.steps.forEach(function(){ var d=document.createElement('span'); d.className='fca-dot'; el.dotsWrap.appendChild(d); });
   var dots = [].slice.call(el.dotsWrap.children);
@@ -216,12 +232,13 @@
     el.dotsWrap.hidden = true;
     el.sizecut.hidden = true;
     el.measure.hidden = true;
+    el.feel.hidden = true;
     el.sres.hidden = true;
     el.results.tanga.hidden = true;
     el.results.brief.hidden = true;
   }
   function showEntry(){
-    hideAll(); answers=[]; current=0; sizeCut=null;
+    hideAll(); answers=[]; current=0; sizeCut=null; sizePref=null;
     el.input.value=''; el.calc.disabled=true;
     [].forEach.call(root.querySelectorAll('.fca-opt.is-sel'), function(b){ b.classList.remove('is-sel'); });
     el.entry.hidden = false;
@@ -239,49 +256,55 @@
   }
   function showSizeCut(){ hideAll(); el.sizecut.hidden=false; }
   function showMeasure(){ hideAll(); el.measure.hidden=false; el.input.focus(); }
+  function showFeel(){ hideAll(); el.feel.hidden=false; }
 
-  function calcSize(cut, x){
+  function calcSize(cut, x, pref){
     var table = SIZES[cut];
     var order = ['S','M','L'];
-    var scores = {}, total = 0;
+    var target = pref==='tight' ? 0.72 : (pref==='loose' ? 0.28 : 0.5);
+    var scores = {}, pos = {}, total = 0;
     order.forEach(function(k){
       var min=table[k][0], max=table[k][1];
       var s = 0;
       if(x>=min && x<=max){
-        var c=(min+max)/2, h=(max-min)/2;
-        s = Math.max(0.15, 1 - Math.abs(x-c)/h); // uvnitř rozsahu: blíž středu = vyšší skóre
+        var p = (x-min)/(max-min); // 0 = u klidového stavu (volnější), 1 = u nataženého (pevnější)
+        pos[k] = p;
+        s = Math.max(0.1, 1 - Math.abs(p-target));
       }
       scores[k]=s; total+=s;
     });
     if(total===0){
-      // mimo všechny rozsahy → nejbližší velikost, bez procent
       var best=null, dist=1e9;
       order.forEach(function(k){
         var d = x<table[k][0] ? table[k][0]-x : x-table[k][1];
         if(d<dist){ dist=d; best=k; }
       });
-      return { best:best, pct:null, all:null, outside:true };
+      return { best:best, pct:null, all:null, feel:null, outside:true };
     }
     var best=order[0];
     order.forEach(function(k){ if(scores[k]>scores[best]) best=k; });
     var all={};
     order.forEach(function(k){ all[k] = Math.round(100*scores[k]/total); });
-    return { best:best, pct:all[best], all:all, outside:false };
+    var p = pos[best];
+    var feel = p < 0.35 ? 'volnější' : (p < 0.65 ? 'vyvážený' : 'pevnější');
+    return { best:best, pct:all[best], all:all, feel:feel, outside:false };
   }
 
   function showSizeResult(){
     var x = parseFloat(el.input.value.replace(',','.'));
     if(isNaN(x)) return;
-    var r = calcSize(sizeCut, x);
+    var r = calcSize(sizeCut, x, sizePref);
     hideAll(); el.sres.hidden=false;
     el.sletter.textContent = r.best;
     el.scta.href = PRODUCT_URLS[sizeCut];
     el.scta.textContent = 'Zobrazit ' + (sizeCut==='tanga'?'Tanga':'Brief');
     el.sbars.innerHTML='';
+    el.sfeel.textContent='';
     if(r.outside){
       el.smatch.textContent = 'Tvoje míra je mimo rozsah tabulky – nejblíž ti bude velikost ' + r.best + '. Radši nám napiš, poradíme osobně.';
     } else {
       el.smatch.textContent = 'Tvoje míra (' + x + ' cm) odpovídá z ' + r.pct + ' % velikosti ' + r.best + '.';
+      el.sfeel.textContent = 'Ve velikosti ' + r.best + ' budeš mít ' + r.feel + ' pocit.';
       ['S','M','L'].forEach(function(k){
         if(r.all[k]<=0) return;
         var row=document.createElement('div');
@@ -330,8 +353,17 @@
     var v=parseFloat(el.input.value.replace(',','.'));
     el.calc.disabled = isNaN(v) || v<40 || v>130;
   });
-  el.input.addEventListener('keydown', function(e){ if(e.key==='Enter' && !el.calc.disabled) showSizeResult(); });
-  el.calc.addEventListener('click', showSizeResult);
+  el.input.addEventListener('keydown', function(e){ if(e.key==='Enter' && !el.calc.disabled) showFeel(); });
+  el.calc.addEventListener('click', showFeel);
+
+  // velikost: preferovaný pocit
+  [].forEach.call(el.feel.querySelectorAll('[data-feel]'), function(b){
+    b.addEventListener('click', function(){
+      sizePref = b.dataset.feel;
+      b.classList.add('is-sel');
+      setTimeout(showSizeResult, 160);
+    });
+  });
 
   // přepnutí výsledku střihu
   [].forEach.call(root.querySelectorAll('[data-show]'), function(b){
@@ -382,6 +414,7 @@
     { "type": "header", "content": "Poradce velikosti" },
     { "type": "text", "id": "measure_q", "label": "Otázka na míru", "default": "Jaký máš obvod v místě, kde kalhotky nosíš?" },
     { "type": "text", "id": "measure_hint", "label": "Nápověda k měření", "default": "Změř se krejčovským metrem přes boky v místě, kde ti sedí lem kalhotek – volně, bez zatahování." },
+    { "type": "textarea", "id": "stretch_note", "label": "Poznámka o pružnosti (u výsledku)", "default": "Rozsahy v tabulce značí pružnost materiálu – první číslo je klidový stav, druhé při natažení. Pokud váháš mezi dvěma velikostmi, zvol menší pro těsnější, nebo větší pro volnější pocit." },
     { "type": "textarea", "id": "size_disclaimer", "label": "Disclaimer u výsledku", "default": "Doporučení vychází z naší tabulky velikostí a není 100% zárukou – každé tělo je jiné. Pokud ti velikost nesedne, vyměníme ti ji." },
     { "type": "header", "content": "Tabulka – Brief (cm)" },
     { "type": "number", "id": "b_s_min", "label": "S od", "default": 62 },
