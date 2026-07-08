@@ -163,10 +163,10 @@
       "name": "Oddělovač",
       "settings": {}
     },
-    "fitka_pdp_info_cgPchQ": {
+    "fitka_pdp_info_MR3DiL": {
       "type": "fitka-pdp-info",
       "blocks": {
-        "benefit_YiHWLm": {
+        "benefit_qLxhP3": {
           "type": "benefit",
           "settings": {
             "custom_icon": "shopify://shop_images/27.svg",
@@ -175,7 +175,7 @@
             "subtitle": "Při pohybu zůstávají tam, kde mají."
           }
         },
-        "benefit_Pxfrfk": {
+        "benefit_TMWEM4": {
           "type": "benefit",
           "settings": {
             "custom_icon": "shopify://shop_images/28.svg",
@@ -184,7 +184,7 @@
             "subtitle": "pro svěžest po celý den."
           }
         },
-        "benefit_W7NmLm": {
+        "benefit_ytR7jk": {
           "type": "benefit",
           "settings": {
             "custom_icon": "shopify://shop_images/29.svg",
@@ -193,7 +193,7 @@
             "subtitle": "Příjemný na těle, funkční při zátěži."
           }
         },
-        "trust_JqmjJ9": {
+        "trust_KFXzfB": {
           "type": "trust",
           "settings": {
             "custom_icon": "shopify://shop_images/30.svg",
@@ -202,16 +202,16 @@
             "subtitle": "s pečlivostí a důrazem na kvalitu."
           }
         },
-        "trust_f9pCj9": {
+        "trust_Fhcd89": {
           "type": "trust",
           "settings": {
-            "custom_icon": "shopify://shop_images/Loga_2.svg",
+            "custom_icon": "shopify://shop_images/Loga_2_bb560441-68fa-4eee-babc-cd9300a7ce1c.png",
             "icon": "leaf",
             "title": "Více kusů, lepší cena",
             "subtitle": "Udělej si zásobu a ušetři."
           }
         },
-        "trust_bk9y3f": {
+        "trust_LbnPLf": {
           "type": "trust",
           "settings": {
             "custom_icon": "shopify://shop_images/25.svg",
@@ -220,7 +220,7 @@
             "subtitle": "od 1500 Kč po celé ČR."
           }
         },
-        "trust_yfp7Dk": {
+        "trust_LK8CCQ": {
           "type": "trust",
           "settings": {
             "custom_icon": "shopify://shop_images/Loga_3.svg",
@@ -231,26 +231,27 @@
         }
       },
       "block_order": [
-        "benefit_YiHWLm",
-        "benefit_Pxfrfk",
-        "benefit_W7NmLm",
-        "trust_JqmjJ9",
-        "trust_f9pCj9",
-        "trust_bk9y3f",
-        "trust_yfp7Dk"
+        "benefit_qLxhP3",
+        "benefit_TMWEM4",
+        "benefit_ytR7jk",
+        "trust_KFXzfB",
+        "trust_Fhcd89",
+        "trust_LbnPLf",
+        "trust_LK8CCQ"
       ],
       "name": "FitKa – PDP info",
       "settings": {
         "left_heading": "Proč si je zamiluješ",
-        "helper_heading": "Nevíš velikost?",
-        "helper_text": "Pomůžeme ti vybrat tu pravou.",
-        "helper_button_label": "Pomozte mi vybrat",
+        "helper_heading": "Nevíš velikost nebo střih?",
+        "helper_text": "Pomůžeme ti vybrat!",
+        "helper_button_label": "Spustit kvíz",
         "helper_button_link": "#fitka-advisor",
-        "helper_subtext": "Rychlé doporučení podle výšky a obvodu boků.",
+        "helper_subtext": "Rychlé doporučení podle obvodu boků a tvých oblíbených aktivit - stačí nám 30 sekund!",
         "bg_color": "#f7f6f6",
         "text_size": 15,
-        "icon_size": 28,
-        "helper_icon_size": 46,
+        "icon_size": 30,
+        "helper_icon_size": 58,
+        "icon_stroke": 1.9,
         "padding_top": 52,
         "padding_bottom": 28
       }
@@ -353,7 +354,7 @@
     "product-grid",
     "fitka_cut_tiles_pQpJra",
     "blocks_zePFYn",
-    "fitka_pdp_info_cgPchQ",
+    "fitka_pdp_info_MR3DiL",
     "blocks_FJBhiF",
     "17659995300940563f",
     "blocks_MrWVGi"
