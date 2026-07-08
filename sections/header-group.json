@@ -1,1 +1,68 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement_bar_mHCKNV":{"type":"announcement-bar","blocks":{"announcement_kXkg7A":{"type":"announcement","settings":{"text":"Doskladnění vyprodaných velikostí a nových barev už příští týden!","link":""}}},"block_order":["announcement_kXkg7A"],"name":"t:sections.announcement-bar.presets.name","settings":{"auto_rotate":false,"change_slides_speed":5,"color_scheme":"accent-3","show_line_separator":true,"show_social":false,"enable_country_selector":false,"enable_language_selector":false}},"header":{"type":"header","custom_css":[],"settings":{"logo_position":"middle-left","mobile_logo_position":"center","menu":"main-menu","menu_type_desktop":"mega","sticky_header_type":"always","show_line_separator":false,"color_scheme":"background-1","menu_color_scheme":"background-1","enable_country_selector":false,"enable_language_selector":false,"enable_customer_avatar":false,"enable_product_tiles":false,"product_tiles_trigger":"Produkty","product_tiles_bg":"#f7f6f6","margin_bottom":0,"padding_top":4,"padding_bottom":4}}},"order":["announcement_bar_mHCKNV","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement_bar_mHCKNV": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_kXkg7A": {
+          "type": "announcement",
+          "settings": {
+            "text": "Doskladnění vyprodaných velikostí a nových barev už příští týden!",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_kXkg7A"
+      ],
+      "disabled": true,
+      "name": "t:sections.announcement-bar.presets.name",
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "accent-3",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [],
+      "settings": {
+        "logo_position": "middle-left",
+        "mobile_logo_position": "center",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "always",
+        "show_line_separator": false,
+        "color_scheme": "background-1",
+        "menu_color_scheme": "background-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": false,
+        "enable_product_tiles": false,
+        "product_tiles_trigger": "Produkty",
+        "product_tiles_bg": "#f7f6f6",
+        "margin_bottom": 0,
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    }
+  },
+  "order": [
+    "announcement_bar_mHCKNV",
+    "header"
+  ]
+}
