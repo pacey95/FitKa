@@ -101,18 +101,6 @@
     "fitka_cut_tiles_qBnGNw": {
       "type": "fitka-cut-tiles",
       "blocks": {
-        "tile_bxJfpg": {
-          "type": "tile",
-          "settings": {
-            "product": "brief-fitka",
-            "image": "shopify://shop_images/Brief_-_bez_pozadi.png",
-            "description": "{{ block.settings.product.metafields.descriptors.subtitle.value }}",
-            "button_label": "Zobrazit Brief",
-            "chip_1": "Sportovní kalhotky",
-            "chip_2": "Větší krytí",
-            "chip_3": "Na sport i celý den"
-          }
-        },
         "tile_DtgWJr": {
           "type": "tile",
           "settings": {
@@ -124,11 +112,23 @@
             "chip_2": "Ploché švy",
             "chip_3": "Volnost pohybu"
           }
+        },
+        "tile_bxJfpg": {
+          "type": "tile",
+          "settings": {
+            "product": "brief-fitka",
+            "image": "shopify://shop_images/Brief_-_bez_pozadi.png",
+            "description": "{{ block.settings.product.metafields.descriptors.subtitle.value }}",
+            "button_label": "Zobrazit Brief",
+            "chip_1": "Sportovní kalhotky",
+            "chip_2": "Větší krytí",
+            "chip_3": "Na sport i celý den"
+          }
         }
       },
       "block_order": [
-        "tile_bxJfpg",
-        "tile_DtgWJr"
+        "tile_DtgWJr",
+        "tile_bxJfpg"
       ],
       "name": "FitKa – Vyber střih",
       "settings": {
@@ -192,7 +192,7 @@
         "note": "Množstevní sleva se uplatní automaticky v košíku.",
         "bg_color": "#f7f6f6",
         "button_label": "",
-        "button_link": "shopify://collections/all",
+        "button_link": "shopify://collections/nase-kalhotky",
         "padding_top": 0,
         "padding_bottom": 20
       }
@@ -226,7 +226,7 @@
         "judge_me_reviews_cards_carousel_PbLkUT": {
           "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
-            "show_sample_reviews": true,
+            "show_sample_reviews": false,
             "reviews_selection": "product_reviews",
             "products": [
               "brief-fitka",
