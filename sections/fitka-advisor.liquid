@@ -57,6 +57,7 @@
 
     <!-- VÝSLEDKY STŘIHU -->
     <div class="fca-result" data-result="tanga" hidden>
+      <p class="fca-recap"></p>
       <span class="fca-badge">Náš tip pro tebe</span>
       <h3>{{ tp.title | default: 'Tanga FitKa' }}</h3>
       <ul class="fca-reasons">
@@ -74,6 +75,7 @@
     </div>
 
     <div class="fca-result" data-result="brief" hidden>
+      <p class="fca-recap"></p>
       <span class="fca-badge">Náš tip pro tebe</span>
       <h3>{{ bp.title | default: 'Brief FitKa' }}</h3>
       <ul class="fca-reasons">
@@ -122,6 +124,7 @@
 
     <!-- PORADCE VELIKOSTI: výsledek -->
     <div class="fca-sizeresult" hidden>
+      <p class="fca-recap fca-recap--size"></p>
       <span class="fca-badge">Doporučená velikost</span>
       <div class="fca-sizeletter" aria-live="polite">M</div>
       <p class="fca-sizematch"></p>
@@ -146,6 +149,7 @@
 <style>
   .fca-modal{ position:fixed; inset:0; z-index:99999; display:none; }
   .fca-modal [hidden]{ display:none !important; }
+  .fca-recap{ font-size:12.5px; opacity:.62; margin:0 0 10px; line-height:1.5; }
   .fca-sizefeel{ font-size:14px; color:#a0304e; font-weight:600; margin:0 0 14px; }
   .fca-sizealts{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:0 0 16px; }
   .fca-alt{ background:#f7f6f6; color:#393939; border-radius:999px; padding:7px 14px; font-size:13px; }
@@ -233,7 +237,7 @@
     scta: root.querySelector('.fca-sizecta')
   };
 
-  var answers = [], current = 0, sizeCut = null, sizePref = null;
+  var answers = [], answerLabels = [], current = 0, sizeCut = null, sizePref = null;
 
   el.steps.forEach(function(){ var d=document.createElement('span'); d.className='fca-dot'; el.dotsWrap.appendChild(d); });
   var dots = [].slice.call(el.dotsWrap.children);
@@ -250,7 +254,7 @@
     el.results.brief.hidden = true;
   }
   function showEntry(){
-    hideAll(); answers=[]; current=0; sizeCut=null; sizePref=null;
+    hideAll(); answers=[]; answerLabels=[]; current=0; sizeCut=null; sizePref=null;
     el.input.value=''; el.calc.disabled=true;
     [].forEach.call(root.querySelectorAll('.fca-opt.is-sel'), function(b){ b.classList.remove('is-sel'); });
     el.entry.hidden = false;
@@ -265,6 +269,8 @@
     var b=answers.filter(function(a){return a==='brief';}).length;
     var win = t>b ? 'tanga' : (b>t ? 'brief' : tiebreak);
     hideAll(); el.results[win].hidden = false;
+    var rc = el.results[win].querySelector('.fca-recap');
+    if(rc) rc.textContent = answerLabels.length ? 'Tvoje odpovědi: ' + answerLabels.join(' · ') : '';
   }
   function showSizeCut(){ hideAll(); el.sizecut.hidden=false; }
   function showMeasure(){ hideAll(); el.measure.hidden=false; el.input.focus(); }
@@ -309,6 +315,10 @@
     if(isNaN(x)) return;
     var r = calcSize(sizeCut, x, sizePref);
     hideAll(); el.sres.hidden=false;
+    var prefWord = sizePref==='tight' ? 'pevnější' : (sizePref==='loose' ? 'volnější' : 'vyvážený');
+    var cutWord = sizeCut==='tanga' ? 'Tanga' : 'Brief';
+    var src = el.sres.querySelector('.fca-recap');
+    if(src) src.textContent = 'Vybíráš ' + cutWord + ', tvoje míra je ' + x + ' cm a preferuješ ' + prefWord + ' pocit.';
     el.sletter.textContent = r.best;
     el.scta.href = PRODUCT_URLS[sizeCut];
     el.scta.textContent = 'Zobrazit ' + (sizeCut==='tanga'?'Tanga':'Brief');
@@ -331,7 +341,7 @@
   // vstupní volba
   [].forEach.call(el.entry.querySelectorAll('[data-mode]'), function(b){
     b.addEventListener('click', function(){
-      if(b.dataset.mode==='cut'){ answers=[]; current=0; showStep(0); }
+      if(b.dataset.mode==='cut'){ answers=[]; answerLabels=[]; current=0; showStep(0); }
       else { showSizeCut(); }
     });
   });
@@ -343,6 +353,7 @@
         [].forEach.call(step.querySelectorAll('.fca-opt'), function(b){ b.classList.remove('is-sel'); });
         btn.classList.add('is-sel');
         answers[current] = btn.dataset.target;
+        answerLabels[current] = btn.textContent.trim();
         setTimeout(function(){
           current++;
           if(current < el.steps.length) showStep(current); else showCutResult();
