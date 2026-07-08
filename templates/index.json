@@ -575,12 +575,12 @@
         "text_color": "#ffffff",
         "padding_top": 16,
         "padding_bottom": 16,
-        "title": "Buď první, kdo se dozví novinky",
-        "subtitle": "a získá tipy pro pohodlí i výkon.",
+        "title": "Buď první u novinek a tipů,",
+        "subtitle": "díky kterým se při pohybu cítíš dobře.",
         "placeholder": "Váš e-mail",
-        "button_label": "Chci být v obraze",
-        "perk_1": "Sleva 5 % na první nákup",
-        "perk_2": "Žádný spam, jen to důležité"
+        "button_label": "Přidat se k FitKa",
+        "perk_1": "Přednostní přístup k limitkám",
+        "perk_2": "Žádný spam, jen FitKa things :)"
       }
     }
   },
