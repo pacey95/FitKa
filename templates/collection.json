@@ -107,9 +107,9 @@
             "image": "shopify://shop_images/Brief_-_bez_pozadi.png",
             "description": "{{ block.settings.product.metafields.descriptors.subtitle.value }}",
             "button_label": "Zobrazit Brief",
-            "chip_1": "",
-            "chip_2": "",
-            "chip_3": ""
+            "chip_1": "Sportovní kalhotky",
+            "chip_2": "Větší krytí",
+            "chip_3": "Na sport i celý den"
           }
         },
         "tile_9kFjHQ": {
@@ -119,9 +119,9 @@
             "image": "shopify://shop_images/Tanga_-_bez_pozadi.png",
             "description": "",
             "button_label": "Zobrazit Tanga",
-            "chip_1": "",
-            "chip_2": "",
-            "chip_3": ""
+            "chip_1": "Sportovní tanga",
+            "chip_2": "Ploché švy",
+            "chip_3": "Volnost pohybu"
           }
         }
       },
