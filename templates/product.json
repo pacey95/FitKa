@@ -164,97 +164,95 @@
       "name": "Oddělovač",
       "settings": {}
     },
-    "fitka_pdp_info_h7E4Dc": {
+    "fitka_pdp_info_mxpqQa": {
       "type": "fitka-pdp-info",
       "blocks": {
-        "benefit_ArUxg6": {
+        "benefit_tDtjDB": {
           "type": "benefit",
           "settings": {
+            "custom_icon": "shopify://shop_images/27.svg",
             "icon": "shield",
-            "title": "Spolehlivé krytí",
-            "subtitle": "v přední i zadní části"
+            "title": "Střih, který drží",
+            "subtitle": "Při pohybu zůstávají tam, kde mají."
           }
         },
-        "benefit_BpaFBJ": {
+        "benefit_fGm7De": {
           "type": "benefit",
           "settings": {
+            "custom_icon": "shopify://shop_images/28.svg",
             "icon": "leaf",
             "title": "Antibakteriální bambusová vložka",
-            "subtitle": "pro svěžest po celý den"
+            "subtitle": "pro svěžest po celý den."
           }
         },
-        "benefit_xpAENq": {
+        "benefit_nKgRV6": {
           "type": "benefit",
           "settings": {
+            "custom_icon": "shopify://shop_images/29.svg",
             "icon": "eye-off",
-            "title": "Neviditelné pod oblečením",
-            "subtitle": "žádné rýhy ani švy"
+            "title": "Materiál na sport",
+            "subtitle": "Příjemný na těle, funkční při zátěži."
           }
         },
-        "benefit_w4YhdG": {
-          "type": "benefit",
-          "settings": {
-            "icon": "heart",
-            "title": "Jemný, prodyšný a šetrný",
-            "subtitle": "k pokožce"
-          }
-        },
-        "trust_CKFdUn": {
+        "trust_KqxK9m": {
           "type": "trust",
           "settings": {
+            "custom_icon": "shopify://shop_images/30.svg",
             "icon": "needle",
             "title": "Ušito v Česku",
-            "subtitle": "s láskou a důrazem na kvalitu"
+            "subtitle": "s pečlivostí a důrazem na kvalitu."
           }
         },
-        "trust_6dr9wn": {
+        "trust_E7w43C": {
           "type": "trust",
           "settings": {
+            "custom_icon": "shopify://shop_images/Loga_2.svg",
             "icon": "leaf",
-            "title": "Antibakteriální bambusová vložka",
-            "subtitle": "pro svěžest a pohodlí po celý den"
+            "title": "Více kusů, lepší cena",
+            "subtitle": "Udělej si zásobu a ušetři."
           }
         },
-        "trust_Rbc8az": {
+        "trust_DaA4Ne": {
           "type": "trust",
           "settings": {
+            "custom_icon": "shopify://shop_images/25.svg",
             "icon": "truck",
             "title": "Doprava zdarma",
-            "subtitle": "od 1 500 Kč po celé ČR"
+            "subtitle": "od 1500 Kč po celé ČR."
           }
         },
-        "trust_tkddJx": {
+        "trust_G7nfzx": {
           "type": "trust",
           "settings": {
+            "custom_icon": "shopify://shop_images/Loga_3.svg",
             "icon": "card",
             "title": "Bezpečná platba",
-            "subtitle": "kartou, Apple Pay, Google Pay nebo na dobírku"
+            "subtitle": "kartou, Apple Pay, Google Pay"
           }
         }
       },
       "block_order": [
-        "benefit_ArUxg6",
-        "benefit_BpaFBJ",
-        "benefit_xpAENq",
-        "benefit_w4YhdG",
-        "trust_CKFdUn",
-        "trust_6dr9wn",
-        "trust_Rbc8az",
-        "trust_tkddJx"
+        "benefit_tDtjDB",
+        "benefit_fGm7De",
+        "benefit_nKgRV6",
+        "trust_KqxK9m",
+        "trust_E7w43C",
+        "trust_DaA4Ne",
+        "trust_G7nfzx"
       ],
       "name": "FitKa – PDP info",
       "settings": {
         "left_heading": "Proč si je zamiluješ",
         "helper_heading": "Nevíš velikost?",
         "helper_text": "Pomůžeme ti vybrat tu pravou.",
-        "helper_button_label": "Jak vybrat kalhotky",
+        "helper_button_label": "Pomozte mi vybrat",
         "helper_button_link": "#fitka-advisor",
-        "helper_subtext": "Rychlé doporučení na základě tvé výšky a obvodu boků.",
+        "helper_subtext": "Rychlé doporučení podle výšky a obvodu boků.",
         "bg_color": "#f7f6f6",
         "text_size": 15,
         "icon_size": 28,
         "helper_icon_size": 46,
-        "padding_top": 28,
+        "padding_top": 52,
         "padding_bottom": 28
       }
     },
@@ -617,7 +615,7 @@
   "order": [
     "main",
     "blocks_8yMgYW",
-    "fitka_pdp_info_h7E4Dc",
+    "fitka_pdp_info_mxpqQa",
     "fitka_tabs_6yEzxg",
     "blocks_gpnf4a",
     "17827257846fadd301",
