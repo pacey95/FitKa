@@ -61,7 +61,7 @@
           "settings": {
             "text_style": "uppercase",
             "inventory_threshold": 4,
-            "show_inventory_quantity": true
+            "show_inventory_quantity": false
           }
         },
         "dealeasy_vd_cards_cKEw7F": {
