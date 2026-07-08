@@ -205,7 +205,7 @@
         "trust_f9pCj9": {
           "type": "trust",
           "settings": {
-            "custom_icon": "shopify://shop_images/Loga_1.svg",
+            "custom_icon": "shopify://shop_images/Loga_2.svg",
             "icon": "leaf",
             "title": "Více kusů, lepší cena",
             "subtitle": "Udělej si zásobu a ušetři."
@@ -223,6 +223,7 @@
         "trust_yfp7Dk": {
           "type": "trust",
           "settings": {
+            "custom_icon": "shopify://shop_images/Loga_3.svg",
             "icon": "card",
             "title": "Bezpečná platba",
             "subtitle": "kartou, Apple Pay, Google Pay"
