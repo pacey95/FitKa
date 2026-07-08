@@ -206,7 +206,7 @@
         "trust_E7w43C": {
           "type": "trust",
           "settings": {
-            "custom_icon": "shopify://shop_images/Loga_2.svg",
+            "custom_icon": "shopify://shop_images/Loga_2_bb560441-68fa-4eee-babc-cd9300a7ce1c.png",
             "icon": "leaf",
             "title": "Více kusů, lepší cena",
             "subtitle": "Udělej si zásobu a ušetři."
@@ -250,8 +250,9 @@
         "helper_subtext": "Rychlé doporučení podle výšky a obvodu boků.",
         "bg_color": "#f7f6f6",
         "text_size": 15,
-        "icon_size": 28,
-        "helper_icon_size": 46,
+        "icon_size": 30,
+        "helper_icon_size": 58,
+        "icon_stroke": 1.9,
         "padding_top": 52,
         "padding_bottom": 28
       }
@@ -271,7 +272,7 @@
           "type": "tab",
           "settings": {
             "tab_title": "Péče",
-            "content": "<p>Perte na 30 °C. Nepoužívejte aviváž. Nesušte v sušičce. Sušte naležato.</p>",
+            "content": "<p>Per na 30 °C. Nepoužívej aviváž. Nesuš v sušičce. Suš naležato.</p>",
             "show_oeko": false
           }
         },
@@ -279,7 +280,7 @@
           "type": "tab",
           "settings": {
             "tab_title": "Doprava a vrácení",
-            "content": "<p>Doprava od 1 500 Kč zdarma, doručení po celé ČR.<br/>Vrácení do 30 dní. Výměna velikosti zdarma.</p>",
+            "content": "<p>Doprava od 1 500 Kč zdarma, doručení po celé ČR.<br/>Vrácení do 14 dní. Výměna velikosti zdarma.</p>",
             "show_oeko": false
           }
         },
@@ -287,7 +288,7 @@
           "type": "tab",
           "settings": {
             "tab_title": "FAQ",
-            "content": "<p><strong>Je to vidět pod legínami?</strong> Díky plochým okrajům a hladkému materiálu se kalhotky nerýsují.<br/><strong>Jak vyberu velikost?</strong> Použij průvodce velikostí nebo tabulku; při pochybnostech ber menší.<br/><strong>Vhodné na běh, jógu, fitko i turistiku?</strong> Ano – navržené pro pohyb i celodenní nošení.<br/><strong>Jak funguje bambusová vložka?</strong> Antibakteriální bambusová viskóza pro svěžest po celý den.</p>",
+            "content": "<h5>1. Jaký střih si mám vybrat — briefs nebo tanga?</h5><p><strong>Briefs jsou klasika s větším krytím a jistým pocitem na těle. Tanga jsou minimalistická, lehká a skvělá pod přiléhavé sportovní oblečení. Oba střihy jsou navržené tak, aby při pohybu dobře seděly a nerušily tě.</strong></p><h5>2. Jak vybrat správnou velikost?</h5><p><strong>Nejlépe podle obvodu boků. Pokud si nejsi jistá, využij našeho AI průvodce velikostí, který ti pomůže vybrat střih i velikost podle tvé postavy. Správná velikost je důležitá hlavně proto, aby kalhotky při pohybu seděly tak, jak mají.</strong></p><p><a href=\"#fitka-advisor\" title=\"Průvodce velikostí\"><strong>Spustit průvodce velikostí</strong></a></p><h5>3. Jsou FitKa vhodné i na intenzivní sport?</h5><p><strong>Ano. FitKa jsou ušité z funkčního materiálu, který je příjemný na těle, ale zvládne i pořádný trénink. Hodí se na běh, fitko, jógu, turistiku i další aktivity, při kterých chceš řešit pohyb — ne spodní prádlo.</strong></p><h5>4. Budou vidět pod legínami?</h5><p><strong>FitKa nejsou bezešvé kalhotky a jejich hlavním cílem není být „neviditelné“. Navrhly jsme je hlavně tak, aby dobře seděly, držely při pohybu a byly funkční. Díky střihu a plochým švům se ale pod většinou legín nerýsují. Záleží hlavně na materiálu legín, jejich barvě a správně zvolené velikosti.</strong></p>",
             "show_oeko": false
           }
         }
