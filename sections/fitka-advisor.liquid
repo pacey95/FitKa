@@ -67,7 +67,7 @@
       </ul>
       {% if section.settings.tanga_tagline != blank %}<p class="fca-tagline">{{ section.settings.tanga_tagline }}</p>{% endif %}
       {% if tp %}<div class="fca-price">{{ tp.price | money }}</div>{% endif %}
-      <a class="button button--primary" href="{{ tp.url | default: '/products/brazilky-fitka' }}">Zobrazit Tanga</a>
+      <a class="button button--primary" href="{{ tp.url | default: '/products/tanga-fitka' }}">Zobrazit Tanga</a>
       <button type="button" class="fca-next" data-size-for="tanga">Pokračovat na výběr velikosti →</button>
       <button type="button" class="fca-other" data-show="brief">Nebo mrkni na Brief</button>
       {% if section.settings.article_url != blank %}<a class="fca-more" href="{{ section.settings.article_url }}">Chci vědět víc o výběru</a>{% endif %}
@@ -215,7 +215,7 @@
   root.dataset.fcaInit = '1';
 
   var SIZES = JSON.parse(root.dataset.sizes);
-  var PRODUCT_URLS = { tanga: {{ tp.url | default: '/products/brazilky-fitka' | json }}, brief: {{ bp.url | default: '/products/brief-fitka' | json }} };
+  var PRODUCT_URLS = { tanga: {{ tp.url | default: '/products/tanga-fitka' | json }}, brief: {{ bp.url | default: '/products/brief-fitka' | json }} };
   var tiebreak = root.dataset.tiebreak || 'brief';
 
   var el = {
