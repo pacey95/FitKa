@@ -101,14 +101,45 @@
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
-                <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1>{{ product.title | escape }}</h1>
-                  <a href="{{ product.url }}" class="product__title">
-                    <h2 class="h1">
-                      {{ product.title | escape }}
-                    </h2>
-                  </a>
-                </div>
+              <div class="product__title" {{ block.shopify_attributes }}>
+                <h1>{{ product.title | escape }}</h1>
+                <a href="{{ product.url }}" class="product__title">
+                  <h2 class="h1">
+                    {{ product.title | escape }}
+                  </h2>
+                </a>
+              </div>
+
+              {% comment %} Limited edition badge — FitKa {% endcomment %}
+              <div id="variant-badge-wrapper">
+                {% for variant in product.variants %}
+                  {% if variant.metafields.custom.limited_edition.value %}
+                    <span
+                      class="fitka-limited-badge"
+                      data-variant-id="{{ variant.id }}"
+                      style="display: {% if variant == product.selected_or_first_available_variant %}inline-flex{% else %}none{% endif %};"
+                    >
+                      Limitovaná edice
+                    </span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <style>
+                .fitka-limited-badge{
+                  display:inline-flex;
+                  align-items:center;
+                  background:#a0304e;
+                  color:#fff;
+                  font-family:var(--font-body-family);
+                  font-size:.75rem;
+                  font-weight:600;
+                  letter-spacing:.02em;
+                  text-transform:uppercase;
+                  border-radius:999px;
+                  padding:5px 12px;
+                  margin-top:8px;
+                }
+              </style>
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
