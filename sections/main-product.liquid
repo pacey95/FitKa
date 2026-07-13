@@ -198,6 +198,20 @@
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                     {{ product.description }}
+                    {% comment %} Variant descriptions {% endcomment %}
+                    <div id="variant-description-wrapper">
+                      {% for variant in product.variants %}
+                        <div
+                          class="variant-description"
+                          data-variant-id="{{ variant.id }}"
+                          style="display: {% if variant == product.selected_or_first_available_variant %}block{% else %}none{% endif %};"
+                        >
+                          {{ variant.metafields.custom.variant_description.value }}
+                        </div>
+                      {% endfor %}
+                      
+                    </div>
+
                   </div>
                 {%- endif -%}
               {%- when 'sku' -%}
@@ -740,6 +754,16 @@
     </script>
   </div>
 </product-info>
+
+document.addEventListener('change', function(e) {
+  if (e.target.matches('[name="id"]') || e.target.closest('variant-selects, variant-radios')) {
+    const variantId = document.querySelector('[name="id"]')?.value;
+    document.querySelectorAll('.variant-description').forEach(el => {
+      el.style.display = el.dataset.variantId === variantId ? 'block' : 'none';
+    });
+  }
+});
+
 
 {% schema %}
 {
