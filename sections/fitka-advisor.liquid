@@ -218,6 +218,19 @@
   var PRODUCT_URLS = { tanga: {{ tp.url | default: '/products/tanga-fitka' | json }}, brief: {{ bp.url | default: '/products/brief-fitka' | json }} };
   var tiebreak = root.dataset.tiebreak || 'brief';
 
+function trackFitkaQuiz(eventName, eventData){
+  window.dataLayer = window.dataLayer || [];
+  var entry = 'other';
+  var path = window.location.pathname;
+  if(path === '/') entry = 'homepage';
+  else if(path.indexOf('/products/') === 0) entry = 'product_page';
+  window.dataLayer.push(Object.assign({
+    event: eventName,
+    quiz_name: 'size_and_fit_advisor',
+    quiz_version: 'v1',
+    entry_point: entry
+  }, eventData));
+}
   var el = {
     entry: root.querySelector('.fca-entry'),
     stepsWrap: root.querySelector('.fca-steps'),
@@ -265,13 +278,14 @@
     dots.forEach(function(d,i){ d.classList.toggle('is-on', i<=n); });
   }
   function showCutResult(){
-    var t=answers.filter(function(a){return a==='tanga';}).length;
-    var b=answers.filter(function(a){return a==='brief';}).length;
-    var win = t>b ? 'tanga' : (b>t ? 'brief' : tiebreak);
-    hideAll(); el.results[win].hidden = false;
-    var rc = el.results[win].querySelector('.fca-recap');
-    if(rc) rc.textContent = answerLabels.length ? 'Tvoje odpovědi: ' + answerLabels.join(' · ') : '';
-  }
+  var t=answers.filter(function(a){return a==='tanga';}).length;
+  var b=answers.filter(function(a){return a==='brief';}).length;
+  var win = t>b ? 'tanga' : (b>t ? 'brief' : tiebreak);
+  hideAll(); el.results[win].hidden = false;
+  var rc = el.results[win].querySelector('.fca-recap');
+  if(rc) rc.textContent = answerLabels.length ? 'Tvoje odpovědi: ' + answerLabels.join(' · ') : '';
+  trackFitkaQuiz('complete_quiz', { quiz_type: 'cut', recommended_cut: win });
+}
   function showSizeCut(){ hideAll(); el.sizecut.hidden=false; }
   function showMeasure(){ hideAll(); el.measure.hidden=false; el.input.focus(); }
   function showFeel(){ hideAll(); el.feel.hidden=false; }
@@ -340,11 +354,16 @@
 
   // vstupní volba
   [].forEach.call(el.entry.querySelectorAll('[data-mode]'), function(b){
-    b.addEventListener('click', function(){
-      if(b.dataset.mode==='cut'){ answers=[]; answerLabels=[]; current=0; showStep(0); }
-      else { showSizeCut(); }
-    });
+  b.addEventListener('click', function(){
+    if(b.dataset.mode==='cut'){
+      answers=[]; answerLabels=[]; current=0; showStep(0);
+      trackFitkaQuiz('start_quiz', { quiz_type: 'cut' });
+    } else {
+      showSizeCut();
+      trackFitkaQuiz('start_quiz', { quiz_type: 'size' });
+    }
   });
+});
 
   // kvíz střihu
   el.steps.forEach(function(step){
@@ -364,8 +383,12 @@
 
   // z výsledku střihu → velikost (přenese střih)
   [].forEach.call(root.querySelectorAll('[data-size-for]'), function(b){
-    b.addEventListener('click', function(){ sizeCut=b.dataset.sizeFor; showMeasure(); });
+  b.addEventListener('click', function(){
+    sizeCut=b.dataset.sizeFor;
+    showMeasure();
+    trackFitkaQuiz('start_quiz', { quiz_type: 'size', entry_point: 'cut_result' });
   });
+});
 
   // velikost: volba střihu
   [].forEach.call(el.sizecut.querySelectorAll('[data-sizecut]'), function(b){
@@ -399,6 +422,30 @@
 
   [].forEach.call(root.querySelectorAll('[data-fca-restart]'), function(b){ b.addEventListener('click', showEntry); });
 
+  // select_quiz_product — CTA ve výsledku střihu
+[].forEach.call(root.querySelectorAll('.fca-result .button--primary'), function(a){
+  a.addEventListener('click', function(){
+    var block = a.closest('.fca-result');
+    var cut = block ? block.dataset.result : null;
+    trackFitkaQuiz('select_quiz_product', {
+      quiz_type: 'cut',
+      recommended_cut: cut,
+      item_id: cut === 'tanga' ? 'tanga-fitka' : 'brief-fitka',
+      link_url: a.getAttribute('href')
+    });
+  });
+});
+
+// select_quiz_product — CTA ve výsledku velikosti
+el.scta.addEventListener('click', function(){
+  trackFitkaQuiz('select_quiz_product', {
+    quiz_type: 'size',
+    recommended_cut: sizeCut,
+    recommended_size: el.sletter.textContent,
+    item_id: sizeCut === 'tanga' ? 'tanga-fitka' : 'brief-fitka',
+    link_url: el.scta.getAttribute('href')
+  });
+});
   function open(){ showEntry(); root.classList.add('is-open'); root.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
   function close(){ root.classList.remove('is-open'); root.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
   window.fitkaOpenAdvisor = open;
