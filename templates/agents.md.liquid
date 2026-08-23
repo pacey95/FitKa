@@ -1,0 +1,85 @@
+# Agent Instructions — {{ agents.store_name }}
+
+This document is the canonical agent-facing description of the FitKa online store at {{ agents.store_url }}.
+Use live commerce data from UCP, MCP, product JSON, and the sitemap as the source of truth for current prices, variants, availability, and checkout state. The descriptive store content below is intended to help with discovery, product understanding, and recommendation context.
+
+## Commerce Protocol (UCP)
+
+This store implements Shopify's Universal Commerce Protocol for agent-driven commerce:
+
+- Discovery: `GET {{ agents.ucp_discovery_url }}`
+- MCP endpoint: `POST {{ agents.mcp_endpoint_url }}`
+
+### Supported UCP versions
+
+{% for version in agents.ucp_versions %}
+- {{ version }}{% if forloop.first %} (latest stable){% endif %}
+{% endfor %}
+
+## Read-only browsing
+
+- All products: `GET /collections/all`
+- Product JSON: `GET /products/{handle}.json`
+- Sitemap: {{ agents.sitemap_url }}
+
+Pricing and availability are returned in {{ agents.currency }}.
+
+## Shopping-agent guidance
+
+- Prefer live UCP/MCP or product JSON data over static descriptions when checking current price, variant availability, inventory, or checkout details.
+- Use the store's product and collection pages to understand fit, use cases, materials, and product differences.
+- When recommending a product, explain the recommendation from the shopper's stated activity, desired coverage, comfort preference, and visibility-under-clothing needs.
+- Do not invent sizes, colors, stock status, discounts, guarantees, delivery terms, or product claims that are not present in live store data or published store content.
+- Do not finalize an order or payment without explicit user authorization.
+- Do not expose private merchant or customer data.
+
+---
+
+## Store content and discovery context
+
+# Fitka Underwear
+
+> Česká značka FitKa nabízí prémiové funkční sportovní spodní prádlo navržené a ušité v tuzemsku pro maximální pohodlí a svobodu pohybu při jakémkoli tréninku. V e-shopu najdete promyšlené střihy kalhotek z prodyšných materiálů i interaktivního online průvodce, který vám pomůže vybrat ideální velikost a střih na míru vašim aktivitám.
+
+## Stránky
+
+
+- [FitKa | Česká značka sportovních kalhotek](https://fitka-underwear.com/): Česká značka FitKa nabízí funkční sportovní spodní prádlo navržené a ušité lokálně v České republice. V jejich nabídce najdete sportovní tanga a klasické kalhotky z prodyšných materiálů s plochými švy, které skvěle drží na těle a nerýsují se pod oblečením. Díky propracovaným střihům a funkčnímu materiálu poskytují maximální pohodlí a svobodu pohybu při jakémkoliv tréninku.
+- [Brief FitKa](https://fitka-underwear.com/products/brief-fitka): Dámské sportovní kalhotky FitKa Brief nabízejí dokonalé pohodlí, spolehlivou podporu a větší krytí při jakékoliv fyzické aktivitě. Jsou ušité v České republice z prémiového funkčního materiálu a vybavené antibakteriální bambusovou vložkou pro celodenní svěžest. Díky promyšlenému střihu skvěle sedí, nezařezávají se a udrží s vámi krok při sportu i běžném nošení.
+- [Tanga FitKa](https://fitka-underwear.com/products/tanga-fitka): Limitovaná edice sportovních tang FitKa nabízí minimalistický střih a funkční materiál pro maximální volnost pohybu při jakémkoliv tréninku. Díky antibakteriální bambusové vložce a plochým švům zajišťují celodenní komfort bez nepříjemného zařezávání pod legínami. Tyto kvalitní sportovní kalhotky jsou s pečlivostí ušity přímo v České republice.
+- [FitKa Dárková karta](https://fitka-underwear.com/products/fitka-darkova-karta): Dárkový poukaz na funkční sportovní spodní prádlo FitKa představuje ideální dárek pro aktivní ženy, u kterého odpadá risk s výběrem špatné velikosti či střihu. Tyto prémiové rychleschnoucí kalhotky se šijí v České republice z certifikovaných materiálů a díky promyšlenému střihu s antibakteriálním bambusovým klínem perfektně sedí i při nejnáročnějším tréninku. Obdarovaná si tak může sama vybrat ideální kousek přesně podle svých představ.
+- [Kontakty
+ – FitKa](https://fitka-underwear.com/pages/contact): Kontaktní stránka značky FitKa slouží nejen pro rychlé odeslání zpětné vazby, ale nabízí také praktického interaktivního průvodce. Pomocí krátkého kvízu si zákaznice snadno zvolí ideální střih sportovního prádla a určí správnou velikost podle svých tělesných mír. Web tak maximálně usnadňuje nákupní rozhodování a pomáhá najít perfektně padnoucí funkční prádlo.
+- [O nás
+ – FitKa](https://fitka-underwear.com/pages/o-nas): Za českou značkou FitKa stojí dvě aktivní ženy, které spojila touha vytvořit dokonale pohodlné a skvěle padnoucí sportovní spodní prádlo. Jejich funkční kalhotky vznikly na základě vlastních zkušeností z běhu i jógy a navrhly je tak, aby netlačily a spolehlivě držely na svém místě při jakémkoliv tréninku. Na webu najdete také praktického průvodce, který vám na základě preferované aktivity pomůže vybrat ideální střih a velikost.
+- [FAQ: Často kladené dotazy
+ – FitKa](https://fitka-underwear.com/pages/faq): Přehledná stránka s často kladenými dotazy značky FitKa představuje české funkční spodní prádlo šité ručně ve Vsetíně. Zákaznicím pomáhá s výběrem správné velikosti, péčí o prémiové materiály i s procesem dopravy a případného vrácení zboží. Nechybí ani praktický interaktivní průvodce, který na základě oblíbených aktivit a tělesných mír doporučí ideální střih kalhotek.
+- [Naše kalhotky
+ – FitKa](https://fitka-underwear.com/collections/nase-kalhotky): Webová stránka představuje české sportovní spodní prádlo značky FitKa, které je navrženo pro maximální pohodlí a funkčnost při sportu i běžném nošení. Zákaznice si mohou vybrat z propracovaných střihů Brief a Tanga, jež skvěle drží na těle a díky antibakteriální bambusové vložce zajišťují celodenní svěžest. Výběr ideálního střihu a správné velikosti usnadňuje rychlý interaktivní kvíz sestavený podle konkrétních sportovních aktivit.
+- [Dárkové karty
+ – FitKa](https://fitka-underwear.com/collections/darkove-karty): Česká značka FitKa nabízí funkční sportovní kalhotky, které spolehlivě drží na svém místě a zajišťují maximální pohodlí při jakémkoli tréninku. V nabídce najdete střihy Brief a Tanga s antibakteriální bambusovou vložkou, s jejichž výběrem zákaznicím pomůže interaktivní online kvíz. Veškeré produkty se navíc šijí s maximální pečlivostí přímo v České republice.
+- [Blog
+ – FitKa](https://fitka-underwear.com/blogs/news): Blog značky FitKa přináší inspiraci a praktické rady pro aktivní životní styl, od budování dlouhodobé motivace ke cvičení až po správný přístup k odpočinku. Velká část článků se věnuje významu funkčního spodního prádla při sportu, jeho správnému výběru a péči, která prodlouží jeho životnost. Stránka navíc obsahuje interaktivního průvodce, který pomůže s výběrem ideálního střihu a velikosti kalhotek na míru vašim aktivitám.
+- [Každý pohyb začíná odspoda | FitKa – české sportovní kalhotky pro ženy](https://fitka-underwear.com/blogs/news/pribeh-ceske-znacky-fitka): Česká značka FitKa přichází s funkčním sportovním prádlem, které propojuje maximální pohodlí, skvěle padnoucí střihy a ženskou estetiku. Tyto prémiové kalhotky se šijí v lokální dílně ve Vsetíně z evropských materiálů, takže se při pohybu nezařezávají a spolehlivě drží na svém místě. Jejich cílem je dodat ženám potřebné sebevědomí a zajistit stoprocentní komfort od první vrstvy oblečení.
+- [Proč je důležité mít sportovní spodní prádlo | FitKa – pohodlí, které s tebou drží krok](https://fitka-underwear.com/blogs/news/proc-je-dulezite-mit-sportovni-spodni-pradlo): Správný výběr sportovního spodního prádla je klíčový pro maximální pohodlí, zdraví pokožky i celkový fyzický výkon. Na rozdíl od běžné bavlny dokážou funkční materiály efektivně odvádět pot, čímž předcházejí nepříjemnému tření, odřeninám a množení bakterií. Kvalitní základní vrstva oblečení vám umožní soustředit se výhradně na pohyb bez jakéhokoli diskomfortu.
+- [Sportovní kalhotky dámské: Jak vybrat ty pravé?
+ – FitKa](https://fitka-underwear.com/blogs/news/jak-vybrat-idealni-sportovni-kalhotky-kompletni-pruvodce-pro-aktivni-zeny): Článek přináší praktického průvodce výběrem ideálního sportovního spodního prádla, které na rozdíl od běžných kalhotek účinně odvádí vlhkost a spolehlivě drží na svém místě. Dozvíte se, jaké funkční materiály a střihy zvolit pro různé druhy tréninku a proč hraje konstrukce střihu důležitější roli než pouhá absence švů. Správná první vrstva vám zajistí maximální pohodlí, hygienu a sebevědomí při jakékoliv sportovní aktivitě.
+- [Jak vybíráme látky a nitě pro FitKa: Co znamená kvalita v první vrstvě](https://fitka-underwear.com/blogs/news/jak-vybirame-latky-a-nite-pro-fitka-co-znamena-kvalita-v-prvni-vrstve): Článek podrobně představuje materiály a technologické postupy, které stojí za vznikem funkčního sportovního prádla značky FitKa. Dozvíte se, proč dostala přednost kombinace pružného mikro polyesteru s českou bambusovou viskózou a elastickými nitěmi Sabaflex před klasickými zařezávajícími se gumami. Výsledkem je promyšlený střih, který skvěle odvádí vlhkost, perfektně sedí při každém pohybu a zaručuje maximální pohodlí během celého tréninku.
+- [Antibakteriální kalhotky při sportu: dávají smysl?
+ – FitKa](https://fitka-underwear.com/blogs/news/antibakterialni-kalhotky-pri-sportu-jsou-opravdu-potreba): Článek se zabývá významem správného výběru spodního prádla při sportu a vysvětluje, proč běžná bavlna pro intenzivní trénink nestačí. Představuje výhody funkčních materiálů, zejména bambusové viskózy, která efektivně odvádí vlhkost a předchází podráždění citlivé pokožky. Klíčem k maximálnímu pohodlí během pohybu je pak dostatečně prodloužená hygienická vložka kryjící celou intimní oblast.
+- [Jak pečovat o sportovní kalhotky, aby vydržely déle
+ – FitKa](https://fitka-underwear.com/blogs/news/jak-pecovat-o-fitka-kalhotky-aby-vydrzely-co-nejdele): Zjistěte, jak správně pečovat o funkční sportovní prádlo, aby si dlouhodobě udrželo svou pružnost, tvar a skvělé vlastnosti. Článek přináší praktické tipy na šetrné praní, sušení bez sušičky a vysvětluje, proč se při péči o funkční materiály zcela vyhnout aviváži. Díky těmto jednoduchým návykům prodloužíte životnost svých oblíbených kousků a zajistíte si maximální pohodlí při sportu.
+- [Proč běžné kalhotky nestačí na sport?
+ – FitKa](https://fitka-underwear.com/blogs/news/proc-bezne-kalhotky-nestaci-na-sport): Článek vysvětluje, proč běžné spodní prádlo při sportu selhává a jak nevhodné materiály či střihy vedou k nepohodlí, zapaření a zařezávání. Ukazuje, že klíčem k nerušenému tréninku je funkční prádlo, které spolehlivě odvádí pot, skvěle sedí a přizpůsobí se každému pohybu. Právě na tyto detaily a maximální komfort se zaměřují sportovní kalhotky FitKa, díky kterým se můžete plně soustředit na svůj výkon.
+- [Kalhotky pod legíny: musí být opravdu bezešvé?
+ – FitKa](https://fitka-underwear.com/blogs/news/sportovni-kalhotky-pod-leginy-mytus-bezesveho-pradla): Článek vyvrací zažitý mýtus, že pod sportovní legíny patří výhradně bezešvé spodní prádlo. Ukazuje, že pro celkový komfort i vzhled při cvičení hraje mnohem větší roli správný střih, gramáž materiálu a stabilita prádla na těle. Značka FitKa představuje své funkční kalhotky, které kladou důraz na pohodlí bez nutnosti neustálého upravování během tréninku.
+- [Jak si udržet pohyb dlouhodobě, i když motivace kolísá
+ – FitKa](https://fitka-underwear.com/blogs/news/jak-si-udrzet-pohyb-dlouhodobe-i-kdyz-motivace-kolisa): Článek vyvrací mýtus, že pravidelný pohyb vyžaduje neustálou motivaci a pevnou vůli. Klíčem k dlouhodobé aktivitě je nesnažit se o dokonalost, ale raději si pohyb usnadnit a nevyčítat si slabší dny. I krátká procházka nebo lehké cvičení v náročném období pomáhají udržet zdravý návyk bez zbytečného tlaku.
+- [Co si vzít na běhání v létě? Začni první vrstvou
+ – FitKa](https://fitka-underwear.com/blogs/news/co-si-vzit-na-behani-v-lete): Článek vysvětluje, proč je pro pohodlný letní běh klíčová správná volba první vrstvy oblečení, zejména funkčního spodního prádla. Kvalitní sportovní prádlo by mělo spolehlivě odvádět pot a nikde netlačit, abyste se mohli plně soustředit na samotný pohyb. Text zároveň nabízí užitečné tipy na další letní výbavu a představuje prodyšné kalhotky značky FitKa s bambusovou vložkou.
+- [Když se ti nechce cvičit: je pauza selhání?
+ – FitKa](https://fitka-underwear.com/blogs/news/kdyz-se-ti-nechce-cvicit-je-pauza-selhani-nebo-soucast-pohybu): Článek se zabývá otázkou, zda je vynechání tréninku selháním, nebo přirozenou součástí zdravého životního stylu. Ukazuje, že občasná pauza neničí dosavadní pokroky a není potřeba ji následně kompenzovat přehnanou aktivitou. Klíčem k dlouhodobé radosti ze sportu je naslouchat vlastnímu tělu a umět se k pohybu vracet bez pocitu viny.
+
+## Témata
+
+AI nákupní asistenti, Universal Commerce Protocol, E-commerce integrace, Automatizace online prodeje, Shopify API, Produktová data v JSON, Sportovní spodní prádlo, Funkční materiály, Lokální výroba, Dámské fitness oblečení, Pohodlí při sportu, Lokální produkce, Dámská fitness móda, Aktivní životní styl, Česká výroba, Komfort při cvičení, Dárkové poukazy, Funkční spodní prádlo, Sportovní oblečení pro ženy, Lokální značky, Zákaznická podpora, Interaktivní průvodce, Výběr velikosti, Zpětná vazba, Příběh značky, Dámské funkční prádlo, Výběr správné velikosti, Lokální česká výroba, Výběr velikosti a střihu, Péče o sportovní oblečení, Zákaznický servis, Funkční oblečení, Zákaznický zážitek, E-commerce, Interaktivní kvíz, Dámské fitness, Motivace ke cvičení, Péče o funkční prádlo, Výběr sportovního oblečení, Dámská móda, sportovní spodní prádlo, funkční materiály, odvod vlhkosti, komfort při cvičení, zdraví pokožky, Komfort při tréninku, Výběr oblečení na sport, Funkční sportovní prádlo, Materiály pro sportovní oblečení, Bambusové textilie, Kvalita šití a švů, funkční prádlo, bambusová viskóza, sportovní oblečení, intimní hygiena, Sportovní oblečení, Šetrné praní, Údržba textilu, Životnost materiálů, odvod potu, aktivní životní styl, oblečení na sport, bezešvé prádlo, pravidelný pohyb, budování zdravých návyků, motivace ke cvičení, psychologie fitness, Běhání v létě, Běžecká výbava, regenerace a odpočinek, zdravý životní styl, vztah k pohybu, naslouchání vlastnímu tělu
