@@ -17,7 +17,7 @@
         "announcement_kXkg7A": {
           "type": "announcement",
           "settings": {
-            "text": "Doskladnění vyprodaných velikostí a nových barev už příští týden!",
+            "text": "☀️ Dáváme si pár dní pauzu od balení a vyrážíme načerpat síly. Objednávky vytvořené od 5. 9. odešleme v pondělí 14. 9. 🤍",
             "link": ""
           }
         }
@@ -25,7 +25,6 @@
       "block_order": [
         "announcement_kXkg7A"
       ],
-      "disabled": true,
       "name": "t:sections.announcement-bar.presets.name",
       "settings": {
         "auto_rotate": false,
