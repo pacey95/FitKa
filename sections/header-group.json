@@ -13,18 +13,6 @@
   "sections": {
     "announcement_bar_mHCKNV": {
       "type": "announcement-bar",
-      "blocks": {
-        "announcement_kXkg7A": {
-          "type": "announcement",
-          "settings": {
-            "text": "☀️ Dáváme si pár dní pauzu od balení a vyrážíme načerpat síly. Objednávky vytvořené od 5. 9. odešleme v pondělí 14. 9. 🤍",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement_kXkg7A"
-      ],
       "name": "t:sections.announcement-bar.presets.name",
       "settings": {
         "auto_rotate": false,
