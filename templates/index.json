@@ -233,6 +233,9 @@
               "2-pack-kalhotky-tanga",
               "tanga-fitka"
             ],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
             "star_rating": "4_to_5_star",
             "show_review_media": false,
             "display_order": "media_first",
@@ -328,7 +331,7 @@
         "text_3EKham": {
           "type": "text",
           "settings": {
-            "text": "<p>Jsme Bára a Sabi – dvě ženy, které spojila láska k pohybu a <strong>touha zlepšit komfort žen při sportu.</strong><br/><br/>Na vlastní kůži jsme zažily, jak těžké je najít kalhotky, které se při sportu přizpůsobí tělu, podrží nás v pohybu a přitom nám dodají sebevědomí.</p><p>Proto vznikly <strong>FitKa</strong> – sportovní kalhotky, které jsme testovaly při běhu, chůzi po horách, józe i ve fitku.<br/><br/><strong>Kalhotky, co s tebou drží krok!</strong></p>",
+            "text": "<p><strong>FitKa vznikly z jednoduché zkušenosti: při sportu nechci přemýšlet nad tím, co mám na sobě.</strong></p><p>Sama jsem dlouho hledala kalhotky, které budou při pohybu opravdu pohodlné, budou dobře sedět a zároveň se v nich budu cítit dobře. A protože jsem nenašla takové, se kterými bych byla spokojená, <strong>rozhodla jsem se vytvořit vlastní.</strong></p><p>Od prvních prototypů FitKa testuji při běhu, na horách, při józe i ve fitku. Střihy a materiály postupně ladím podle reálného pohybu i zpětné vazby žen, které je nosí.</p><p>Protože věřím, že <strong>když tě při pohybu nic neruší, je mnohem snazší se k němu znovu vracet. 🤍</strong></p>",
             "text_style": "body"
           }
         },
@@ -349,7 +352,7 @@
       "custom_css": [],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/IMGL5419.jpg",
+        "image": "shopify://shop_images/IMGL5473_2.jpg",
         "height": "small",
         "desktop_image_width": "small",
         "layout": "image_first",
