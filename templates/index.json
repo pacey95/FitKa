@@ -585,6 +585,21 @@
         "perk_1": "Přednostní přístup k limitkám",
         "perk_2": "Žádný spam, jen FitKa things :)"
       }
+    },
+    "1789573141d90eddf3": {
+      "type": "apps",
+      "blocks": {
+        "socialwidget_instafeed_base_widget_XzqHXR": {
+          "type": "shopify://apps/socialwidget-instafeed/blocks/base-widget/508b8d5b-b176-4dc6-a0ba-2b222db6eb79",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "socialwidget_instafeed_base_widget_XzqHXR"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -602,6 +617,7 @@
     "blocks_LPprdM",
     "17824203517a0ce090",
     "1777406714e8820c21",
-    "fitka_newsletter_HjWnK7"
+    "fitka_newsletter_HjWnK7",
+    "1789573141d90eddf3"
   ]
 }
