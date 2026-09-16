@@ -17,29 +17,6 @@
         "padding_bottom": 36
       }
     },
-    "rich_text_xpRdne": {
-      "type": "rich-text",
-      "blocks": {
-        "text_EtaKXi": {
-          "type": "text",
-          "settings": {
-            "text": "<p><strong><br/>Jen připomínáme: objednávky vytvořené od 5. 9. odesíláme v pondělí 14. 9. 🤍<br/><br/></strong></p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_EtaKXi"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
     "cart-footer": {
       "type": "main-cart-footer",
       "blocks": {
@@ -71,7 +48,6 @@
   },
   "order": [
     "cart-items",
-    "rich_text_xpRdne",
     "cart-footer",
     "17597740078c061d80"
   ]
