@@ -421,6 +421,7 @@
         "post_fdiW3n",
         "post_fh4jz6"
       ],
+      "disabled": true,
       "name": "FitKa – Instagram",
       "settings": {
         "heading": "",
@@ -489,6 +490,21 @@
         "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "1789573141d90eddf3": {
+      "type": "apps",
+      "blocks": {
+        "socialwidget_instafeed_base_widget_XzqHXR": {
+          "type": "shopify://apps/socialwidget-instafeed/blocks/base-widget/508b8d5b-b176-4dc6-a0ba-2b222db6eb79",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "socialwidget_instafeed_base_widget_XzqHXR"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "rich_text_Yfa8Nw": {
@@ -585,21 +601,6 @@
         "perk_1": "Přednostní přístup k limitkám",
         "perk_2": "Žádný spam, jen FitKa things :)"
       }
-    },
-    "1789573141d90eddf3": {
-      "type": "apps",
-      "blocks": {
-        "socialwidget_instafeed_base_widget_XzqHXR": {
-          "type": "shopify://apps/socialwidget-instafeed/blocks/base-widget/508b8d5b-b176-4dc6-a0ba-2b222db6eb79",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "socialwidget_instafeed_base_widget_XzqHXR"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
@@ -613,11 +614,11 @@
     "image_with_text_xyBakx",
     "fitka_instagram_39xVm6",
     "multicolumn_8ChCan",
+    "1789573141d90eddf3",
     "rich_text_Yfa8Nw",
     "blocks_LPprdM",
     "17824203517a0ce090",
     "1777406714e8820c21",
-    "fitka_newsletter_HjWnK7",
-    "1789573141d90eddf3"
+    "fitka_newsletter_HjWnK7"
   ]
 }
