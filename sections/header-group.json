@@ -13,6 +13,18 @@
   "sections": {
     "announcement_bar_mHCKNV": {
       "type": "announcement-bar",
+      "blocks": {
+        "announcement_JdhR9W": {
+          "type": "announcement",
+          "settings": {
+            "text": "DOŠÍVÁME!  🤍 Vyprodané varianty a podzimní limitované barvy naskladníme postupně v průběhu října 🍂",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_JdhR9W"
+      ],
       "name": "t:sections.announcement-bar.presets.name",
       "settings": {
         "auto_rotate": false,
